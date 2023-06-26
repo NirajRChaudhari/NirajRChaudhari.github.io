@@ -61,7 +61,7 @@ const AboutSection = (props) => {
       <motion.button
         onClick={() => setSection(3)}
         className={`bg-purple-500 text-white px-3 md:px-8 py-2 md:py-4
-      rounded-lg font-bold text-lg mt-4 md:mt-16`}
+      rounded-lg font-bold text-lg mt-16`}
         initial={{
           opacity: 0,
           y: 25,
