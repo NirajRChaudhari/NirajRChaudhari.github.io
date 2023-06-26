@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
 import "./AboutPage.css";
+import { ProfileKeywords } from "./ProfileKeywords";
 
 const Section = (props) => {
   const { children, mobileTop } = props;
@@ -49,31 +50,14 @@ const AboutSection = (props) => {
   const { setSection } = props;
   return (
     <Section mobileTop>
-      <h1 className="text-4xl md:text-6xl font-extrabold leading-snug mt-8 md:mt-0 text-white">
+      <h1 className="text-4xl md:text-6xl font-bold leading-snug mt-8 mb-3 md:mt-0 text-white">
         Hi, I'm
         <br />
-        <span className="bg-purple-500 px-1 italic">Niraj</span>
+        Niraj
       </h1>
-      <motion.p
-        className="text-lg mt-4 text-slate-200 w-full md:w-1/3"
-        initial={{
-          opacity: 0,
-          y: 25,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 1,
-          delay: 1.5,
-        }}
-      >
-        Tech Enthusiast Team Player: <br />
-        I'm a tech developer with a passion for building great products. I have
-        experience in a variety of tech stacks and I'm always looking for new
-        ways to learn and grow.
-      </motion.p>
+
+      <ProfileKeywords />
+
       <motion.button
         onClick={() => setSection(3)}
         className={`bg-purple-500 text-white px-3 md:px-8 py-2 md:py-4

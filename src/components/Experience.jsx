@@ -98,17 +98,16 @@ export const Experience = (props) => {
             y: -1,
             z: 0,
             scale: 1.3 * officeScaleRatio,
-
             rotateX: 0,
             rotateY: Math.PI / 2 + 0.45,
             rotateZ: 0,
           },
           1: {
-            y: -viewport.height + 0.5,
+            y: isMobile ? -viewport.height + 0.4 : -viewport.height + 0.75,
             x: isMobile ? 0.3 : 0,
             z: 7,
             rotateX: 0,
-            rotateY: isMobile ? -Math.PI / 2 : 0,
+            rotateY: isMobile ? -Math.PI / 4 : 0,
             rotateZ: 0,
             scale: isMobile ? 1.5 : 1,
           },
@@ -124,7 +123,7 @@ export const Experience = (props) => {
               : Math.min(1.5, 4 * officeScaleRatio),
           },
           3: {
-            y: -viewport.height * 2.85,
+            y: isMobile ? -viewport.height * 2.75 : -viewport.height * 2.85,
             x: 0.24,
             z: 8.5,
             rotateX: 0,
@@ -187,7 +186,7 @@ export const Experience = (props) => {
           isMobile={isMobile}
         />
         {section == 2 && (
-          <directionalLight position={[-2, -3, 15]} intensity={1} />
+          <directionalLight position={[-2, 0, 10]} intensity={1} />
         )}
       </group>
     </>
