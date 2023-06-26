@@ -95,13 +95,12 @@ export const Experience = (props) => {
         variants={{
           0: {
             x: 0,
-            y: 0,
+            y: -1,
             z: 0,
-            scaleX: 1.224 * officeScaleRatio,
-            scaleY: 1.35 * officeScaleRatio,
-            scaleZ: 1.224 * officeScaleRatio,
+            scale: 1.3 * officeScaleRatio,
+
             rotateX: 0,
-            rotateY: Math.PI / 2 + 0.33,
+            rotateY: Math.PI / 2 + 0.45,
             rotateZ: 0,
           },
           1: {
@@ -111,9 +110,7 @@ export const Experience = (props) => {
             rotateX: 0,
             rotateY: isMobile ? -Math.PI / 2 : 0,
             rotateZ: 0,
-            scaleX: isMobile ? 1.5 : 1,
-            scaleY: isMobile ? 1.5 : 1,
-            scaleZ: isMobile ? 1.5 : 1,
+            scale: isMobile ? 1.5 : 1,
           },
           2: {
             x: isMobile ? -1.6 : -5.5 * officeScaleRatio,
@@ -127,15 +124,13 @@ export const Experience = (props) => {
               : Math.min(1.5, 4 * officeScaleRatio),
           },
           3: {
-            y: -viewport.height * 3 + 1,
+            y: -viewport.height * 2.85,
             x: 0.24,
             z: 8.5,
             rotateX: 0,
             rotateY: -Math.PI / 4,
             rotateZ: 0,
-            scaleX: 1,
-            scaleY: 1,
-            scaleZ: 1,
+            scale: 1 * officeScaleRatio,
           },
         }}
       >
@@ -183,42 +178,6 @@ export const Experience = (props) => {
         }}
       >
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
-        <Float>
-          <mesh position={[1, -3, -15]} scale={[2, 2, 2]}>
-            <sphereGeometry />
-            <MeshDistortMaterial
-              opacity={0.8}
-              transparent
-              distort={0.4}
-              speed={4}
-              color={"red"}
-            />
-          </mesh>
-        </Float>
-        <Float>
-          <mesh scale={[3, 3, 3]} position={[3, 1, -18]}>
-            <sphereGeometry />
-            <MeshDistortMaterial
-              opacity={0.8}
-              transparent
-              distort={1}
-              speed={5}
-              color="yellow"
-            />
-          </mesh>
-        </Float>
-        <Float>
-          <mesh scale={[1.4, 1.4, 1.4]} position={[-3, -1, -11]}>
-            <boxGeometry />
-            <MeshWobbleMaterial
-              opacity={0.8}
-              transparent
-              factor={1}
-              speed={5}
-              color={"blue"}
-            />
-          </mesh>
-        </Float>
       </motion.group>
 
       <group>

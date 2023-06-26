@@ -46,20 +46,20 @@ const Laptop = (props) => {
     const t = state.clock.getElapsedTime();
     laptopRef.current.rotation.x = THREE.MathUtils.lerp(
       laptopRef.current.rotation.x,
-      Math.cos(t / 8) / 20 + 0.3,
-      0.1
+      Math.cos(t / 8) / 10 + 0.3,
+      0.2
     );
     laptopRef.current.rotation.y = THREE.MathUtils.lerp(
       laptopRef.current.rotation.y,
-      Math.sin(t / 4) / 20,
-      0.1
+      Math.sin(t / 4) / 10,
+      0.2
     );
     laptopRef.current.rotation.z = THREE.MathUtils.lerp(
       laptopRef.current.rotation.z,
-      Math.sin(t / 4) / 20,
-      0.1
+      Math.sin(t / 4) / 10,
+      0.2
     );
-    laptopRef.current.position.y = -0.9;
+    laptopRef.current.position.y = -0.55;
     // laptopRef.current.position.y = THREE.MathUtils.lerp(
     //   laptopRef.current.position.y,
     //   (-2 + Math.sin(t / 2)) / 3,
