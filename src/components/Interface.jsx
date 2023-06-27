@@ -11,7 +11,7 @@ export const Interface = (props) => {
     <div className="flex flex-col items-center w-screen">
       <AboutSection setSection={setSection} />
       <SkillsSection />
-      <Experience_EducationSection sectionHeight={3} />
+      <Experience_EducationSection />
       <ProjectsSection />
       <ContactSection />
     </div>
