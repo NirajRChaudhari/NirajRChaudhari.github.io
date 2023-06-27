@@ -15,13 +15,12 @@ export const ScrollManager = (props) => {
   data.fill.classList.add("absolute");
 
   useEffect(() => {
+    // Important below code to avoid auto jumps among section
     //Does not apply to interaction between section 2 and 3
     if (
       !(
         (prevSection.current === 2 && section === 3) ||
-        (prevSection.current === 3 && section === 2) ||
-        (prevSection.current === 3 && section === 4) ||
-        (prevSection.current === 4 && section === 3)
+        (prevSection.current === 3 && section === 2)
       )
     ) {
       gsap.to(data.el, {
@@ -46,7 +45,7 @@ export const ScrollManager = (props) => {
 
     const curSection = Math.floor(data.scroll.current * data.pages);
 
-    //Adjust below 0.015 to adjust scroll sensitivity
+    // Adjust below 0.015 to adjust scroll sensitivity
     if (data.scroll.current > lastScroll.current) {
       if (
         curSection < 6 &&
