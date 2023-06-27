@@ -16,7 +16,7 @@ export const ProfileKeywords = ({ scrollIndicatorHidden, ...rest }) => {
       setDisciplineIndex(
         (prevIndex) => (prevIndex + 1) % profileKeywords.length
       );
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -35,7 +35,7 @@ export const ProfileKeywords = ({ scrollIndicatorHidden, ...rest }) => {
           }}
           className="text-3xl md:text-5xl font-bold text-white"
         >
-          <span className="bg-purple-500 px-1 py-0 italic">
+          <span className="bg-purple-500 px-2 py-1 italic rounded">
             {profileKeywords[disciplineIndex]}
           </span>
         </motion.h2>

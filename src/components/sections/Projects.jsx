@@ -19,18 +19,19 @@ export const projects = [
     description: "Recreating the Atmos Awwwards website with React Three Fiber",
   },
   {
-    title: "Portfolio Baking",
-    model: "mobile",
-    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
-    videoUrl: "textures/running_girl.mp4",
-    description: "Learn how to bake a 3D model with Blender and use it in r3f",
-  },
-  {
     title: "3D Avatar",
     model: "laptop",
     url: "https://www.youtube.com/watch?v=pGMKIyALcK0",
     videoUrl: "textures/vscode_flip.mp4",
     description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
+  },
+
+  {
+    title: "Portfolio Baking",
+    model: "mobile",
+    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
+    videoUrl: "textures/running_girl.mp4",
+    description: "Learn how to bake a 3D model with Blender and use it in r3f",
   },
 ];
 
@@ -404,15 +405,17 @@ export const Projects = (props) => {
   const { viewport } = useThree();
   const [currentProject] = useAtom(currentProjectAtom);
 
+  const projectSectionNo = 5;
+
   return (
-    <group position-y={-viewport.height * 2 + 1}>
+    <group position-y={-viewport.height * 5 + 1}>
       {projects.map((project, index) => (
         <motion.group
           key={"project_" + index}
           position={[index * 2.5, 0, -3]}
           animate={{
             scale: (() => {
-              if (section === 2 && currentProject === index) {
+              if (section === projectSectionNo && currentProject === index) {
                 if (project.model === "laptop") {
                   return Math.min(0.65, 0.8 * officeScaleRatio);
                 } else if (project.model === "mobile") {
