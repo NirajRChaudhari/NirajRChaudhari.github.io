@@ -1,4 +1,3 @@
-import { Section } from "./Section";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -9,6 +8,7 @@ import proxel from "../../assets/company/proxel.png";
 import puneuni from "../../assets/company/puneuni.png";
 import "react-vertical-timeline-component/style.min.css";
 import { motion } from "framer-motion";
+import { TripleSection } from "./Section";
 
 const experiences = [
   {
@@ -170,11 +170,9 @@ const EducationCard = ({ education }) => {
   );
 };
 
-export const Experience_EducationSection = (props) => {
-  const { sectionHeight = 1 } = props;
-
+export const Experience_EducationSection = () => {
   return (
-    <Section sectionHeight={sectionHeight}>
+    <TripleSection>
       <div className="flex flex-col justify-between h-full">
         <div>
           <motion.h2
@@ -216,6 +214,6 @@ export const Experience_EducationSection = (props) => {
           </div>
         </div>
       </div>
-    </Section>
+    </TripleSection>
   );
 };
