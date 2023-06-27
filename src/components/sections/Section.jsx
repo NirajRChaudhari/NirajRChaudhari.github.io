@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 
 export const Section = (props) => {
-  const { children, mobileTop, sectionHeight = 1 } = props;
+  const { children, mobileTop, sectionHeight = 1, fullWidth = false } = props;
 
   return (
     <motion.section
       className={`
         h-screen
-        w-screen p-8 max-w-screen-2xl mx-auto
+        w-screen max-w-screen-2xl mx-auto
+        ${fullWidth ? "p-2" : "p-8"}
         flex flex-col items-start
         ${
           sectionHeight != 1
@@ -16,6 +17,7 @@ export const Section = (props) => {
             ? "justify-start md:justify-center"
             : "justify-center"
         }
+        overflow-scroll
       `}
       // style={{ border: "2px solid red" }}
       initial={{
@@ -36,16 +38,19 @@ export const Section = (props) => {
   );
 };
 
-export const TripleSection = (props) => {
-  const { children, mobileTop, sectionHeight = 1 } = props;
+export const DoubleSection = (props) => {
+  const { children, mobileTop, sectionHeight = 1, fullWidth = false } = props;
 
   return (
     <motion.section
       className={`
-        h-[300vh]
-        w-screen p-8 max-w-screen-2xl mx-auto
+        h-[200vh]
+        w-screen 
+        ${fullWidth ? "p-2" : "p-8"}
+        max-w-screen-2xl mx-auto
         flex flex-col items-start
         justify-start
+        overflow-scroll
       `}
       // style={{ border: "2px solid red" }}
       initial={{

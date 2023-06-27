@@ -39,7 +39,7 @@ export const Experience = (props) => {
     setCharacterAnimation("Falling");
     setTimeout(() => {
       setCharacterAnimation(
-        section === 0 ? "Typing" : section === 4 ? "Pointing" : "Standing"
+        section === 0 ? "Typing" : section === 5 ? "Pointing" : "Standing"
       );
     }, 600);
   }, [section]);
