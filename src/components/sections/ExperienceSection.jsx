@@ -113,24 +113,20 @@ const ExperienceCard = ({ experience }) => {
 
 export const ExperienceSection = () => {
   return (
-    <Section sectionHeight={2} fullWidth={true}  addClasses="experience-section">
-      <div>
-        <motion.h2
-          variants={textVariant()}
-          className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading"
-        >
-          Work Experience
-        </motion.h2>
+    <Section sectionHeight={2} fullWidth={true} addClasses="experience-section">
+      <motion.h2
+        variants={textVariant()}
+        className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading"
+      >
+        Work Experience
+      </motion.h2>
 
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={`experience-${index}`}
-              experience={experience}
-            />
-          ))}
-        </VerticalTimeline>
-      </div>
+      <VerticalTimeline>
+        {experiences.map((experience, index) => (
+          <ExperienceCard key={`experience-${index}`} experience={experience} />
+        ))}
+      </VerticalTimeline>
+      <div className="h-10"></div>
     </Section>
   );
 };

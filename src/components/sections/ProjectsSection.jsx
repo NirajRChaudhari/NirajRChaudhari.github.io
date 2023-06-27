@@ -13,7 +13,12 @@ export const ProjectsSection = (props) => {
   useEffect(() => {
     if (childRef.current) {
       const parentHeight = childRef.current.parentElement.offsetHeight;
-      const marginValue = parentHeight * (isMobile ? 0.7 : 0.6);
+      const previousSiblingHeight =
+        childRef.current.previousElementSibling.offsetHeight;
+
+      const marginValue =
+        (parentHeight - previousSiblingHeight) * (isMobile ? 0.8 : 0.7);
+
       setMarginTop(marginValue);
     }
   }, []);
