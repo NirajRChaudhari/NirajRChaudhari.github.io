@@ -88,21 +88,19 @@ const EducationCard = ({ education }) => {
 
 export const EducationSection = () => {
   return (
-    <Section fullWidth={true}>
+    <Section fullWidth={true} className="my-auto">
       <motion.h2
         variants={textVariant()}
-        className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading"
+        className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 inline-block rounded text-white sectionHeading mb-20"
       >
         Education
       </motion.h2>
 
-      <div className="mt-20 flex flex-col">
-        <VerticalTimeline>
-          {educations.map((education, index) => (
-            <EducationCard key={`education-${index}`} education={education} />
-          ))}
-        </VerticalTimeline>
-      </div>
+      <VerticalTimeline>
+        {educations.map((education, index) => (
+          <EducationCard key={`education-${index}`} education={education} />
+        ))}
+      </VerticalTimeline>
     </Section>
   );
 };

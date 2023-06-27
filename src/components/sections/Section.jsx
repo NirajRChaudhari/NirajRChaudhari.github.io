@@ -19,7 +19,7 @@ export const Section = (props) => {
         }
         overflow-scroll
       `}
-      // style={{ border: "2px solid red" }}
+      style={{ border: "2px solid red" }}
       initial={{
         opacity: 0,
         y: 50,
@@ -52,7 +52,7 @@ export const DoubleSection = (props) => {
         justify-start
         overflow-scroll
       `}
-      // style={{ border: "2px solid red" }}
+      style={{ border: "2px solid red" }}
       initial={{
         opacity: 0,
         y: 50,

@@ -117,21 +117,19 @@ export const ExperienceSection = () => {
       <div>
         <motion.h2
           variants={textVariant()}
-          className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading"
+          className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading"
         >
           Work Experience
         </motion.h2>
 
-        <div className="mt-20 flex flex-col">
-          <VerticalTimeline>
-            {experiences.map((experience, index) => (
-              <ExperienceCard
-                key={`experience-${index}`}
-                experience={experience}
-              />
-            ))}
-          </VerticalTimeline>
-        </div>
+        <VerticalTimeline>
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`experience-${index}`}
+              experience={experience}
+            />
+          ))}
+        </VerticalTimeline>
       </div>
     </DoubleSection>
   );
