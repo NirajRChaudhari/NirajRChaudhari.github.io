@@ -1,13 +1,13 @@
 import { Section } from "./Section";
 import { motion } from "framer-motion";
 import { ProfileKeywords } from "./ProfileKeywords";
-import "./AboutPage.css";
+import "./CommonStyle.css";
 
 export const AboutSection = (props) => {
   const { setSection } = props;
   return (
     <Section mobileTop>
-      <h1 className="text-4xl md:text-6xl font-bold leading-snug mt-8 mb-3 md:mt-0 text-white">
+      <h1 className="text-4xl md:text-6xl font-bold leading-snug mt-8 mb-6 md:mt-0 text-white">
         Hi, I'm
         <br />
         Niraj

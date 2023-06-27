@@ -46,11 +46,11 @@ export const ScrollManager = (props) => {
 
     const curSection = Math.floor(data.scroll.current * data.pages);
 
-    //Adjust below 0.02 to adjust scroll sensitivity
+    //Adjust below 0.015 to adjust scroll sensitivity
     if (data.scroll.current > lastScroll.current) {
       if (
         curSection < 6 &&
-        data.scroll.current > curSection / (data.pages - 1) + 0.02
+        data.scroll.current > curSection / (data.pages - 1) + 0.015
       ) {
         const nextSection = curSection + 1;
         console.log(`section ${nextSection}`);
@@ -59,7 +59,7 @@ export const ScrollManager = (props) => {
     } else if (data.scroll.current < lastScroll.current) {
       if (
         curSection > 0 &&
-        data.scroll.current < curSection / (data.pages - 1) - 0.02
+        data.scroll.current < curSection / (data.pages - 1) - 0.015
       ) {
         const prevSection = curSection - 1;
         console.log(`section ${prevSection}`);

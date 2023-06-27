@@ -19,18 +19,19 @@ export const projects = [
     description: "Recreating the Atmos Awwwards website with React Three Fiber",
   },
   {
-    title: "Portfolio Baking",
-    model: "mobile",
-    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
-    videoUrl: "textures/running_girl.mp4",
-    description: "Learn how to bake a 3D model with Blender and use it in r3f",
-  },
-  {
     title: "3D Avatar",
     model: "laptop",
     url: "https://www.youtube.com/watch?v=pGMKIyALcK0",
     videoUrl: "textures/vscode_flip.mp4",
     description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
+  },
+
+  {
+    title: "Portfolio Baking",
+    model: "mobile",
+    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
+    videoUrl: "textures/running_girl.mp4",
+    description: "Learn how to bake a 3D model with Blender and use it in r3f",
   },
 ];
 

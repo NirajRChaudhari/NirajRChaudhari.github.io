@@ -19,7 +19,7 @@ export const Section = (props) => {
             : "justify-center"
         }
       `}
-      style={{ border: "2px solid red" }}
+      // style={{ border: "2px solid red" }}
       initial={{
         opacity: 0,
         y: 50,

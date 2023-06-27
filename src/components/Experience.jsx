@@ -107,13 +107,14 @@ export const Experience = (props) => {
             scale: isMobile ? 1.5 : 1,
           },
           2: {
-            // x: isMobile ? 0 : 1 * officeScaleRatio,
-            // y: isMobile ? -viewport.height * 2.5 : -viewport.height * 2 - 1,
-            // z: 0,
-            // rotateY: -Math.PI / 2,
+            x: -10,
           },
-          3: {},
-          4: {},
+          3: {
+            x: -10,
+          },
+          4: {
+            x: -10,
+          },
           5: {
             x: isMobile ? -1.6 : -5.5 * officeScaleRatio,
             y: isMobile ? -viewport.height * 5.5 : -viewport.height * 5 - 1,

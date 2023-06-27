@@ -5,7 +5,9 @@ export const ContactSection = () => {
   const [state, handleSubmit] = useForm("mayzgjbd");
   return (
     <Section>
-      <h2 className="text-3xl md:text-5xl font-bold text-white">Contact me</h2>
+      <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading">
+        Contact me
+      </h2>
       <div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 w-96 max-w-full">
         {state.succeeded ? (
           <p className="text-white text-center">Thanks for your message !</p>

@@ -179,7 +179,7 @@ export const Experience_EducationSection = (props) => {
         <div>
           <motion.h2
             variants={textVariant()}
-            className="text-3xl md:text-5xl font-bold text-white"
+            className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading"
           >
             Work Experience
           </motion.h2>
@@ -199,12 +199,12 @@ export const Experience_EducationSection = (props) => {
         <div className="mb-20">
           <motion.h2
             variants={textVariant()}
-            className="text-3xl md:text-5xl font-bold text-white"
+            className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading"
           >
             Education
           </motion.h2>
 
-          <div className="mt-10 md:mt-20 flex flex-col">
+          <div className="mt-10 flex flex-col">
             <VerticalTimeline>
               {educations.map((education, index) => (
                 <EducationCard

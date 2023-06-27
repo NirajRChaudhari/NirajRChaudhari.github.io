@@ -1,5 +1,6 @@
 import { Section } from "./Section";
 import { motion } from "framer-motion";
+import "./CommonStyle.css";
 
 const skills = [
   {
@@ -60,7 +61,9 @@ export const SkillsSection = () => {
     <Section>
       <motion.div className="w-full h-full" whileInView={"visible"}>
         <div className="w-full md:w-60">
-          <h2 className="text-3xl md:text-5xl font-bold text-white">Skills</h2>
+          <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading">
+            Skills
+          </h2>
 
           <div className="skills-section ">
             {skills.map((skill, index) => (
