@@ -7,6 +7,10 @@ export const AboutSection = (props) => {
   const { setSection } = props;
   return (
     <Section mobileTop>
+      <h4 className="text-md font-bold bg-red-600 p-2 rounded text-white sectionHeading w-fit mx-auto">
+        Website is still under development. So all the features are not
+        available.
+      </h4>
       <h1 className="text-4xl md:text-6xl font-bold leading-snug mt-8 mb-6 md:mt-0 text-white">
         Hi, I'm
         <br />
