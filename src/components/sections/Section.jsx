@@ -9,7 +9,8 @@ export const Section = (props) => {
         h-screen
         w-screen max-w-screen-2xl mx-auto
         ${fullWidth ? "p-2" : "p-8"}
-        flex flex-col items-start
+        flex-grow: 0;
+        
         ${
           sectionHeight != 1
             ? "justify-start"

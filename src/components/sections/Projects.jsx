@@ -1,12 +1,9 @@
 import * as THREE from "three";
-import { Image, Text, useVideoTexture } from "@react-three/drei";
+import { Image, Text, useVideoTexture, useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { Vector3 } from "three";
 import React, { useRef, useEffect } from "react";
-
-import { useGLTF } from "@react-three/drei";
-
 import { motion } from "framer-motion-3d";
 import { atom, useAtom } from "jotai";
 

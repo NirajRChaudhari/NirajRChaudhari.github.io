@@ -15,7 +15,7 @@ export const ProjectsSection = () => {
 
   return (
     <Section>
-      <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading">
+      <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit">
         Projects
       </h2>
       <div className="flex w-full md:w-80 h-full gap-14 items-end mb-10 ml-auto mr-auto justify-center">
