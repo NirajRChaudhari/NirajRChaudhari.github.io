@@ -9,21 +9,31 @@ export const ScrollManager = (props) => {
   const data = useScroll();
   const lastScroll = useRef(0);
   const isAnimating = useRef(false);
+  const prevSection = useRef(section);
 
   data.fill.classList.add("top-0");
   data.fill.classList.add("absolute");
 
   useEffect(() => {
-    gsap.to(data.el, {
-      duration: 1,
-      scrollTop: section * data.el.clientHeight,
-      onStart: () => {
-        isAnimating.current = true;
-      },
-      onComplete: () => {
-        isAnimating.current = false;
-      },
-    });
+    //Does not apply to interaction between section 2 and 3
+    if (
+      !(
+        (prevSection.current === 2 && section === 3) ||
+        (prevSection.current === 3 && section === 2)
+      )
+    ) {
+      gsap.to(data.el, {
+        duration: 1,
+        scrollTop: section * data.el.clientHeight,
+        onStart: () => {
+          isAnimating.current = true;
+        },
+        onComplete: () => {
+          isAnimating.current = false;
+        },
+      });
+    }
+    prevSection.current = section;
   }, [section]);
 
   useFrame(() => {
@@ -37,7 +47,7 @@ export const ScrollManager = (props) => {
     //Adjust below 0.02 to adjust scroll sensitivity
     if (data.scroll.current > lastScroll.current) {
       if (
-        curSection < 3 &&
+        curSection < 5 &&
         data.scroll.current > curSection / (data.pages - 1) + 0.02
       ) {
         const nextSection = curSection + 1;

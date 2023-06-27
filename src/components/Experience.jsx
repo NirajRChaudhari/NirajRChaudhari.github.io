@@ -1,9 +1,4 @@
-import {
-  Float,
-  MeshDistortMaterial,
-  MeshWobbleMaterial,
-  useScroll,
-} from "@react-three/drei";
+import { useScroll } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
@@ -11,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { framerMotionConfig } from "../config";
 import { Avatar } from "./Avatar";
 import { Office } from "./Office";
-import { Projects } from "./Projects";
+import { Projects } from "./sections/Projects";
 
 export const Experience = (props) => {
   const { menuOpened } = props;
@@ -21,6 +16,7 @@ export const Experience = (props) => {
   const isMobile = window.innerWidth < 768;
   const responsiveRatio = viewport.width / 12;
   const officeScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
+  const projectSectionNo = 4;
 
   const [section, setSection] = useState(0);
 
@@ -43,7 +39,7 @@ export const Experience = (props) => {
     setCharacterAnimation("Falling");
     setTimeout(() => {
       setCharacterAnimation(
-        section === 0 ? "Typing" : section === 2 ? "Pointing" : "Standing"
+        section === 0 ? "Typing" : section === 4 ? "Pointing" : "Standing"
       );
     }, 600);
   }, [section]);
@@ -53,8 +49,8 @@ export const Experience = (props) => {
   useFrame((state) => {
     let curSection = Math.floor(data.scroll.current * data.pages);
 
-    if (curSection > 3) {
-      curSection = 3;
+    if (curSection > 5) {
+      curSection = 5;
     }
 
     if (curSection !== section) {
@@ -87,7 +83,6 @@ export const Experience = (props) => {
       <motion.group
         ref={characterGroup}
         rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
-        // scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
         animate={"" + section}
         transition={{
           duration: 0.6,
@@ -103,8 +98,8 @@ export const Experience = (props) => {
             rotateZ: 0,
           },
           1: {
-            y: isMobile ? -viewport.height + 0.4 : -viewport.height + 0.75,
             x: isMobile ? 0.3 : 0,
+            y: isMobile ? -viewport.height + 0.4 : -viewport.height + 0.75,
             z: 7,
             rotateX: 0,
             rotateY: isMobile ? -Math.PI / 4 : 0,
@@ -112,8 +107,15 @@ export const Experience = (props) => {
             scale: isMobile ? 1.5 : 1,
           },
           2: {
+            // x: isMobile ? 0 : 1 * officeScaleRatio,
+            // y: isMobile ? -viewport.height * 2.5 : -viewport.height * 2 - 1,
+            // z: 0,
+            // rotateY: -Math.PI / 2,
+          },
+          3: {},
+          4: {
             x: isMobile ? -1.6 : -5.5 * officeScaleRatio,
-            y: isMobile ? -viewport.height * 2.5 : -viewport.height * 2 - 1,
+            y: isMobile ? -viewport.height * 4.5 : -viewport.height * 4 - 1,
             z: 0,
             rotateX: 0,
             rotateY: Math.PI / 2,
@@ -122,9 +124,9 @@ export const Experience = (props) => {
               ? Math.min(1.45, 2.5 * officeScaleRatio)
               : Math.min(1.5, 4 * officeScaleRatio),
           },
-          3: {
-            y: isMobile ? -viewport.height * 2.75 : -viewport.height * 2.85,
+          5: {
             x: 0.24,
+            y: isMobile ? -viewport.height * 4.75 : -viewport.height * 4.79,
             z: 8.5,
             rotateX: 0,
             rotateY: -Math.PI / 4,
@@ -185,7 +187,7 @@ export const Experience = (props) => {
           officeScaleRatio={officeScaleRatio}
           isMobile={isMobile}
         />
-        {section == 2 && (
+        {section == projectSectionNo && (
           <directionalLight position={[-2, 0, 10]} intensity={1} />
         )}
       </group>

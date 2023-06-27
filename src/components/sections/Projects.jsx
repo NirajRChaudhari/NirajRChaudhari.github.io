@@ -404,15 +404,17 @@ export const Projects = (props) => {
   const { viewport } = useThree();
   const [currentProject] = useAtom(currentProjectAtom);
 
+  const projectSectionNo = 4;
+
   return (
-    <group position-y={-viewport.height * 2 + 1}>
+    <group position-y={-viewport.height * 4 + 1}>
       {projects.map((project, index) => (
         <motion.group
           key={"project_" + index}
           position={[index * 2.5, 0, -3]}
           animate={{
             scale: (() => {
-              if (section === 2 && currentProject === index) {
+              if (section === projectSectionNo && currentProject === index) {
                 if (project.model === "laptop") {
                   return Math.min(0.65, 0.8 * officeScaleRatio);
                 } else if (project.model === "mobile") {
