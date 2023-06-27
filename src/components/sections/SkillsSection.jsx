@@ -58,7 +58,7 @@ const languages = [
 
 export const SkillsSection = () => {
   return (
-    <Section>
+    <Section addClasses="skills-section">
       <motion.div className="w-full h-full" whileInView={"visible"}>
         <div className="w-full md:w-60">
           <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading">
