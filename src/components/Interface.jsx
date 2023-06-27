@@ -6,14 +6,14 @@ import { ContactSection } from "./sections/ContactSection";
 import { EducationSection } from "./sections/EducationSection";
 
 export const Interface = (props) => {
-  const { setSection } = props;
+  const { setSection, isMobile } = props;
   return (
     <div className="flex flex-col items-center w-screen">
       <AboutSection setSection={setSection} />
       <SkillsSection />
       <ExperienceSection />
       <EducationSection />
-      <ProjectsSection />
+      <ProjectsSection isMobile={isMobile} />
       <ContactSection />
     </div>
   );

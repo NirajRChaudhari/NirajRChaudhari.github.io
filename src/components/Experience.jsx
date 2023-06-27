@@ -9,11 +9,10 @@ import { Office } from "./Office";
 import { Projects } from "./sections/Projects";
 
 export const Experience = (props) => {
-  const { menuOpened } = props;
+  const { menuOpened, isMobile } = props;
   const { viewport } = useThree();
   const data = useScroll();
 
-  const isMobile = window.innerWidth < 768;
   const responsiveRatio = viewport.width / 12;
   const officeScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
   const projectSectionNo = 5;

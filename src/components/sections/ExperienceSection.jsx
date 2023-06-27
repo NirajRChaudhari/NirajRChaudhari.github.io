@@ -7,7 +7,7 @@ import infosys from "../../assets/company/infosys.jpg";
 import proxel from "../../assets/company/proxel.png";
 import "react-vertical-timeline-component/style.min.css";
 import { motion } from "framer-motion";
-import { DoubleSection } from "./Section";
+import { Section } from "./Section";
 
 const experiences = [
   {
@@ -113,7 +113,7 @@ const ExperienceCard = ({ experience }) => {
 
 export const ExperienceSection = () => {
   return (
-    <DoubleSection fullWidth={true}>
+    <Section sectionHeight={2} fullWidth={true}  addClasses="experience-section">
       <div>
         <motion.h2
           variants={textVariant()}
@@ -131,6 +131,6 @@ export const ExperienceSection = () => {
           ))}
         </VerticalTimeline>
       </div>
-    </DoubleSection>
+    </Section>
   );
 };

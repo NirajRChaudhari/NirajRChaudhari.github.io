@@ -88,7 +88,7 @@ const EducationCard = ({ education }) => {
 
 export const EducationSection = () => {
   return (
-    <Section fullWidth={true} className="my-auto">
+    <Section fullWidth={true} addClasses="education-section">
       <motion.h2
         variants={textVariant()}
         className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 inline-block rounded text-white sectionHeading mb-5 md:mb-20"

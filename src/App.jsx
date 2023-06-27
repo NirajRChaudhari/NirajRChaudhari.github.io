@@ -16,6 +16,8 @@ function App() {
   const [started, setStarted] = useState(false);
   const [menuOpened, setMenuOpened] = useState(false);
 
+  const isMobile = window.innerWidth < 768;
+
   useEffect(() => {
     setMenuOpened(false);
   }, [section]);
@@ -42,12 +44,18 @@ function App() {
             <Scroll>
               <Suspense>
                 {started && (
-                  <Experience section={section} menuOpened={menuOpened} />
+                  <Experience
+                    section={section}
+                    isMobile={isMobile}
+                    menuOpened={menuOpened}
+                  />
                 )}
               </Suspense>
             </Scroll>
             <Scroll html>
-              {started && <Interface setSection={setSection} />}
+              {started && (
+                <Interface setSection={setSection} isMobile={isMobile} />
+              )}
             </Scroll>
           </ScrollControls>
         </Canvas>
