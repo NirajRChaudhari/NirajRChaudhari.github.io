@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
 
 export const Section = (props) => {
-  const { children, mobileTop, isDoubleHeight = false } = props;
+  const { children, mobileTop, sectionHeight = 1 } = props;
 
   return (
     <motion.section
       className={`
         h-screen
-        ${isDoubleHeight ? "h-[200vh]" : ""}
+        ${sectionHeight == 3 ? "h-[300vh]" : ""}
+       
         w-screen p-8 max-w-screen-2xl mx-auto
         flex flex-col items-start
         ${
-          isDoubleHeight
+          sectionHeight != 1
             ? "justify-start"
             : mobileTop
             ? "justify-start md:justify-center"

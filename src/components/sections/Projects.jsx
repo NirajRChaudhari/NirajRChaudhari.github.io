@@ -404,10 +404,10 @@ export const Projects = (props) => {
   const { viewport } = useThree();
   const [currentProject] = useAtom(currentProjectAtom);
 
-  const projectSectionNo = 4;
+  const projectSectionNo = 5;
 
   return (
-    <group position-y={-viewport.height * 4 + 1}>
+    <group position-y={-viewport.height * 5 + 1}>
       {projects.map((project, index) => (
         <motion.group
           key={"project_" + index}

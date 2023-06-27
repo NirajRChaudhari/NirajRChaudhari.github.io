@@ -19,7 +19,9 @@ export const ScrollManager = (props) => {
     if (
       !(
         (prevSection.current === 2 && section === 3) ||
-        (prevSection.current === 3 && section === 2)
+        (prevSection.current === 3 && section === 2) ||
+        (prevSection.current === 3 && section === 4) ||
+        (prevSection.current === 4 && section === 3)
       )
     ) {
       gsap.to(data.el, {
@@ -47,7 +49,7 @@ export const ScrollManager = (props) => {
     //Adjust below 0.02 to adjust scroll sensitivity
     if (data.scroll.current > lastScroll.current) {
       if (
-        curSection < 5 &&
+        curSection < 6 &&
         data.scroll.current > curSection / (data.pages - 1) + 0.02
       ) {
         const nextSection = curSection + 1;

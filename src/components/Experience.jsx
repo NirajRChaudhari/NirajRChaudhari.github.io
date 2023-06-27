@@ -16,7 +16,7 @@ export const Experience = (props) => {
   const isMobile = window.innerWidth < 768;
   const responsiveRatio = viewport.width / 12;
   const officeScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
-  const projectSectionNo = 4;
+  const projectSectionNo = 5;
 
   const [section, setSection] = useState(0);
 
@@ -49,8 +49,8 @@ export const Experience = (props) => {
   useFrame((state) => {
     let curSection = Math.floor(data.scroll.current * data.pages);
 
-    if (curSection > 5) {
-      curSection = 5;
+    if (curSection > 6) {
+      curSection = 6;
     }
 
     if (curSection !== section) {
@@ -113,9 +113,10 @@ export const Experience = (props) => {
             // rotateY: -Math.PI / 2,
           },
           3: {},
-          4: {
+          4: {},
+          5: {
             x: isMobile ? -1.6 : -5.5 * officeScaleRatio,
-            y: isMobile ? -viewport.height * 4.5 : -viewport.height * 4 - 1,
+            y: isMobile ? -viewport.height * 5.5 : -viewport.height * 5 - 1,
             z: 0,
             rotateX: 0,
             rotateY: Math.PI / 2,
@@ -124,14 +125,14 @@ export const Experience = (props) => {
               ? Math.min(1.45, 2.5 * officeScaleRatio)
               : Math.min(1.5, 4 * officeScaleRatio),
           },
-          5: {
+          6: {
             x: 0.24,
-            y: isMobile ? -viewport.height * 4.75 : -viewport.height * 4.79,
+            y: isMobile ? -viewport.height * 5.75 : -viewport.height * 5.79,
             z: 8.5,
             rotateX: 0,
             rotateY: -Math.PI / 4,
             rotateZ: 0,
-            scale: 1 * officeScaleRatio,
+            scale: Math.min(0.7, 1 * officeScaleRatio),
           },
         }}
       >

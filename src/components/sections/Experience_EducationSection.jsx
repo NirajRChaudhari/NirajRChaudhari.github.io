@@ -6,7 +6,7 @@ import {
 import usc from "../../assets/company/usc.png";
 import infosys from "../../assets/company/infosys.jpg";
 import proxel from "../../assets/company/proxel.png";
-
+import puneuni from "../../assets/company/puneuni.png";
 import "react-vertical-timeline-component/style.min.css";
 import { motion } from "framer-motion";
 
@@ -47,6 +47,25 @@ const experiences = [
       "Led backend development with Node.js, integrated React for faster responses and collaborated with cross-functional teams in requirements gathering, system design, and programming the features.",
       "Utilized Git and Jira for version control, work management, and issue tracking, enhancing team productivity.",
     ],
+  },
+];
+
+const educations = [
+  {
+    degree: "Master's in Computer Science",
+    universityName: "University of Southern California",
+    icon: usc,
+    iconBg: "#FFFFFF",
+    date: "Aug 2022 - Apr 2024",
+    gpa: "3.9 / 4",
+  },
+  {
+    degree: "Bachelor's in Computer Engineering",
+    universityName: "University of Pune",
+    icon: puneuni,
+    iconBg: "#FFFFFF",
+    date: "Jun 2016 - Jun 2020",
+    gpa: "9.4 / 10",
   },
 ];
 
@@ -112,27 +131,90 @@ const ExperienceCard = ({ experience }) => {
   );
 };
 
-export const ExperienceSection = (props) => {
-  const { isDoubleHeight = false } = props;
+const EducationCard = ({ education }) => {
+  return (
+    <VerticalTimelineElement
+      contentStyle={{
+        background: "#663399",
+        color: "#fff",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      date={education.date}
+      iconStyle={{ background: education.iconBg }}
+      icon={
+        <div className="flex justify-center items-center w-full h-full">
+          <img
+            src={education.icon}
+            alt={education.company_name}
+            className="w-[80%] h-[80%] object-contain"
+          />
+        </div>
+      }
+    >
+      <div>
+        <h3 className="text-white text-[24px] font-bold">{education.degree}</h3>
+        <p
+          className="text-secondary text-[16px] font-semibold"
+          style={{ margin: 0 }}
+        >
+          {education.universityName}
+        </p>
+        <p
+          className="text-secondary text-[16px] font-semibold"
+          style={{ margin: 0 }}
+        >
+          {education.gpa}
+        </p>
+      </div>
+    </VerticalTimelineElement>
+  );
+};
+
+export const Experience_EducationSection = (props) => {
+  const { sectionHeight = 1 } = props;
 
   return (
-    <Section isDoubleHeight={isDoubleHeight}>
-      <motion.h2
-        variants={textVariant()}
-        className="text-3xl md:text-5xl font-bold text-white"
-      >
-        Work Experience
-      </motion.h2>
+    <Section sectionHeight={sectionHeight}>
+      <div className="flex flex-col justify-between h-full">
+        <div>
+          <motion.h2
+            variants={textVariant()}
+            className="text-3xl md:text-5xl font-bold text-white"
+          >
+            Work Experience
+          </motion.h2>
 
-      <div className="mt-20 flex flex-col">
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={`experience-${index}`}
-              experience={experience}
-            />
-          ))}
-        </VerticalTimeline>
+          <div className="mt-20 flex flex-col">
+            <VerticalTimeline>
+              {experiences.map((experience, index) => (
+                <ExperienceCard
+                  key={`experience-${index}`}
+                  experience={experience}
+                />
+              ))}
+            </VerticalTimeline>
+          </div>
+        </div>
+
+        <div className="mb-20">
+          <motion.h2
+            variants={textVariant()}
+            className="text-3xl md:text-5xl font-bold text-white"
+          >
+            Education
+          </motion.h2>
+
+          <div className="mt-10 md:mt-20 flex flex-col">
+            <VerticalTimeline>
+              {educations.map((education, index) => (
+                <EducationCard
+                  key={`education-${index}`}
+                  education={education}
+                />
+              ))}
+            </VerticalTimeline>
+          </div>
+        </div>
       </div>
     </Section>
   );
