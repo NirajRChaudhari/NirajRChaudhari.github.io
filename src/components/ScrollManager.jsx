@@ -49,7 +49,7 @@ export const ScrollManager = (props) => {
     if (data.scroll.current > lastScroll.current) {
       if (
         curSection < 6 &&
-        data.scroll.current > curSection / (data.pages - 1) + 0.015
+        data.scroll.current > curSection / (data.pages - 1) + 0.02
       ) {
         const nextSection = curSection + 1;
         console.log(`section ${nextSection}`);
