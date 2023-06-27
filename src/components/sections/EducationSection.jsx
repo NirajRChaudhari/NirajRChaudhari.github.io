@@ -15,7 +15,7 @@ const educations = [
     icon: usc,
     iconBg: "#FFFFFF",
     date: "Aug 2022 - Apr 2024",
-    gpa: "3.9 / 4",
+    gpa: "GPA :  3.9 / 4",
   },
   {
     degree: "Bachelor's in Computer Engineering",
@@ -23,7 +23,7 @@ const educations = [
     icon: puneuni,
     iconBg: "#FFFFFF",
     date: "Jun 2016 - Jun 2020",
-    gpa: "9.4 / 10",
+    gpa: "GPA :  9.4 / 10",
   },
 ];
 
