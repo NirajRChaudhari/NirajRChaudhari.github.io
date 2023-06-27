@@ -1,6 +1,8 @@
 .sectionHeading {
     text-shadow: 0px 0px 3px #b393d3, 0px 0px 8px #b393d3, 0px 0px 8px #b393d3,
         0px 0px 16px #b393d3;
+
+    margin-top: 1rem;
 }
 
 .skills-section {

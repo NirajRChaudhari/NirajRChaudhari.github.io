@@ -8,7 +8,7 @@ export const ContactSection = () => {
       <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading">
         Contact me
       </h2>
-      <div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 w-96 max-w-full">
+      <div className="mt-8 p-3 md:p-8 rounded-md bg-white bg-opacity-50 w-96 max-w-full h-fit">
         {state.succeeded ? (
           <p className="text-white text-center">Thanks for your message !</p>
         ) : (
@@ -24,7 +24,7 @@ export const ContactSection = () => {
             />
             <label
               htmlFor="email"
-              className="font-medium text-white block mb-1 mt-8"
+              className="font-medium text-white block mb-1 mt-4 md:mt-8"
             >
               Email
             </label>
@@ -42,14 +42,14 @@ export const ContactSection = () => {
             />
             <label
               htmlFor="email"
-              className="font-medium text-white block mb-1 mt-8"
+              className="font-medium text-white block mb-1 mt-4 md:mt-8"
             >
               Message
             </label>
             <textarea
               name="message"
               id="message"
-              className="h-32 block w-full rounded-md border-0 text-white shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-3"
+              className="h-20 md:h-32 block w-full rounded-md border-0 text-white shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-3"
             />
             <ValidationError
               className="mt-1 text-red-500"
@@ -57,7 +57,7 @@ export const ContactSection = () => {
             />
             <button
               disabled={state.submitting}
-              className="bg-purple-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16 "
+              className="bg-purple-600 text-white py-2 md:py-4 px-4 md:px-8 rounded-lg font-bold text-lg mt-6 md:mt-16 "
             >
               Submit
             </button>
