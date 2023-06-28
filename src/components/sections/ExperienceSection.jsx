@@ -2,9 +2,9 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import usc from "../../assets/company/usc.png";
-import infosys from "../../assets/company/infosys.jpg";
-import proxel from "../../assets/company/proxel.png";
+import usc from "../../assets/logo/usc.png";
+import infosys from "../../assets/logo/infosys.jpg";
+import proxel from "../../assets/logo/proxel.png";
 import "react-vertical-timeline-component/style.min.css";
 import { motion } from "framer-motion";
 import { Section } from "./Section";

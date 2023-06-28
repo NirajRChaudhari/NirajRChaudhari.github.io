@@ -1,11 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import "./CommonStyle.css";
 
 const profileKeywords = [
   "Team Player",
   "Software Engineer",
   "Android Developer",
-  "Web Developer",
+  "Full Stack Developer",
 ];
 
 export const ProfileKeywords = ({ scrollIndicatorHidden, ...rest }) => {
@@ -35,7 +36,7 @@ export const ProfileKeywords = ({ scrollIndicatorHidden, ...rest }) => {
           }}
           className="text-3xl md:text-5xl font-bold text-white"
         >
-          <span className="bg-purple-500 px-2 py-1 italic rounded">
+          <span className="bg-purple-500 px-2 sectionHeading py-1 italic rounded">
             {profileKeywords[disciplineIndex]}
           </span>
         </motion.h2>
