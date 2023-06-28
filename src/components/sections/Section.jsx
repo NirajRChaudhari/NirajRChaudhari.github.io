@@ -26,10 +26,10 @@ export const Section = (props) => {
         ${mobileTop ? "justify-start md:justify-center" : justifyContent}
 
         w-screen max-w-screen-2xl mx-auto
-        flex-grow: 0;
+        flex-grow-0
         overflow-scroll
       `}
-      style={{ border: "2px solid red" }}
+      style={{ border: "2px solid red", overflow: "auto" }}
       initial={{
         opacity: 0,
         y: 50,
