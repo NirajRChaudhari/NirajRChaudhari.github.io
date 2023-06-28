@@ -2,8 +2,8 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import usc from "../../assets/company/usc.png";
-import puneuni from "../../assets/company/puneuni.png";
+import usc from "../../assets/logo/usc.png";
+import puneuni from "../../assets/logo/puneuni.png";
 import "react-vertical-timeline-component/style.min.css";
 import { motion } from "framer-motion";
 import { Section } from "./Section";

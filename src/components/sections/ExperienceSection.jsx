@@ -2,9 +2,9 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import usc from "../../assets/company/usc.png";
-import infosys from "../../assets/company/infosys.jpg";
-import proxel from "../../assets/company/proxel.png";
+import usc from "../../assets/logo/usc.png";
+import infosys from "../../assets/logo/infosys.jpg";
+import proxel from "../../assets/logo/proxel.png";
 import "react-vertical-timeline-component/style.min.css";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
@@ -113,24 +113,20 @@ const ExperienceCard = ({ experience }) => {
 
 export const ExperienceSection = () => {
   return (
-    <Section sectionHeight={2} fullWidth={true}  addClasses="experience-section">
-      <div>
-        <motion.h2
-          variants={textVariant()}
-          className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading"
-        >
-          Work Experience
-        </motion.h2>
+    <Section sectionHeight={2} fullWidth={true} addClasses="experience-section">
+      <motion.h2
+        variants={textVariant()}
+        className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading"
+      >
+        Work Experience
+      </motion.h2>
 
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={`experience-${index}`}
-              experience={experience}
-            />
-          ))}
-        </VerticalTimeline>
-      </div>
+      <VerticalTimeline>
+        {experiences.map((experience, index) => (
+          <ExperienceCard key={`experience-${index}`} experience={experience} />
+        ))}
+      </VerticalTimeline>
+      <div className="h-10"></div>
     </Section>
   );
 };
