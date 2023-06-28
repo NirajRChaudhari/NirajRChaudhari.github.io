@@ -67,7 +67,6 @@ export const Experience = (props) => {
         characterGroup.current.position
       );
     }
-    console.log(characterGroup.current.position);
     // console.log([position.x, position.y, position.z]);
 
     // const quaternion = new THREE.Quaternion();
