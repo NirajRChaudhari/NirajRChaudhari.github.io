@@ -39,7 +39,7 @@ function App() {
             factor={4}
             saturation={0}
           />
-          <ScrollControls pages={7} damping={0.1}>
+          <ScrollControls pages={6} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection} />
             <Scroll>
               <Suspense>

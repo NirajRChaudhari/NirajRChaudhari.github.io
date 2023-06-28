@@ -17,12 +17,12 @@ export const ScrollManager = (props) => {
   useEffect(() => {
     // Important below code to avoid auto jumps among section
     //Does not apply to interaction between section 2 and 3
-    if (
-      !(
-        (prevSection.current === 2 && section === 3) ||
-        (prevSection.current === 3 && section === 2)
-      )
-    ) {
+    // if (
+    //   !(
+    //     (prevSection.current === 2 && section === 3) ||
+    //     (prevSection.current === 3 && section === 2)
+    //   )
+    // ) {
       gsap.to(data.el, {
         duration: 1,
         scrollTop: section * data.el.clientHeight,
@@ -33,7 +33,7 @@ export const ScrollManager = (props) => {
           isAnimating.current = false;
         },
       });
-    }
+    // }
     prevSection.current = section;
   }, [section]);
 
@@ -48,7 +48,7 @@ export const ScrollManager = (props) => {
     // Adjust below 0.015 to adjust scroll sensitivity
     if (data.scroll.current > lastScroll.current) {
       if (
-        curSection < 6 &&
+        curSection < 5 &&
         data.scroll.current > curSection / (data.pages - 1) + 0.015
       ) {
         const nextSection = curSection + 1;

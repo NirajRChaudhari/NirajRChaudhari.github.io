@@ -15,7 +15,7 @@ export const Experience = (props) => {
 
   const responsiveRatio = viewport.width / 12;
   const officeScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
-  const projectSectionNo = 5;
+  const projectSectionNo = 4;
 
   const [section, setSection] = useState(0);
 
@@ -38,7 +38,7 @@ export const Experience = (props) => {
     setCharacterAnimation("Falling");
     setTimeout(() => {
       setCharacterAnimation(
-        section === 0 ? "Typing" : section === 5 ? "Pointing" : "Standing"
+        section === 0 ? "Typing" : section === 4 ? "Pointing" : "Standing"
       );
     }, 600);
   }, [section]);
@@ -48,8 +48,8 @@ export const Experience = (props) => {
   useFrame((state) => {
     let curSection = Math.floor(data.scroll.current * data.pages);
 
-    if (curSection > 6) {
-      curSection = 6;
+    if (curSection > 5) {
+      curSection = 5;
     }
 
     if (curSection !== section) {
@@ -67,6 +67,7 @@ export const Experience = (props) => {
         characterGroup.current.position
       );
     }
+    console.log(characterGroup.current.position);
     // console.log([position.x, position.y, position.z]);
 
     // const quaternion = new THREE.Quaternion();
@@ -112,11 +113,8 @@ export const Experience = (props) => {
             x: -10,
           },
           4: {
-            x: -10,
-          },
-          5: {
             x: isMobile ? -1.6 : -5.5 * officeScaleRatio,
-            y: isMobile ? -viewport.height * 5.5 : -viewport.height * 5 - 1,
+            y: isMobile ? -viewport.height * 4.5 : -viewport.height * 4 - 1,
             z: 0,
             rotateX: 0,
             rotateY: Math.PI / 2,
@@ -125,9 +123,9 @@ export const Experience = (props) => {
               ? Math.min(1.45, 2.5 * officeScaleRatio)
               : Math.min(1.5, 4 * officeScaleRatio),
           },
-          6: {
+          5: {
             x: 0.24,
-            y: isMobile ? -viewport.height * 5.75 : -viewport.height * 5.79,
+            y: isMobile ? -viewport.height * 4.75 : -viewport.height * 4.79,
             z: 8.5,
             rotateX: 0,
             rotateY: -Math.PI / 4,

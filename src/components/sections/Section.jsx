@@ -29,7 +29,7 @@ export const Section = (props) => {
         flex-grow-0
         overflow-scroll
       `}
-      style={{ border: "2px solid red", overflow: "auto" }}
+      style={{ border: "2px solid red", overflow: "scroll" }}
       initial={{
         opacity: 0,
         y: 50,
