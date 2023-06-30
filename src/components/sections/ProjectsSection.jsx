@@ -17,7 +17,7 @@ export const ProjectsSection = (props) => {
         childRef.current.previousElementSibling.offsetHeight;
 
       const marginValue =
-        (parentHeight - previousSiblingHeight) * (isMobile ? 0.8 : 0.7);
+        (parentHeight - previousSiblingHeight) * (isMobile ? 0.75 : 0.7);
 
       setMarginTop(marginValue);
     }

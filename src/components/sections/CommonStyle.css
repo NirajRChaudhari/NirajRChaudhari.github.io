@@ -5,14 +5,14 @@
     margin-top: 1rem;
 }
 
-.skills-section {
+.skills-parentDiv {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
 
 .skill {
-    flex: 0 0 calc(40% - 1rem);
+    flex: 0 0 calc(33% - 1rem);
     padding: 1rem;
     margin-bottom: 1rem;
 }

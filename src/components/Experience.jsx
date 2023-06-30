@@ -7,6 +7,7 @@ import { framerMotionConfig } from "../config";
 import { Avatar } from "./Avatar";
 import { Office } from "./Office";
 import { Projects } from "./sections/Projects";
+import { Brain } from "./Brain";
 
 export const Experience = (props) => {
   const { menuOpened, isMobile } = props;
@@ -97,13 +98,13 @@ export const Experience = (props) => {
             rotateZ: 0,
           },
           1: {
-            x: isMobile ? 0.3 : 0,
-            y: isMobile ? -viewport.height + 0.4 : -viewport.height + 0.75,
-            z: 7,
-            rotateX: 0,
-            rotateY: isMobile ? -Math.PI / 4 : 0,
-            rotateZ: 0,
-            scale: isMobile ? 1.5 : 1,
+            // x: isMobile ? 0.3 : 0,
+            // y: isMobile ? -viewport.height + 0.4 : -viewport.height + 0.75,
+            // z: 7,
+            // rotateX: 0,
+            // rotateY: isMobile ? -Math.PI / 4 : 0,
+            // rotateZ: 0,
+            // scale: isMobile ? 1.5 : 1,
           },
           2: {
             x: -10,
@@ -161,21 +162,23 @@ export const Experience = (props) => {
 
       {/* SKILLS */}
       <motion.group
-        position={[
-          0,
-          isMobile ? -viewport.height : -1.5 * officeScaleRatio,
-          -10,
-        ]}
+        // position={[isMobile ? 1.5 : 5 * officeScaleRatio, 0, 0]}
+        scale={(isMobile ? 17 : 15) * officeScaleRatio}
         animate={{
+          x: section === 1 ? (isMobile ? 1.5 : 5 * officeScaleRatio) : 0,
           z: section === 1 ? 0 : -10,
-          y:
-            section === 1
-              ? -viewport.height
-              : isMobile
-              ? -viewport.height
-              : -1.5 * officeScaleRatio,
+          y: isMobile ? -(5 / 4) * viewport.height : -viewport.height,
+          // y:
+          //   section === 1
+          //     ? -viewport.height
+          //     : isMobile
+          //     ? -viewport.height
+          //     : -1.5 * officeScaleRatio,
         }}
+        rotation={[-Math.PI / 8, -Math.PI / 16, Math.PI / 16]}
       >
+        {section === 1 && <Brain />}
+
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
       </motion.group>
 

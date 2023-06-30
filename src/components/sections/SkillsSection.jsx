@@ -56,16 +56,89 @@ const languages = [
   },
 ];
 
-export const SkillsSection = () => {
-  return (
-    <Section addClasses="skills-section">
-      <motion.div className="w-full h-full" whileInView={"visible"}>
-        <div className="w-full md:w-60">
-          <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading">
-            Skills
-          </h2>
+export const SkillsSection = (props) => {
+  const { isMobile = false } = props;
+  const numSkillsInRow = isMobile ? 4 : 3;
 
-          <div className="skills-section ">
+  return (
+    <Section
+      addClasses="skills-section"
+      className={`${isMobile ? "h-[60vh]" : ""}`}
+    >
+      <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit">
+        Skills
+      </h2>
+      <motion.div
+        className={`w-full ${isMobile ? "" : "md:w-[45%]"} mt-5 md:mt-10`}
+        whileInView={"visible"}
+        // style={{ border: "1px solid red" }}
+      >
+        <h4
+          className={`text-lg md:text-xl font-bold bg-purple-700 p-2 rounded text-white text-center w-fit mx-auto`}
+        >
+          Backend Technologies
+        </h4>
+
+        <div
+          className="my-auto"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              className="skill"
+              style={{
+                flexBasis: `calc(100% / ${numSkillsInRow})`,
+                // flex: `1 1 0`,
+                flexGrow: "1",
+                flexShrink: "1",
+                width: "0",
+                padding: isMobile ? "0.1rem" : "1rem",
+                marginBottom: isMobile ? "0.1rem" : "1rem",
+                // border: "1px solid #fff",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+              initial={{
+                opacity: 0,
+              }}
+              variants={{
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    duration: 1,
+                    delay: 1 + index * 0.2,
+                  },
+                },
+              }}
+            >
+              <img
+                alt={skill.title}
+                src={skill.icon}
+                className="w-full h-auto object-contain"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+              <span className=" text-white font-medium text-base md:font-bold text-center mt-0 md:mt-2">
+                {skill.title}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </Section>
+  );
+};
+
+{
+  /* <div className="skills-section ">
             {skills.map((skill, index) => (
               <motion.div
                 key={index}
@@ -87,51 +160,11 @@ export const SkillsSection = () => {
                 <h5>{skill.title}</h5>
               </motion.div>
             ))}
-          </div>
-          {/* <div className=" mt-8 space-y-4">
-              {skills.map((skill, index) => (
-              <div className="w-full md:w-64" key={index}>
-                  <motion.h3
-                  className="text-lg md:text-xl font-bold text-gray-100"
-                    initial={{
-                      opacity: 0,
-                    }}
-                    variants={{
-                      visible: {
-                        opacity: 1,
-                        transition: {
-                          duration: 1,
-                          delay: 1 + index * 0.2,
-                        },
-                      },
-                    }}
-                  >
-                    {skill.title}
-                  </motion.h3>
-                  <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
-                    <motion.div
-                      className="h-full bg-indigo-500 rounded-full "
-                      style={{ width: `${skill.level}%` }}
-                      initial={{
-                        scaleX: 0,
-                        originX: 0,
-                      }}
-                      variants={{
-                        visible: {
-                          scaleX: 1,
-                          transition: {
-                            duration: 1,
-                            delay: 1 + index * 0.2,
-                          },
-                        },
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div> */}
-        </div>
-        {/* <div>
+          </div> */
+}
+
+{
+  /* <div>
             <h2 className="text-3xl md:text-5xl font-bold mt-10 text-white">
               Languages
             </h2>
@@ -177,8 +210,5 @@ export const SkillsSection = () => {
                 </div>
               ))}
             </div>
-          </div> */}
-      </motion.div>
-    </Section>
-  );
-};
+          </div> */
+}

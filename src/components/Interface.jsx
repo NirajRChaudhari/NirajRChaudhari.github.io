@@ -10,7 +10,7 @@ export const Interface = (props) => {
   return (
     <div className="flex flex-col items-center w-screen">
       <AboutSection setSection={setSection} />
-      <SkillsSection />
+      <SkillsSection isMobile={isMobile} />
       <ExperienceSection />
       <EducationSection />
       <ProjectsSection isMobile={isMobile} />
