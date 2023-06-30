@@ -113,7 +113,11 @@ const ExperienceCard = ({ experience }) => {
 
 export const ExperienceSection = () => {
   return (
-    <Section fullWidth={true} addClasses="experience-section">
+    <Section
+      fullWidth={true}
+      allowOverflow={true}
+      addClasses="experience-section"
+    >
       <motion.h2
         variants={textVariant()}
         className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading"

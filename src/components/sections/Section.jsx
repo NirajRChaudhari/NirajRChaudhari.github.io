@@ -8,6 +8,7 @@ export const Section = (props) => {
     fullWidth = false,
     addClasses = "",
     justifyContent = "justify-center",
+    allowOverflow = false,
   } = props;
 
   return (
@@ -27,22 +28,24 @@ export const Section = (props) => {
 
         w-screen max-w-screen-2xl mx-auto
         flex-grow-0
-        overflow-y-scroll
-        overflow-x-hidden
 
-        ::-webkit-scrollbar {
-          display: none;
-        }
-
-        scrollbar-width: thin;
-        scrollbar-color: transparent transparent;
+        ${
+          allowOverflow
+            ? `overflow-y-scroll 
+            overflow-x-hidden 
+            scrollbar-width: none;
+            scrollbar-color: transparent transparent;
+            ::-webkit-scrollbar {
+              display: none;
+            }`
+            : "overflow-hidden"
+        }      
       `}
       style={{
-        // Hide scrollbar for Webkit browsers (Chrome, Safari, etc.)
-        scrollbarWidth: "thin",
+        scrollbarWidth: "none",
         scrollbarColor: "transparent transparent",
       }}
-      // style={{ overflow-: "auto" }} // border: "2px solid red",
+      // style={{  }} // border: "2px solid red",
       initial={{
         opacity: 0,
         y: 50,
