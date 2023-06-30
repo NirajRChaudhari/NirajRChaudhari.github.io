@@ -6,10 +6,8 @@ import { CURRENT_SKILL_ATOM } from "../Brain";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import anacondaIcon from "../../../public/icons/anaconda.svg";
 import androidIcon from "../../../public/icons/android.svg";
 import angularJsIcon from "../../../public/icons/angularjs.svg";
-import bootstrapIcon from "../../../public/icons/bootstrap.svg";
 import cIcon from "../../../public/icons/c.svg";
 import cPlusIcon from "../../../public/icons/cplusplus.svg";
 import cssIcon from "../../../public/icons/css3.svg";
@@ -24,7 +22,6 @@ import javaIcon from "../../../public/icons/java.svg";
 import javaScriptIcon from "../../../public/icons/javascript.svg";
 import jenkinsIcon from "../../../public/icons/jenkins.svg";
 import jqueryIcon from "../../../public/icons/jquery.svg";
-import kubernetesIcon from "../../../public/icons/kubernetes.svg";
 import mongodbIcon from "../../../public/icons/mongodb.svg";
 import mysqlIcon from "../../../public/icons/mysql.svg";
 import nodejsIcon from "../../../public/icons/nodejs.svg";
@@ -37,40 +34,33 @@ import springIcon from "../../../public/icons/spring.svg";
 import threejsIcon from "../../../public/icons/threejs.svg";
 import typescriptIcon from "../../../public/icons/typescript.svg";
 import unityIcon from "../../../public/icons/unity.svg";
-import vscodeIcon from "../../../public/icons/vscode.svg";
 
 const skills = [
   {
     title: "Languages",
     technologies: [
       {
+        title: "C",
+        icon: cIcon,
+      },
+      {
         title: "Java",
-        level: 90,
         icon: javaIcon,
       },
       {
         title: "Python",
-        level: 90,
         icon: pythonIcon,
       },
       {
-        title: "C",
-        level: 90,
-        icon: cIcon,
-      },
-      {
-        title: "JavaScript",
-        level: 90,
-        icon: javaScriptIcon,
-      },
-      {
         title: " C++",
-        level: 90,
         icon: cPlusIcon,
       },
       {
+        title: "JavaScript",
+        icon: javaScriptIcon,
+      },
+      {
         title: "TypeScript",
-        level: 90,
         icon: typescriptIcon,
       },
     ],
@@ -79,24 +69,24 @@ const skills = [
     title: "Backend Frameworks",
     technologies: [
       {
+        title: "Express",
+        icon: expressIcon,
+      },
+      {
         title: "Spring Boot",
-        level: 90,
         icon: springIcon,
       },
       {
         title: "Node.js",
-        level: 100,
         icon: nodejsIcon,
       },
       {
         title: "Django",
-        level: 100,
         icon: djangoIcon,
       },
       {
-        title: "Express",
-        level: 90,
-        icon: expressIcon,
+        title: "Android",
+        icon: androidIcon,
       },
     ],
   },
@@ -105,22 +95,26 @@ const skills = [
     technologies: [
       {
         title: "HTML",
-        level: 80,
         icon: htmlIcon,
       },
       {
         title: "React",
-        level: 80,
         icon: reactIcon,
       },
       {
         title: "CSS",
-        level: 85,
         icon: cssIcon,
       },
       {
+        title: "Three.js",
+        icon: threejsIcon,
+      },
+      {
+        title: "jQuery",
+        icon: jqueryIcon,
+      },
+      {
         title: "Angular",
-        level: 85,
         icon: angularJsIcon,
       },
     ],
@@ -129,29 +123,53 @@ const skills = [
     title: "Databases",
     technologies: [
       {
+        title: "Redis",
+        icon: redisIcon,
+      },
+      {
         title: "MySQL",
-        level: 90,
         icon: mysqlIcon,
       },
       {
         title: "MongoDB",
-        level: 55,
         icon: mongodbIcon,
       },
       {
         title: "Firebase",
-        level: 55,
         icon: firebaseIcon,
       },
       {
-        title: "Redis",
-        level: 55,
-        icon: redisIcon,
+        title: "Postgres",
+        icon: postgresqlIcon,
+      },
+    ],
+  },
+  {
+    title: "Tools & Technologies",
+    technologies: [
+      {
+        title: "Unity",
+        icon: unityIcon,
       },
       {
-        title: "Postgres",
-        level: 55,
-        icon: postgresqlIcon,
+        title: "Google Cloud",
+        icon: googlecloudIcon,
+      },
+      {
+        title: "Docker",
+        icon: dockerIcon,
+      },
+      {
+        title: "Jenkins",
+        icon: jenkinsIcon,
+      },
+      {
+        title: "Git",
+        icon: gitIcon,
+      },
+      {
+        title: "OpenCV",
+        icon: opencvIcon,
       },
     ],
   },
@@ -175,12 +193,13 @@ export const SkillsSection = (props) => {
       className={`${isMobile ? "h-[60vh]" : ""}`}
     >
       <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit">
-        Skills
+        What's in my Mind ?
       </h2>
 
       <Carousel
         showThumbs={false}
         showStatus={false}
+        stopOnHover={false}
         showIndicators={!isMobile}
         infiniteLoop
         autoPlay
