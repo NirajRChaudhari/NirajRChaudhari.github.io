@@ -204,7 +204,7 @@ export const SkillsSection = (props) => {
         infiniteLoop
         autoPlay
         interval={4000}
-        className={`skill-content w-full ${
+        className={`skill-content w-full  ${
           isMobile ? "" : "md:w-[45%]"
         } mt-5 md:mt-10`}
         onChange={handleCarouselChange}

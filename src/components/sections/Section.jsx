@@ -33,8 +33,16 @@ export const Section = (props) => {
         ::-webkit-scrollbar {
           display: none;
         }
+
+        scrollbar-width: thin;
+        scrollbar-color: transparent transparent;
       `}
-      style={{ overflow: "auto" }} // border: "2px solid red",
+      style={{
+        // Hide scrollbar for Webkit browsers (Chrome, Safari, etc.)
+        scrollbarWidth: "thin",
+        scrollbarColor: "transparent transparent",
+      }}
+      // style={{ overflow-: "auto" }} // border: "2px solid red",
       initial={{
         opacity: 0,
         y: 50,
