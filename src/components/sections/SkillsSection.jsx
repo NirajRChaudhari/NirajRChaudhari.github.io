@@ -168,19 +168,7 @@ export const SkillsSection = (props) => {
     setCurrentSkill(skills[index]);
   };
 
-  const handlePrevious = () => {
-    const previousIndex =
-      (currentSkillAtom - 1 + skills.length) % skills.length;
-    setCurrentSkillAtom(previousIndex);
-    setCurrentSkill(skills[previousIndex]);
-  };
-
-  const handleNext = () => {
-    const nextIndex = (currentSkillAtom + 1) % skills.length;
-    setCurrentSkillAtom(nextIndex);
-    setCurrentSkill(skills[nextIndex]);
-  };
-
+  console.log("isMobile " + isMobile);
   return (
     <Section
       addClasses="skills-section"
@@ -191,8 +179,9 @@ export const SkillsSection = (props) => {
       </h2>
 
       <Carousel
-        showThumbs={true}
+        showThumbs={false}
         showStatus={false}
+        showIndicators={!isMobile}
         infiniteLoop
         autoPlay
         interval={4000}
@@ -202,28 +191,6 @@ export const SkillsSection = (props) => {
         onChange={handleCarouselChange}
         onClickItem={handleCarouselChange}
         onClickThumb={handleCarouselChange}
-        renderArrowPrev={(onClickHandler, hasPrev) =>
-          hasPrev && (
-            <button
-              onClick={handlePrevious}
-              className="carousel-arrow-prev"
-              title="Previous"
-            >
-              <span className="carousel-arrow-icon">Previous</span>
-            </button>
-          )
-        }
-        renderArrowNext={(onClickHandler, hasNext) =>
-          hasNext && (
-            <button
-              onClick={handleNext}
-              className="carousel-arrow-next"
-              title="Next"
-            >
-              <span className="carousel-arrow-icon">Next</span>
-            </button>
-          )
-        }
       >
         {skills.map((currentSkill, index) => (
           <motion.div key={index + "" + currentSkill.title}>
@@ -253,7 +220,7 @@ export const SkillsSection = (props) => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    border: "1px solid white",
+                    // border: "1px solid white",
                   }}
                 >
                   <img
@@ -265,7 +232,7 @@ export const SkillsSection = (props) => {
                       height: "auto",
                     }}
                   />
-                  <span className=" text-purple-50 font-normal text-base md:font-bold text-center mt-0 md:mt-2">
+                  <span className="text-purple-50 font-normal text-base md:font-bold text-center mt-0 md:mt-2">
                     {technology.title}
                   </span>
                 </motion.div>
