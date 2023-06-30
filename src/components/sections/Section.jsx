@@ -27,7 +27,12 @@ export const Section = (props) => {
 
         w-screen max-w-screen-2xl mx-auto
         flex-grow-0
-        overflow-scroll
+        overflow-y-scroll
+        overflow-x-hidden
+
+        ::-webkit-scrollbar {
+          display: none;
+        }
       `}
       style={{ overflow: "auto" }} // border: "2px solid red",
       initial={{
