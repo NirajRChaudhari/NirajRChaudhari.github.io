@@ -33,7 +33,7 @@ export const ProjectsSection = (props) => {
 
   return (
     <Section addClasses="projects-section">
-      <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit">
+      <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit mt-4">
         Projects
       </h2>
       <div

@@ -91,7 +91,7 @@ export const EducationSection = () => {
     <Section fullWidth={true} addClasses="education-section">
       <motion.h2
         variants={textVariant()}
-        className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 inline-block rounded text-white sectionHeading mb-5 md:mb-20"
+        className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 inline-block rounded text-white sectionHeading mb-5 md:mb-20 mt-6"
       >
         Education
       </motion.h2>

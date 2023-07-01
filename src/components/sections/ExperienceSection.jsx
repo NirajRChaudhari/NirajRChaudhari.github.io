@@ -116,11 +116,11 @@ export const ExperienceSection = () => {
     <Section
       fullWidth={true}
       allowOverflow={true}
-      addClasses="experience-section"
+      addClasses="experience-section hideScrollBar"
     >
       <motion.h2
         variants={textVariant()}
-        className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading"
+        className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading mt-4"
       >
         Work Experience
       </motion.h2>

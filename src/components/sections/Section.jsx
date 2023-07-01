@@ -32,18 +32,11 @@ export const Section = (props) => {
         ${
           allowOverflow
             ? `overflow-y-scroll 
-            overflow-x-hidden 
-            scrollbar-width: none;
-            scrollbar-color: transparent transparent;
-            ::-webkit-scrollbar {
-              display: none;
-            }`
+            overflow-x-hidden`
             : "overflow-hidden"
         }      
       `}
       style={{
-        scrollbarWidth: "none",
-        scrollbarColor: "transparent transparent",
         border: "2px solid red",
       }}
       initial={{
