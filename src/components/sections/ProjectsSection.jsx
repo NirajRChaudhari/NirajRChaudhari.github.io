@@ -1,7 +1,7 @@
 import { Section } from "./Section";
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
-
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 
 export const ProjectsSection = (props) => {
@@ -34,33 +34,38 @@ export const ProjectsSection = (props) => {
 
   return (
     <Section addClasses="projects-section">
-      $
-      {(section == 3 || section == 4 || section == 5) && (
-        <>
-          <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit mt-4">
-            Projects
-          </h2>
-          <div
-            ref={childRef}
-            className="flex w-full md:w-80 gap-14 mx-auto justify-center"
-            style={{ marginTop: `${marginTop}px` }}
+      <AnimatePresence>
+        {section == 4 && (
+          <motion.div
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3 }}
           >
-            <button
-              className={`bg-purple-500 hover:bg-purple-700 text-white transition-colors py-1 px-3 rounded-lg font-bold text-lg mt-4 md:mt-16`}
-              onClick={previousProject}
+            <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit mt-4">
+              Projects
+            </h2>
+            <div
+              ref={childRef}
+              className="flex w-full md:w-80 gap-14 mx-auto justify-center"
+              style={{ marginTop: `${marginTop}px` }}
             >
-              ← Previous
-            </button>
+              <button
+                className={`bg-purple-500 hover:bg-purple-700 text-white transition-colors py-1 px-3 rounded-lg font-bold text-lg mt-4 md:mt-16`}
+                onClick={previousProject}
+              >
+                ← Previous
+              </button>
 
-            <button
-              className={`bg-purple-500 hover:bg-purple-700 text-white transition-colors py-1 px-3 rounded-lg font-bold text-lg mt-4 md:mt-16`}
-              onClick={nextProject}
-            >
-              Next →
-            </button>
-          </div>
-        </>
-      )}
+              <button
+                className={`bg-purple-500 hover:bg-purple-700 text-white transition-colors py-1 px-3 rounded-lg font-bold text-lg mt-4 md:mt-16`}
+                onClick={nextProject}
+              >
+                Next →
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 };

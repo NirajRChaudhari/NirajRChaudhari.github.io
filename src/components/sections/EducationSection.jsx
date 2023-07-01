@@ -5,7 +5,7 @@ import {
 import usc from "../../assets/logo/usc.png";
 import puneuni from "../../assets/logo/puneuni.png";
 import "react-vertical-timeline-component/style.min.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
 
 const educations = [
@@ -109,22 +109,30 @@ export const EducationSection = (props) => {
       >
         Education
       </motion.h2>
-      $
-      {(section == 2 || section == 3 || section == 4) && (
-        <div
-          className="my-auto flex flex-col"
-          style={{
-            height: "60%",
-            justifyContent: "center",
-          }}
-        >
-          <VerticalTimeline>
-            {educations.map((education, index) => (
-              <EducationCard key={`education-${index}`} education={education} />
-            ))}
-          </VerticalTimeline>
-        </div>
-      )}
+
+      <AnimatePresence>
+        {section == 3 && (
+          <motion.div
+            className="my-auto flex flex-col"
+            style={{
+              height: "60%",
+              justifyContent: "center",
+            }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3 }}
+          >
+            <VerticalTimeline>
+              {educations.map((education, index) => (
+                <EducationCard
+                  key={`education-${index}`}
+                  education={education}
+                />
+              ))}
+            </VerticalTimeline>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 };

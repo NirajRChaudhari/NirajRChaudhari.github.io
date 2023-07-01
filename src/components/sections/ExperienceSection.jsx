@@ -6,7 +6,7 @@ import usc from "../../assets/logo/usc.png";
 import infosys from "../../assets/logo/infosys.jpg";
 import proxel from "../../assets/logo/proxel.png";
 import "react-vertical-timeline-component/style.min.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
 
 const experiences = [
@@ -126,20 +126,26 @@ export const ExperienceSection = (props) => {
       >
         Work Experience
       </motion.h2>
-      $
-      {(section == 1 || section == 2 || section == 3) && (
-        <>
-          <VerticalTimeline>
-            {experiences.map((experience, index) => (
-              <ExperienceCard
-                key={`experience-${index}`}
-                experience={experience}
-              />
-            ))}
-          </VerticalTimeline>
-          <div className="h-10"></div>
-        </>
-      )}
+
+      <AnimatePresence>
+        {section == 2 && (
+          <motion.div
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3 }}
+          >
+            <VerticalTimeline>
+              {experiences.map((experience, index) => (
+                <ExperienceCard
+                  key={`experience-${index}`}
+                  experience={experience}
+                />
+              ))}
+            </VerticalTimeline>
+            <div className="h-10"></div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 };

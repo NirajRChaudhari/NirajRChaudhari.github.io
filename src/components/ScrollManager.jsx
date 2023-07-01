@@ -23,16 +23,16 @@ export const ScrollManager = (props) => {
     //     (prevSection.current === 3 && section === 2)
     //   )
     // ) {
-    // gsap.to(data.el, {
-    //   duration: 1,
-    //   scrollTop: section * data.el.clientHeight,
-    //   onStart: () => {
-    //     isAnimating.current = true;
-    //   },
-    //   onComplete: () => {
-    //     isAnimating.current = false;
-    //   },
-    // });
+    gsap.to(data.el, {
+      duration: 1,
+      scrollTop: section * data.el.clientHeight,
+      onStart: () => {
+        isAnimating.current = true;
+      },
+      onComplete: () => {
+        isAnimating.current = false;
+      },
+    });
     // }
     prevSection.current = section;
   }, [section]);

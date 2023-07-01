@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Section } from "./Section";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useAtom } from "jotai";
 import { CURRENT_SKILL_ATOM } from "../Brain";
 import { Carousel } from "react-responsive-carousel";
@@ -186,7 +186,6 @@ export const SkillsSection = (props) => {
     setCurrentSkill(skills[index]);
   };
 
-  console.log("isMobile " + isMobile);
   return (
     <Section
       addClasses="skills-section"
@@ -195,84 +194,89 @@ export const SkillsSection = (props) => {
       <h2 className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit mt-4">
         What's in my Mind ?
       </h2>
-      $
-      {section == 0 && section == 1 && section == 2 && (
-        <div
-          className={`${isMobile ? "" : "my-auto flex flex-col"}`}
-          style={
-            isMobile
-              ? {}
-              : {
-                  height: "80%",
-                  justifyContent: "center",
-                }
-          }
-        >
-          <Carousel
-            showThumbs={false}
-            showStatus={false}
-            stopOnHover={false}
-            showIndicators={!isMobile}
-            infiniteLoop
-            autoPlay
-            interval={4000}
-            className={`skill-content w-full  ${
-              isMobile ? "" : "md:w-[45%]"
-            } mt-5 md:mt-10`}
-            onChange={handleCarouselChange}
-            onClickItem={handleCarouselChange}
-            onClickThumb={handleCarouselChange}
-          >
-            {skills.map((currentSkill, index) => (
-              <motion.div key={index + "" + currentSkill.title}>
-                <h4 className="text-lg md:text-xl font-bold bg-purple-700 p-2 rounded text-white text-center w-fit mx-auto">
-                  {currentSkill.title}
-                </h4>
 
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
+      <AnimatePresence>
+        {section == 1 && (
+          <motion.div
+            className={`${isMobile ? "" : "my-auto flex flex-col"}`}
+            style={
+              isMobile
+                ? {}
+                : {
+                    height: "80%",
                     justifyContent: "center",
-                  }}
-                >
-                  {currentSkill.technologies.map((technology, index) => (
-                    <motion.div
-                      key={index + "" + technology.title}
-                      className="skill"
-                      style={{
-                        flexBasis: `calc(100% / ${numSkillsInRow})`,
-                        flexGrow: "1",
-                        flexShrink: "1",
-                        width: "0",
-                        padding: isMobile ? "0.1rem" : "1rem",
-                        marginBottom: isMobile ? "0.1rem" : "1rem",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        // border: "1px solid white",
-                      }}
-                    >
-                      <img
-                        alt={technology.title}
-                        src={technology.icon}
-                        className="w-full h-auto object-contain"
+                  }
+            }
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 5 }}
+          >
+            <Carousel
+              showThumbs={false}
+              showStatus={false}
+              stopOnHover={false}
+              showIndicators={!isMobile}
+              infiniteLoop
+              autoPlay
+              interval={4000}
+              className={`skill-content w-full  ${
+                isMobile ? "" : "md:w-[45%]"
+              } mt-5 md:mt-10`}
+              onChange={handleCarouselChange}
+              onClickItem={handleCarouselChange}
+              onClickThumb={handleCarouselChange}
+            >
+              {skills.map((currentSkill, index) => (
+                <motion.div key={index + "" + currentSkill.title}>
+                  <h4 className="text-lg md:text-xl font-bold bg-purple-700 p-2 rounded text-white text-center w-fit mx-auto">
+                    {currentSkill.title}
+                  </h4>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {currentSkill.technologies.map((technology, index) => (
+                      <motion.div
+                        key={index + "" + technology.title}
+                        className="skill"
                         style={{
-                          width: "70%",
-                          height: "auto",
+                          flexBasis: `calc(100% / ${numSkillsInRow})`,
+                          flexGrow: "1",
+                          flexShrink: "1",
+                          width: "0",
+                          padding: isMobile ? "0.1rem" : "1rem",
+                          marginBottom: isMobile ? "0.1rem" : "1rem",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          // border: "1px solid white",
                         }}
-                      />
-                      <span className="text-purple-50 font-normal text-base md:font-bold text-center mt-0 md:mt-2">
-                        {technology.title}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </Carousel>
-        </div>
-      )}
+                      >
+                        <img
+                          alt={technology.title}
+                          src={technology.icon}
+                          className="w-full h-auto object-contain"
+                          style={{
+                            width: "70%",
+                            height: "auto",
+                          }}
+                        />
+                        <span className="text-purple-50 font-normal text-base md:font-bold text-center mt-0 md:mt-2">
+                          {technology.title}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </Carousel>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 };

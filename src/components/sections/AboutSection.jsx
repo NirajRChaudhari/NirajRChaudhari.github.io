@@ -1,5 +1,5 @@
 import { Section } from "./Section";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ProfileKeywords } from "./ProfileKeywords";
 import "./CommonStyle.css";
 
@@ -15,32 +15,38 @@ export const AboutSection = (props) => {
         <br />
         Niraj
       </h1>
-      $
-      {(section == 0 || section == 1) && (
-        <>
-          <ProfileKeywords />
 
-          <motion.button
-            onClick={() => setSection(5)}
-            className={`bg-purple-500 text-white px-3 md:px-8 py-2 md:py-4
-      rounded-lg font-bold text-lg mt-16`}
-            initial={{
-              opacity: 0,
-              y: 25,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 1,
-              delay: 2,
-            }}
+      <AnimatePresence>
+        {section == 0 && (
+          <motion.div
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3 }}
           >
-            Contact me
-          </motion.button>
-        </>
-      )}
+            <ProfileKeywords />
+
+            <motion.button
+              onClick={() => setSection(5)}
+              className={`bg-purple-500 text-white px-3 md:px-8 py-2 md:py-4
+      rounded-lg font-bold text-lg mt-16`}
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 1,
+                delay: 2,
+              }}
+            >
+              Contact me
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 };
