@@ -65,7 +65,9 @@ const Laptop = (props) => {
     // );
   });
 
-  const textureVSCode = useVideoTexture(project.videoUrl);
+  const textureVSCode = useVideoTexture(
+    "https://www.youtube.com/watch?v=YkHqpqJgLKw&origin=https://niraj-profile.netlify.app/"
+  );
   return (
     <group ref={laptopRef} {...props} dispose={null}>
       <group name="Scene">
