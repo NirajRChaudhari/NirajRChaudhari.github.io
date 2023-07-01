@@ -192,7 +192,7 @@ export const SkillsSection = (props) => {
       addClasses="skills-section"
       className={`${isMobile ? "h-[60vh]" : ""}`}
     >
-      <h2 className="text-xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit">
+      <h2 className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit">
         What's in my Mind ?
       </h2>
 
@@ -202,7 +202,7 @@ export const SkillsSection = (props) => {
           isMobile
             ? {}
             : {
-                height: "100%",
+                height: "80%",
                 justifyContent: "center",
               }
         }

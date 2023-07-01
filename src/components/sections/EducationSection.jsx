@@ -99,8 +99,8 @@ export const EducationSection = () => {
       <div
         className="my-auto flex flex-col"
         style={{
-          marginTop: "auto !important",
-          marginBottom: "auto !important",
+          height: "60%",
+          justifyContent: "center",
         }}
       >
         <VerticalTimeline>
