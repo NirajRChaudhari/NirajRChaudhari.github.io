@@ -16,7 +16,6 @@ export const Experience = (props) => {
 
   const responsiveRatio = viewport.width / 12;
   const officeScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
-  const projectSectionNo = 4;
 
   const [section, setSection] = useState(0);
 
@@ -80,6 +79,7 @@ export const Experience = (props) => {
 
   return (
     <>
+      {/* AVATAR */}
       <motion.group
         ref={characterGroup}
         rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
@@ -98,13 +98,7 @@ export const Experience = (props) => {
             rotateZ: 0,
           },
           1: {
-            // x: isMobile ? 0.3 : 0,
-            // y: isMobile ? -viewport.height + 0.4 : -viewport.height + 0.75,
-            // z: 7,
-            // rotateX: 0,
-            // rotateY: isMobile ? -Math.PI / 4 : 0,
-            // rotateZ: 0,
-            // scale: isMobile ? 1.5 : 1,
+            x: -10,
           },
           2: {
             x: -10,
@@ -134,64 +128,72 @@ export const Experience = (props) => {
           },
         }}
       >
-        <Avatar animation={characterAnimation} wireframe={section === 1} />
+        <Avatar animation={characterAnimation} />
       </motion.group>
+
       <ambientLight intensity={1} />
-      <motion.group
-        position={[
-          isMobile ? -0.25 : 1.5 * officeScaleRatio,
-          isMobile ? -viewport.height / 6 : 2,
-          3,
-        ]}
-        scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
-        rotation-y={-Math.PI / 4}
-        animate={{
-          y: isMobile ? -viewport.height / 6 : 0,
-        }}
-        transition={{
-          duration: 0.8,
-        }}
-      >
-        <Office section={section} />
-        <group
-          ref={characterContainerAboutRef}
-          name="CharacterSpot"
-          position={[0.4, 0.06, -0.15]}
-        ></group>
-      </motion.group>
+
+      {/* OFFICE */}
+      {section == 0 && (
+        <motion.group
+          position={[
+            isMobile ? -0.25 : 1.5 * officeScaleRatio,
+            isMobile ? -viewport.height / 6 : 2,
+            3,
+          ]}
+          scale={officeScaleRatio}
+          rotation-y={-Math.PI / 4}
+          animate={{
+            y: isMobile ? -viewport.height / 6 : 0,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+        >
+          <Office section={section} />
+          <group
+            ref={characterContainerAboutRef}
+            name="CharacterSpot"
+            position={[0.4, 0.06, -0.15]}
+          ></group>
+        </motion.group>
+      )}
 
       {/* SKILLS */}
-      <motion.group
-        // position={[isMobile ? 1.5 : 5 * officeScaleRatio, 0, 0]}
-        scale={(isMobile ? 17 : 15) * officeScaleRatio}
-        animate={{
-          x: section === 1 ? (isMobile ? 1.5 : 5 * officeScaleRatio) : 0,
-          z: section === 1 ? 0 : -10,
-          y: isMobile ? -(5 / 4) * viewport.height : -viewport.height,
-          // y:
-          //   section === 1
-          //     ? -viewport.height
-          //     : isMobile
-          //     ? -viewport.height
-          //     : -1.5 * officeScaleRatio,
-        }}
-        rotation={[-Math.PI / 8, -Math.PI / 16, Math.PI / 16]}
-      >
-        {section === 1 && <Brain />}
+      {section == 1 && (
+        <motion.group
+          // position={[isMobile ? 1.5 : 5 * officeScaleRatio, 0, 0]}
+          scale={(isMobile ? 17 : 15) * officeScaleRatio}
+          animate={{
+            x: section === 1 ? (isMobile ? 1.5 : 5 * officeScaleRatio) : 0,
+            z: section === 1 ? 0 : -10,
+            y: isMobile ? -(5 / 4) * viewport.height : -viewport.height,
+            // y:
+            //   section === 1
+            //     ? -viewport.height
+            //     : isMobile
+            //     ? -viewport.height
+            //     : -1.5 * officeScaleRatio,
+          }}
+          rotation={[-Math.PI / 8, -Math.PI / 16, Math.PI / 16]}
+        >
+          <Brain />
 
-        <directionalLight position={[-5, 3, 5]} intensity={0.4} />
-      </motion.group>
+          <directionalLight position={[-5, 3, 5]} intensity={0.4} />
+        </motion.group>
+      )}
 
-      <group>
-        <Projects
-          section={section}
-          officeScaleRatio={officeScaleRatio}
-          isMobile={isMobile}
-        />
-        {section == projectSectionNo && (
+      {/* PROJECTS */}
+      {section == 4 && (
+        <group>
+          <Projects
+            section={section}
+            officeScaleRatio={officeScaleRatio}
+            isMobile={isMobile}
+          />
           <directionalLight position={[-2, 0, 10]} intensity={1} />
-        )}
-      </group>
+        </group>
+      )}
     </>
   );
 };

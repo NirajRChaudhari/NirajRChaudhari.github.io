@@ -410,6 +410,7 @@ export const Projects = (props) => {
         <motion.group
           key={"project_" + index}
           position={[index * 2.5, 0, -3]}
+          scale={0}
           animate={{
             scale: (() => {
               if (section === projectSectionNo && currentProject === index) {
@@ -428,21 +429,11 @@ export const Projects = (props) => {
             })(),
             x:
               currentProject === index ? 0 + (index - currentProject) * 2.5 : 6,
-            y: (() => {
-              if (project.model === "laptop") {
-                return -1;
-              } else if (project.model === "mobile") {
-                return -1;
-              }
-            })(),
+            y: -1,
             z: -2,
             rotateX: (() => {
               if (currentProject === index) {
-                if (project.model === "laptop") {
-                  return -Math.PI / 10;
-                } else if (project.model === "mobile") {
-                  return -Math.PI / 10;
-                }
+                return -Math.PI / 10;
               } else {
                 return -Math.PI / 2;
               }
