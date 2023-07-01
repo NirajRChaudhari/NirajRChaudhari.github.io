@@ -12,7 +12,8 @@ export const ProjectsSection = (props) => {
 
   useEffect(() => {
     if (childRef.current) {
-      const parentHeight = childRef.current.parentElement.offsetHeight;
+      const parentHeight =
+        childRef.current.parentElement.parentElement.offsetHeight;
       const previousSiblingHeight =
         childRef.current.previousElementSibling.offsetHeight;
 
@@ -34,7 +35,7 @@ export const ProjectsSection = (props) => {
   return (
     <Section addClasses="projects-section">
       $
-      {section === 4 && (
+      {(section == 3 || section == 4 || section == 5) && (
         <>
           <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit mt-4">
             Projects
