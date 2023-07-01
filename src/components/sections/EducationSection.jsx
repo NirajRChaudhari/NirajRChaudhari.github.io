@@ -16,6 +16,8 @@ const educations = [
     iconBg: "#FFFFFF",
     date: "Aug 2022 - Apr 2024",
     gpa: "GPA :  3.9 / 4",
+    transcriptLink:
+      "https://drive.google.com/file/d/1pSHVUxRVPKm9Gjsulu812SuoCJFFpeUU/view?usp=sharing",
   },
   {
     degree: "Bachelor's in Computer Engineering",
@@ -24,6 +26,8 @@ const educations = [
     iconBg: "#FFFFFF",
     date: "Jun 2016 - Jun 2020",
     gpa: "GPA :  9.4 / 10",
+    transcriptLink:
+      "https://drive.google.com/file/d/1qI_myU_bNIGfezo_DxOphC-NKs3lN1Sd/view?usp=sharing",
   },
 ];
 
@@ -76,11 +80,19 @@ const EducationCard = ({ education }) => {
           {education.universityName}
         </p>
         <p
-          className="text-secondary text-[16px] font-semibold"
-          style={{ margin: 0 }}
+          className="text-secondary text-[19px] font-semibold mt-2"
+          // style={{ margin: 0 }}
         >
           {education.gpa}
         </p>
+        <a
+          className="text-slate-200 text-[15px] font-normal"
+          href={education.transcriptLink}
+          target="_blank"
+          rel="noreferrer"
+        >
+          View Transcript
+        </a>
       </div>
     </VerticalTimelineElement>
   );
