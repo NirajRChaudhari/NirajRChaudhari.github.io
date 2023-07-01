@@ -44,8 +44,8 @@ export const Section = (props) => {
       style={{
         scrollbarWidth: "none",
         scrollbarColor: "transparent transparent",
+        border: "2px solid red",
       }}
-      // style={{  }} // border: "2px solid red",
       initial={{
         opacity: 0,
         y: 50,

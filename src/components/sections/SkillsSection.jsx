@@ -196,70 +196,83 @@ export const SkillsSection = (props) => {
         What's in my Mind ?
       </h2>
 
-      <Carousel
-        showThumbs={false}
-        showStatus={false}
-        stopOnHover={false}
-        showIndicators={!isMobile}
-        infiniteLoop
-        autoPlay
-        interval={4000}
-        className={`skill-content w-full  ${
-          isMobile ? "" : "md:w-[45%]"
-        } mt-5 md:mt-10`}
-        onChange={handleCarouselChange}
-        onClickItem={handleCarouselChange}
-        onClickThumb={handleCarouselChange}
+      <div
+        className={`${isMobile ? "" : "my-auto flex flex-col"}`}
+        style={
+          isMobile
+            ? {}
+            : {
+                height: "100%",
+                position: "relative",
+                top: "40%",
+                transform: "translateY(-40%)",
+              }
+        }
       >
-        {skills.map((currentSkill, index) => (
-          <motion.div key={index + "" + currentSkill.title}>
-            <h4 className="text-lg md:text-xl font-bold bg-purple-700 p-2 rounded text-white text-center w-fit mx-auto">
-              {currentSkill.title}
-            </h4>
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          stopOnHover={false}
+          showIndicators={!isMobile}
+          infiniteLoop
+          autoPlay
+          interval={4000}
+          className={`skill-content w-full  ${
+            isMobile ? "" : "md:w-[45%]"
+          } mt-5 md:mt-10`}
+          onChange={handleCarouselChange}
+          onClickItem={handleCarouselChange}
+          onClickThumb={handleCarouselChange}
+        >
+          {skills.map((currentSkill, index) => (
+            <motion.div key={index + "" + currentSkill.title}>
+              <h4 className="text-lg md:text-xl font-bold bg-purple-700 p-2 rounded text-white text-center w-fit mx-auto">
+                {currentSkill.title}
+              </h4>
 
-            <div
-              className="my-auto"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-              }}
-            >
-              {currentSkill.technologies.map((technology, index) => (
-                <motion.div
-                  key={index + "" + technology.title}
-                  className="skill"
-                  style={{
-                    flexBasis: `calc(100% / ${numSkillsInRow})`,
-                    flexGrow: "1",
-                    flexShrink: "1",
-                    width: "0",
-                    padding: isMobile ? "0.1rem" : "1rem",
-                    marginBottom: isMobile ? "0.1rem" : "1rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    // border: "1px solid white",
-                  }}
-                >
-                  <img
-                    alt={technology.title}
-                    src={technology.icon}
-                    className="w-full h-auto object-contain"
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                }}
+              >
+                {currentSkill.technologies.map((technology, index) => (
+                  <motion.div
+                    key={index + "" + technology.title}
+                    className="skill"
                     style={{
-                      width: "70%",
-                      height: "auto",
+                      flexBasis: `calc(100% / ${numSkillsInRow})`,
+                      flexGrow: "1",
+                      flexShrink: "1",
+                      width: "0",
+                      padding: isMobile ? "0.1rem" : "1rem",
+                      marginBottom: isMobile ? "0.1rem" : "1rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      // border: "1px solid white",
                     }}
-                  />
-                  <span className="text-purple-50 font-normal text-base md:font-bold text-center mt-0 md:mt-2">
-                    {technology.title}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </Carousel>
+                  >
+                    <img
+                      alt={technology.title}
+                      src={technology.icon}
+                      className="w-full h-auto object-contain"
+                      style={{
+                        width: "70%",
+                        height: "auto",
+                      }}
+                    />
+                    <span className="text-purple-50 font-normal text-base md:font-bold text-center mt-0 md:mt-2">
+                      {technology.title}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </Carousel>
+      </div>
     </Section>
   );
 };
