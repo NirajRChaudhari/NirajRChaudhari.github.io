@@ -111,26 +111,35 @@ const ExperienceCard = ({ experience }) => {
   );
 };
 
-export const ExperienceSection = () => {
+export const ExperienceSection = (props) => {
+  const { section } = props;
+
   return (
     <Section
       fullWidth={true}
       allowOverflow={true}
       addClasses="experience-section hideScrollBar"
     >
-      <motion.h2
-        variants={textVariant()}
-        className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading mt-4"
-      >
-        Work Experience
-      </motion.h2>
-
-      <VerticalTimeline>
-        {experiences.map((experience, index) => (
-          <ExperienceCard key={`experience-${index}`} experience={experience} />
-        ))}
-      </VerticalTimeline>
-      <div className="h-10"></div>
+      $
+      {section === 2 && (
+        <>
+          <motion.h2
+            variants={textVariant()}
+            className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading mt-4"
+          >
+            Work Experience
+          </motion.h2>
+          <VerticalTimeline>
+            {experiences.map((experience, index) => (
+              <ExperienceCard
+                key={`experience-${index}`}
+                experience={experience}
+              />
+            ))}
+          </VerticalTimeline>
+          <div className="h-10"></div>
+        </>
+      )}
     </Section>
   );
 };

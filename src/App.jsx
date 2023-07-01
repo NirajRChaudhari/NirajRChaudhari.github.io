@@ -54,7 +54,11 @@ function App() {
             </Scroll>
             <Scroll html>
               {started && (
-                <Interface setSection={setSection} isMobile={isMobile} />
+                <Interface
+                  section={section}
+                  setSection={setSection}
+                  isMobile={isMobile}
+                />
               )}
             </Scroll>
           </ScrollControls>

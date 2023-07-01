@@ -98,29 +98,38 @@ const EducationCard = ({ education }) => {
   );
 };
 
-export const EducationSection = () => {
+export const EducationSection = (props) => {
+  const { section } = props;
+
   return (
     <Section fullWidth={true} addClasses="education-section">
-      <motion.h2
-        variants={textVariant()}
-        className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 inline-block rounded text-white sectionHeading mb-5 md:mb-20 mt-6"
-      >
-        Education
-      </motion.h2>
-
-      <div
-        className="my-auto flex flex-col"
-        style={{
-          height: "60%",
-          justifyContent: "center",
-        }}
-      >
-        <VerticalTimeline>
-          {educations.map((education, index) => (
-            <EducationCard key={`education-${index}`} education={education} />
-          ))}
-        </VerticalTimeline>
-      </div>
+      $
+      {section === 3 && (
+        <>
+          <motion.h2
+            variants={textVariant()}
+            className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 inline-block rounded text-white sectionHeading mb-5 md:mb-20 mt-6"
+          >
+            Education
+          </motion.h2>
+          <div
+            className="my-auto flex flex-col"
+            style={{
+              height: "60%",
+              justifyContent: "center",
+            }}
+          >
+            <VerticalTimeline>
+              {educations.map((education, index) => (
+                <EducationCard
+                  key={`education-${index}`}
+                  education={education}
+                />
+              ))}
+            </VerticalTimeline>
+          </div>
+        </>
+      )}
     </Section>
   );
 };
