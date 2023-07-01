@@ -36,9 +36,9 @@ export const Section = (props) => {
             : "overflow-hidden"
         }      
       `}
-      style={{
-        border: "2px solid red",
-      }}
+      // style={{
+      //   border: "2px solid red",
+      // }}
       initial={{
         opacity: 0,
         y: 50,
