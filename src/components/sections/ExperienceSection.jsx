@@ -120,7 +120,7 @@ export const ExperienceSection = () => {
     >
       <motion.h2
         variants={textVariant()}
-        className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading"
+        className="text-xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading"
       >
         Work Experience
       </motion.h2>

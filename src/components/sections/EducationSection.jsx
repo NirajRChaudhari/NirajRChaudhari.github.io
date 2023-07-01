@@ -99,10 +99,8 @@ export const EducationSection = () => {
       <div
         className="my-auto flex flex-col"
         style={{
-          height: "100%",
-          position: "relative",
-          top: "40%",
-          transform: "translateY(-40%)",
+          marginTop: "auto !important",
+          marginBottom: "auto !important",
         }}
       >
         <VerticalTimeline>
