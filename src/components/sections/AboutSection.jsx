@@ -19,7 +19,7 @@ export const AboutSection = (props) => {
       <ProfileKeywords />
 
       <motion.button
-        onClick={() => setSection(6)}
+        onClick={() => setSection(5)}
         className={`bg-purple-500 text-white px-3 md:px-8 py-2 md:py-4
       rounded-lg font-bold text-lg mt-16`}
         initial={{
