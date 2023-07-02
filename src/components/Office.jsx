@@ -15,7 +15,7 @@ export function Office(props) {
   const { section } = props;
   const { nodes, materials } = useGLTF("models/scene.gltf");
   const texture = useTexture("textures/baked_final.jpg");
-  const textureVSCode = useVideoTexture("textures/vscode.mp4");
+  const textureVSCode = useVideoTexture("textures/ForgeryVideo.mp4");
 
   texture.flipY = false;
   texture.encoding = THREE.sRGBEncoding;

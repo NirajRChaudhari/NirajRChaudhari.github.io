@@ -11,23 +11,20 @@ export const projects = [
   {
     title: "Wawatmos",
     model: "mobile",
-    url: "https://r3f-wawatmos-final.vercel.app/",
-    videoUrl: "textures/running_girl.mp4",
+    videoUrl: "textures/ForgeryVideo.mp4",
     description: "Recreating the Atmos Awwwards website with React Three Fiber",
   },
   {
-    title: "3D Avatar",
+    title: "Driving Simulator",
     model: "laptop",
-    url: "https://www.youtube.com/watch?v=pGMKIyALcK0",
-    videoUrl: "textures/vscode_flip.mp4",
-    description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
+    videoUrl: "textures/OpenCvDriving.mp4",
+    description: "Python OpenCV based driving game controller.",
   },
 
   {
-    title: "Portfolio Baking",
-    model: "mobile",
-    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
-    videoUrl: "textures/running_girl.mp4",
+    title: "Video Forgery Detection",
+    model: "laptop",
+    videoUrl: "textures/ForgeryVideo.mp4",
     description: "Learn how to bake a 3D model with Blender and use it in r3f",
   },
 ];
@@ -65,9 +62,7 @@ const Laptop = (props) => {
     // );
   });
 
-  const textureVSCode = useVideoTexture(
-    "https://www.youtube.com/watch?v=YkHqpqJgLKw&origin=https://niraj-profile.netlify.app/"
-  );
+  const textureVSCode = useVideoTexture(project.videoUrl);
   return (
     <group ref={laptopRef} {...props} dispose={null}>
       <group name="Scene">
