@@ -9,10 +9,10 @@ import { atom, useAtom } from "jotai";
 
 export const projects = [
   {
-    title: "Wawatmos",
+    title: "Eventify App",
     model: "mobile",
-    videoUrl: "textures/ForgeryVideo.mp4",
-    description: "Recreating the Atmos Awwwards website with React Three Fiber",
+    videoUrl: "textures/EventMobileApp.mp4",
+    description: "Event management application with a backend server.",
   },
   {
     title: "Driving Simulator",
@@ -25,7 +25,7 @@ export const projects = [
     title: "Video Forgery Detection",
     model: "laptop",
     videoUrl: "textures/ForgeryVideo.mp4",
-    description: "Learn how to bake a 3D model with Blender and use it in r3f",
+    description: "AI based S4 algorithm video copy-move forgery detection.",
   },
 ];
 
