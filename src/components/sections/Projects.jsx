@@ -18,7 +18,7 @@ export const projects = [
     title: "Driving Simulator",
     model: "laptop",
     videoUrl: "textures/OpenCvDriving.mp4",
-    description: "Python OpenCV based driving game controller.",
+    description: "Python Computer Vision based driving game controller.",
   },
 
   {
