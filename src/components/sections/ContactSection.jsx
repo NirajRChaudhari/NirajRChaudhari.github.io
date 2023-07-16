@@ -1,10 +1,8 @@
-import { ValidationError, useForm } from "@formspree/react";
 import { Section } from "./Section";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const ContactSection = (props) => {
   const { section } = props;
-  const [state, handleSubmit] = useForm("mayzgjbd");
 
   return (
     <Section addClasses="contact-section">
@@ -19,63 +17,47 @@ export const ContactSection = (props) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 3 }}
           >
-            {state.succeeded ? (
-              <p className="text-white text-center">Thanks for your message!</p>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <label
-                  htmlFor="name"
-                  className="font-medium text-white block mb-1"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  className="block w-full rounded-md border-0 text-white shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-3"
-                />
-                <label
-                  htmlFor="email"
-                  className="font-medium text-white block mb-1 mt-4 md:mt-8"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="block w-full rounded-md border-0 text-white shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-3"
-                />
-                <ValidationError
-                  className="mt-1 text-red-500"
-                  prefix="Email"
-                  field="email"
-                  errors={state.errors}
-                />
-                <label
-                  htmlFor="email"
-                  className="font-medium text-white block mb-1 mt-4 md:mt-8"
-                >
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  id="message"
-                  className="h-20 md:h-32 block w-full rounded-md border-0 text-white shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-3"
-                />
-                <ValidationError
-                  className="mt-1 text-red-500"
-                  errors={state.errors}
-                />
-                <button
-                  disabled={state.submitting}
-                  className="bg-purple-600 text-white py-2 md:py-4 px-4 md:px-8 rounded-lg font-bold text-lg mt-6 md:mt-16 "
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+            <form name="contact" method="POST" data-netlify="true">
+              <label
+                htmlFor="name"
+                className="font-medium text-white block mb-1"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                className="block w-full rounded-md border-0 text-white shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-3"
+              />
+              <label
+                htmlFor="email"
+                className="font-medium text-white block mb-1 mt-4 md:mt-8"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="block w-full rounded-md border-0 text-white shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-3"
+              />
+              <label
+                htmlFor="email"
+                className="font-medium text-white block mb-1 mt-4 md:mt-8"
+              >
+                Message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                className="h-20 md:h-32 block w-full rounded-md border-0 text-white shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-3"
+              />
+              <input
+                type="submit"
+                className="bg-purple-600 text-white py-2 md:py-4 px-4 md:px-8 rounded-lg font-bold text-lg mt-6 md:mt-16 "
+              />
+            </form>
           </motion.div>
         )}
       </AnimatePresence>
