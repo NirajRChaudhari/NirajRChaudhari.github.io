@@ -16,7 +16,8 @@ export const ContactSection = (props) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 3 }}
         >
-          <form name="contact" method="POST" data-netlify="true">
+          <form name="contact" method="POST">
+            <input type="hidden" name="form-name" value="contact" />
             <label htmlFor="name" className="font-medium text-white block mb-1">
               Name
             </label>
@@ -49,10 +50,12 @@ export const ContactSection = (props) => {
               id="message"
               className="h-20 md:h-32 block w-full rounded-md border-0 text-black shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-3"
             />
-            <input
+            <button
               type="submit"
               className="bg-purple-600 text-white py-2 md:py-4 px-4 md:px-8 rounded-lg font-bold text-lg mt-6 md:mt-16 "
-            />
+            >
+              Submit
+            </button>
           </form>
         </motion.div>
       </AnimatePresence>
