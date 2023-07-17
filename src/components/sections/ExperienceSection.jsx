@@ -71,8 +71,10 @@ const textVariant = (delay) => {
 const ExperienceCard = ({ experience, isMobile }) => {
   const [showAll, setShowAll] = useState(false);
 
-  const toggleShowAll = () => {
-    setShowAll(!showAll);
+  const handleItemClick = () => {
+    if (isMobile) {
+      setShowAll(!showAll);
+    }
   };
 
   return (
@@ -94,7 +96,7 @@ const ExperienceCard = ({ experience, isMobile }) => {
         </div>
       }
     >
-      <div>
+      <div onClick={handleItemClick}>
         <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
         <p
           className="text-secondary text-[16px] font-semibold"
@@ -102,29 +104,26 @@ const ExperienceCard = ({ experience, isMobile }) => {
         >
           {experience.company_name}
         </p>
+
+        <ul className="mt-5 list-disc ml-5 space-y-2">
+          {experience.laptopPoints.map((point, index) => (
+            <li
+              key={`experience-point-${index}`}
+              className={`text-white-100 text-[14px] pl-1 tracking-wider ${
+                !showAll && isMobile && index > 1 ? "hidden" : ""
+              }`}
+            >
+              {point}
+            </li>
+          ))}
+
+          {isMobile && (
+            <button className="text-[15px] text-orange-100 mt-2 underline">
+              {showAll ? "Read Less" : "Read More"}
+            </button>
+          )}
+        </ul>
       </div>
-
-      <ul className="mt-5 list-disc ml-5 space-y-2">
-        {experience.laptopPoints.map((point, index) => (
-          <li
-            key={`experience-point-${index}`}
-            className={`text-white-100 text-[14px] pl-1 tracking-wider ${
-              !showAll && isMobile && index > 1 ? "hidden" : ""
-            }`}
-          >
-            {point}
-          </li>
-        ))}
-
-        {isMobile && experience.laptopPoints.length > 2 && (
-          <button
-            onClick={toggleShowAll}
-            className="text-[15px] text-orange-100 mt-2 underline"
-          >
-            {showAll ? "Read Less" : "Read More"}
-          </button>
-        )}
-      </ul>
     </VerticalTimelineElement>
   );
 };
