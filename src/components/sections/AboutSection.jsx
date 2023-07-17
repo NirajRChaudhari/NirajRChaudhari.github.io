@@ -27,7 +27,7 @@ export const AboutSection = (props) => {
 
             <motion.button
               onClick={() => setSection(5)}
-              className={`bg-purple-500 text-white px-3 md:px-8 py-2 md:py-4
+              className={`bg-purple-500 text-white px-2 md:px-4 py-2 md:py-2
       rounded-lg font-bold text-lg mt-16`}
               initial={{
                 opacity: 0,
