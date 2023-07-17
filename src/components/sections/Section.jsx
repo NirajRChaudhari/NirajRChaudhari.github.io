@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 export const Section = (props) => {
-  const {
+  let {
     children,
     mobileTop,
     sectionHeight = 1,

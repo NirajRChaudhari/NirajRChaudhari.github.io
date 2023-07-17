@@ -16,6 +16,7 @@ export const ContactSection = (props) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 3 }}
+            className="w-fit max-w-full"
           >
             <form
               name="contact"
@@ -66,7 +67,7 @@ export const ContactSection = (props) => {
               </button>
             </form>
 
-            <ContactIcons />
+            <ContactIcons injectClasses={`${isMobile ? "" : "mx-auto"}`} />
           </motion.div>
         </AnimatePresence>
       )}

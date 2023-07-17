@@ -4,12 +4,12 @@ import whatsAppIcon from "../../assets/icons/whatsapp.svg";
 import linkedInIcon from "../../assets/icons/linkedin.svg";
 
 export const ContactIcons = (props) => {
-  const { isMobile } = props;
+  const { isMobile, injectClasses = "" } = props;
 
   let iconScaling = isMobile ? "50%" : "65%";
 
   return (
-    <div className="flex flex-row mt-4">
+    <div className={`flex flex-row mt-4 w-fit ${injectClasses}`}>
       <a href="tel:+12135619960">
         <img
           alt="Phone"
