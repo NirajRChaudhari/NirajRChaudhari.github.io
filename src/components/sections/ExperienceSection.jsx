@@ -113,7 +113,7 @@ const ExperienceCard = ({ experience, isMobile }) => {
                 !showAll && isMobile && index > 1 ? "hidden" : ""
               }`}
             >
-              {point}
+              <div className="text-justify">{point}</div>
             </li>
           ))}
 
