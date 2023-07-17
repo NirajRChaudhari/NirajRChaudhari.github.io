@@ -117,7 +117,10 @@ const ExperienceCard = ({ experience, isMobile }) => {
         ))}
 
         {isMobile && experience.laptopPoints.length > 2 && (
-          <button onClick={toggleShowAll} className="text-orange-100 mt-2">
+          <button
+            onClick={toggleShowAll}
+            className="text-[15px] text-orange-100 mt-2 underline"
+          >
             {showAll ? "Read Less" : "Read More"}
           </button>
         )}
