@@ -70,16 +70,13 @@ const EducationCard = ({ education }) => {
       }
     >
       <div>
-        <h3 className="text-white text-[19px] md:text-[24px] font-bold">
+        <h3 className="text-white text-[18px] md:text-[24px] font-bold">
           {education.degree}
         </h3>
-        <p
-          className="text-secondary text-[17px] font-semibold"
-          style={{ margin: 0 }}
-        >
+        <p className="text-[18px] font-semibold" style={{ margin: 0 }}>
           {education.universityName}
         </p>
-        <p className="text-secondary text-[18px] md:text-[20px] font-semibold mt-2">
+        <p className="text-[18px] md:text-[20px] font-semibold mt-2">
           {education.gpa}
         </p>
         <a

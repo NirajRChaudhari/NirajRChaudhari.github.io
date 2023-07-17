@@ -100,10 +100,7 @@ const ExperienceCard = ({ experience, isMobile }) => {
         <h3 className="text-white text-[19px] md:text-[24px] font-bold">
           {experience.title}
         </h3>
-        <p
-          className="text-secondary text-[17px] font-semibold"
-          style={{ margin: 0 }}
-        >
+        <p className="text-[18px] font-semibold" style={{ margin: 0 }}>
           {experience.company_name}
         </p>
 
