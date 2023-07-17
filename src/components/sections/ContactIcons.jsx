@@ -6,7 +6,7 @@ import linkedInIcon from "../../assets/icons/linkedin.svg";
 export const ContactIcons = (props) => {
   const { isMobile } = props;
 
-  let iconScaling = isMobile ? "51%" : "65%";
+  let iconScaling = isMobile ? "50%" : "65%";
 
   return (
     <div className="flex flex-row mt-4">
