@@ -15,7 +15,7 @@ export const Interface = (props) => {
         isMobile={isMobile}
       />
       <SkillsSection section={section} isMobile={isMobile} />
-      <ExperienceSection section={section} />
+      <ExperienceSection section={section} isMobile={isMobile} />
       <EducationSection section={section} />
       <ProjectsSection section={section} isMobile={isMobile} />
       <ContactSection section={section} isMobile={isMobile} />

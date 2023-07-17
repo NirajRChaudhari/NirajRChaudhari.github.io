@@ -8,6 +8,7 @@ import proxel from "../../assets/logo/proxel.png";
 import "react-vertical-timeline-component/style.min.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
+import { useState } from "react";
 
 const experiences = [
   {
@@ -67,7 +68,13 @@ const textVariant = (delay) => {
   };
 };
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience, isMobile }) => {
+  const [showAll, setShowAll] = useState(false);
+
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
+
   return (
     <VerticalTimelineElement
       contentStyle={{
@@ -101,18 +108,26 @@ const ExperienceCard = ({ experience }) => {
         {experience.laptopPoints.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className="text-white-100 text-[14px] pl-1 tracking-wider"
+            className={`text-white-100 text-[14px] pl-1 tracking-wider ${
+              !showAll && isMobile && index > 1 ? "hidden" : ""
+            }`}
           >
             {point}
           </li>
         ))}
+
+        {isMobile && experience.laptopPoints.length > 2 && (
+          <button onClick={toggleShowAll} className="text-orange-100 mt-2">
+            {showAll ? "Read Less" : "Read More"}
+          </button>
+        )}
       </ul>
     </VerticalTimelineElement>
   );
 };
 
 export const ExperienceSection = (props) => {
-  const { section } = props;
+  const { section, isMobile } = props;
 
   return (
     <Section
@@ -139,6 +154,7 @@ export const ExperienceSection = (props) => {
                 <ExperienceCard
                   key={`experience-${index}`}
                   experience={experience}
+                  isMobile={isMobile}
                 />
               ))}
             </VerticalTimeline>
