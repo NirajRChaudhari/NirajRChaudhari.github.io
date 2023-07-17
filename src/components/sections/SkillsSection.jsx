@@ -227,7 +227,7 @@ export const SkillsSection = (props) => {
               onClickThumb={handleCarouselChange}
             >
               {skills.map((currentSkill, index) => (
-                <motion.div key={index + "" + currentSkill.title}>
+                <div key={index + "" + currentSkill.title}>
                   <h4 className="text-lg md:text-xl font-bold bg-purple-700 p-2 rounded text-white text-center w-fit mx-auto">
                     {currentSkill.title}
                   </h4>
@@ -240,7 +240,7 @@ export const SkillsSection = (props) => {
                     }}
                   >
                     {currentSkill.technologies.map((technology, index) => (
-                      <motion.div
+                      <div
                         key={index + "" + technology.title}
                         className="skill"
                         style={{
@@ -261,17 +261,17 @@ export const SkillsSection = (props) => {
                           src={technology.icon}
                           className="w-full h-auto object-contain"
                           style={{
-                            width: "70%",
+                            width: isMobile ? "65%" : "70%",
                             height: "auto",
                           }}
                         />
                         <span className="text-purple-50 font-normal text-base md:font-bold text-center mt-0 md:mt-2">
                           {technology.title}
                         </span>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </Carousel>
           </motion.div>

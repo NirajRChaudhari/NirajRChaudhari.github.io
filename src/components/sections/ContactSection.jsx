@@ -61,7 +61,7 @@ export const ContactSection = (props) => {
               />
               <button
                 type="submit"
-                className="bg-purple-600 text-white py-2 md:py-2 px-4 md:px-8 rounded-lg font-bold text-lg mt-6 md:mt-10 "
+                className="bg-purple-600 hover:bg-purple-800 text-white py-2 md:py-2 px-4 md:px-8 rounded-lg font-bold text-lg mt-6 md:mt-10 "
               >
                 Submit
               </button>

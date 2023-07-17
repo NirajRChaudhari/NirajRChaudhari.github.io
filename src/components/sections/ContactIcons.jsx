@@ -2,16 +2,29 @@ import callIcon from "../../assets/icons/call.svg";
 import emailIcon from "../../assets/icons/email.svg";
 import whatsAppIcon from "../../assets/icons/whatsapp.svg";
 import linkedInIcon from "../../assets/icons/linkedin.svg";
+import { motion } from "framer-motion";
 
 export const ContactIcons = (props) => {
   const { isMobile, injectClasses = "" } = props;
 
   let iconScaling = isMobile ? "50%" : "65%";
 
+  const vibrateVariants = {
+    initial: {
+      x: 0,
+    },
+    vibrate: {
+      x: [-2, 2, -2, 2, 0],
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
+
   return (
     <div className={`flex flex-row mt-4 w-fit ${injectClasses}`}>
       <a href="tel:+12135619960">
-        <img
+        <motion.img
           alt="Phone"
           src={callIcon}
           className="object-contain"
@@ -19,6 +32,8 @@ export const ContactIcons = (props) => {
             width: iconScaling,
             height: "auto",
           }}
+          whileHover="vibrate"
+          variants={vibrateVariants}
         />
       </a>
 
@@ -27,7 +42,7 @@ export const ContactIcons = (props) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img
+        <motion.img
           alt="Email"
           src={emailIcon}
           className="object-contain"
@@ -35,6 +50,8 @@ export const ContactIcons = (props) => {
             width: iconScaling,
             height: "auto",
           }}
+          whileHover="vibrate"
+          variants={vibrateVariants}
         />
       </a>
 
@@ -43,7 +60,7 @@ export const ContactIcons = (props) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img
+        <motion.img
           alt="LinkedIn"
           src={linkedInIcon}
           className="object-contain"
@@ -51,6 +68,8 @@ export const ContactIcons = (props) => {
             width: iconScaling,
             height: "auto",
           }}
+          whileHover="vibrate"
+          variants={vibrateVariants}
         />
       </a>
 
@@ -59,7 +78,7 @@ export const ContactIcons = (props) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img
+        <motion.img
           alt="WhatsApp"
           src={whatsAppIcon}
           className="object-contain"
@@ -67,6 +86,8 @@ export const ContactIcons = (props) => {
             width: iconScaling,
             height: "auto",
           }}
+          whileHover="vibrate"
+          variants={vibrateVariants}
         />
       </a>
     </div>

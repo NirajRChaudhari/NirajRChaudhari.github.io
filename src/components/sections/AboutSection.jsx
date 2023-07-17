@@ -44,7 +44,7 @@ export const AboutSection = (props) => {
             >
               <button
                 onClick={() => setSection(5)}
-                className={`bg-purple-500 text-white px-2 md:px-4 py-1 md:py-2
+                className={`bg-purple-500 hover:bg-purple-800 text-white px-2 md:px-4 py-1 md:py-2
       rounded-lg font-bold text-lg mt-6 md:mt-16`}
               >
                 Contact me
