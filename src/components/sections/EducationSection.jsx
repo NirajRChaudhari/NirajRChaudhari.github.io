@@ -70,11 +70,11 @@ const EducationCard = ({ education }) => {
       }
     >
       <div>
-        <h3 className="text-white text-[17px] md:text-[24px] font-bold">
+        <h3 className="text-white text-[19px] md:text-[24px] font-bold">
           {education.degree}
         </h3>
         <p
-          className="text-secondary text-[16px] font-semibold"
+          className="text-secondary text-[17px] font-semibold"
           style={{ margin: 0 }}
         >
           {education.universityName}
@@ -103,36 +103,38 @@ export const EducationSection = (props) => {
 
   return (
     <Section fullWidth={true} addClasses="education-section">
-      <motion.h2
-        variants={textVariant()}
-        className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 inline-block rounded text-white sectionHeading mb-5 md:mb-20 mt-6"
-      >
-        Education
-      </motion.h2>
+      <div className="flex flex-col">
+        <motion.h2
+          variants={textVariant()}
+          className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 inline-block rounded text-white sectionHeading mb-5 md:mb-20 mt-6 w-fit"
+        >
+          Education
+        </motion.h2>
 
-      <AnimatePresence>
-        {section == 3 && (
-          <motion.div
-            className="my-auto flex flex-col"
-            style={{
-              height: "60%",
-              justifyContent: "center",
-            }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 3 }}
-          >
-            <VerticalTimeline>
-              {educations.map((education, index) => (
-                <EducationCard
-                  key={`education-${index}`}
-                  education={education}
-                />
-              ))}
-            </VerticalTimeline>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {section == 3 && (
+            <motion.div
+              className="my-auto flex flex-col"
+              style={{
+                height: "60%",
+                justifyContent: "center",
+              }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 3 }}
+            >
+              <VerticalTimeline>
+                {educations.map((education, index) => (
+                  <EducationCard
+                    key={`education-${index}`}
+                    education={education}
+                  />
+                ))}
+              </VerticalTimeline>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </Section>
   );
 };

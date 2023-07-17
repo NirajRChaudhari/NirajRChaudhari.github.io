@@ -97,11 +97,11 @@ const ExperienceCard = ({ experience, isMobile }) => {
       }
     >
       <div onClick={handleItemClick}>
-        <h3 className="text-white text-[17px] md:text-[24px] font-bold">
+        <h3 className="text-white text-[19px] md:text-[24px] font-bold">
           {experience.title}
         </h3>
         <p
-          className="text-secondary text-[16px] font-semibold"
+          className="text-secondary text-[17px] font-semibold"
           style={{ margin: 0 }}
         >
           {experience.company_name}
@@ -139,33 +139,35 @@ export const ExperienceSection = (props) => {
       allowOverflow={true}
       addClasses="experience-section hideScrollBar"
     >
-      <motion.h2
-        variants={textVariant()}
-        className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 mt-2 inline-block rounded text-white sectionHeading mt-4"
-      >
-        Work Experience
-      </motion.h2>
+      <div className="flex flex-col">
+        <motion.h2
+          variants={textVariant()}
+          className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 ml-6 inline-block rounded text-white sectionHeading mb-5 md:mb-20 mt-6 w-fit"
+        >
+          Work Experience
+        </motion.h2>
 
-      <AnimatePresence>
-        {section == 2 && (
-          <motion.div
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 3 }}
-          >
-            <VerticalTimeline>
-              {experiences.map((experience, index) => (
-                <ExperienceCard
-                  key={`experience-${index}`}
-                  experience={experience}
-                  isMobile={isMobile}
-                />
-              ))}
-            </VerticalTimeline>
-            <div className="h-10"></div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {section == 2 && (
+            <motion.div
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 3 }}
+            >
+              <VerticalTimeline>
+                {experiences.map((experience, index) => (
+                  <ExperienceCard
+                    key={`experience-${index}`}
+                    experience={experience}
+                    isMobile={isMobile}
+                  />
+                ))}
+              </VerticalTimeline>
+              <div className="h-10"></div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </Section>
   );
 };
