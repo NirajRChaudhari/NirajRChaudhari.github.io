@@ -80,7 +80,7 @@ const EducationCard = ({ education }) => {
           {education.universityName}
         </p>
         <p
-          className="text-secondary text-[19px] font-semibold mt-2"
+          className="text-secondary text-[20px] font-semibold mt-2 text-orange-100"
           // style={{ margin: 0 }}
         >
           {education.gpa}
