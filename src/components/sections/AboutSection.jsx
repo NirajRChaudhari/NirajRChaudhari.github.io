@@ -1,10 +1,16 @@
 import { Section } from "./Section";
 import { motion, AnimatePresence } from "framer-motion";
 import { ProfileKeywords } from "./ProfileKeywords";
+
+import callIcon from "../../assets/icons/call.svg";
+import emailIcon from "../../assets/icons/email.svg";
+import whatsAppIcon from "../../assets/icons/whatsapp.svg";
+import linkedInIcon from "../../assets/icons/linkedin.svg";
 import "./CommonStyle.css";
 
 export const AboutSection = (props) => {
-  const { section, setSection } = props;
+  const { section, setSection, isMobile } = props;
+
   return (
     <Section mobileTop addClasses="about-section">
       {/* <h4 className="text-md font-bold bg-red-600 p-2 rounded text-white sectionHeading w-fit mx-auto">
@@ -25,10 +31,7 @@ export const AboutSection = (props) => {
           >
             <ProfileKeywords />
 
-            <motion.button
-              onClick={() => setSection(5)}
-              className={`bg-purple-500 text-white px-2 md:px-4 py-2 md:py-2
-      rounded-lg font-bold text-lg mt-16`}
+            <motion.div
               initial={{
                 opacity: 0,
                 y: 25,
@@ -42,8 +45,76 @@ export const AboutSection = (props) => {
                 delay: 2,
               }}
             >
-              Contact me
-            </motion.button>
+              <button
+                onClick={() => setSection(5)}
+                className={`bg-purple-500 text-white px-2 md:px-4 py-1 md:py-2
+      rounded-lg font-bold text-lg mt-6 md:mt-16`}
+              >
+                Contact me
+              </button>
+
+              <div className="flex flex-row mt-4">
+                <a href="tel:+12135619960">
+                  <img
+                    alt="Phone"
+                    src={callIcon}
+                    className="object-contain"
+                    style={{
+                      width: isMobile ? "50%" : "65%",
+                      height: "auto",
+                    }}
+                  />
+                </a>
+
+                <a
+                  href="mailto:nirajram@usc.edu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    alt="Email"
+                    src={emailIcon}
+                    className="object-contain"
+                    style={{
+                      width: isMobile ? "50%" : "65%",
+                      height: "auto",
+                    }}
+                  />
+                </a>
+
+                <a
+                  href="https://api.whatsapp.com/send?phone=2135619960"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    alt="WhatsApp"
+                    src={whatsAppIcon}
+                    className="object-contain"
+                    style={{
+                      width: isMobile ? "50%" : "65%",
+                      height: "auto",
+                    }}
+                  />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/niraj-chaudhari/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    alt="LinkedIn"
+                    src={linkedInIcon}
+                    className="object-contain"
+                    style={{
+                      width: isMobile ? "50%" : "65%",
+                      height: "auto",
+                    }}
+                  />
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
