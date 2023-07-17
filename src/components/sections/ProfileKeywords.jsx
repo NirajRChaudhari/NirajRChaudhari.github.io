@@ -36,7 +36,7 @@ export const ProfileKeywords = ({ scrollIndicatorHidden, ...rest }) => {
           }}
           className="text-2xl md:text-5xl font-bold text-white"
         >
-          <span className="bg-purple-500 px-2 sectionHeading py-1 italic rounded whitespace-normal">
+          <span className="bg-purple-500 px-2 sectionHeading py-2 italic rounded whitespace-normal">
             {profileKeywords[disciplineIndex]}
           </span>
         </motion.h2>

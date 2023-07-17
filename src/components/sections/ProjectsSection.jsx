@@ -29,7 +29,7 @@ export const ProjectsSection = (props) => {
             <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit mt-4">
               Projects
             </h2>
-            <div className="flex w-full gap-14 mb-2 pb-6 md:pb-1 justify-center">
+            <div className="flex w-full gap-14 mb-4 md:mb-2 pb-6 md:pb-1 justify-center">
               <button
                 className={`bg-purple-500 hover:bg-purple-700 text-white transition-colors py-1 px-3 rounded-lg font-bold text-lg mt-4 md:mt-16`}
                 onClick={previousProject}
