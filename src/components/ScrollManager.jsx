@@ -61,7 +61,7 @@ export const ScrollManager = (props) => {
         data.scroll.current < curSection / (data.pages - 1) - 0.015
       ) {
         const prevSection = curSection - 1;
-        console.log(`section ${prevSection}`);
+        // console.log(`section ${prevSection}`);
         onSectionChange(prevSection);
       }
     }
