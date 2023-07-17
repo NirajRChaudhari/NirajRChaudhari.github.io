@@ -52,7 +52,7 @@ export const ScrollManager = (props) => {
         data.scroll.current > curSection / (data.pages - 1) + 0.015
       ) {
         const nextSection = curSection + 1;
-        console.log(`section ${nextSection}`);
+        // console.log(`section ${nextSection}`);
         onSectionChange(nextSection);
       }
     } else if (data.scroll.current < lastScroll.current) {
@@ -61,7 +61,7 @@ export const ScrollManager = (props) => {
         data.scroll.current < curSection / (data.pages - 1) - 0.015
       ) {
         const prevSection = curSection - 1;
-        console.log(`section ${prevSection}`);
+        // console.log(`section ${prevSection}`);
         onSectionChange(prevSection);
       }
     }

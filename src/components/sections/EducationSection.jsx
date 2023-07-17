@@ -86,12 +86,12 @@ const EducationCard = ({ education }) => {
           {education.gpa}
         </p>
         <a
-          className="view-transcript-link text-slate-200 text-[13px] font-normal"
+          className="view-transcript-link text-slate-200 text-[14px] font-normal"
           href={education.transcriptLink}
           target="_blank"
           rel="noreferrer"
           style={{
-            cursor: "pointer", 
+            cursor: "pointer",
           }}
         >
           View Transcript
