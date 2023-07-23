@@ -10,6 +10,7 @@ import { LoadingScreen } from "./components/LoadingScreen";
 import { Menu } from "./components/Menu";
 import { ScrollManager } from "./components/ScrollManager";
 import { framerMotionConfig } from "./config";
+import ReactGA from "react-ga4";
 
 function App() {
   const [section, setSection] = useState(0);
@@ -21,6 +22,12 @@ function App() {
   useEffect(() => {
     setMenuOpened(false);
   }, [section]);
+
+  ReactGA.initialize("G-9Y0CE4KXZW");
+  ReactGA.send({
+    hitType: "pageview",
+    page: "/",
+  });
 
   return (
     <>
