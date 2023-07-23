@@ -23,6 +23,7 @@ function App() {
     setMenuOpened(false);
   }, [section]);
 
+  // Google Analytics Code
   ReactGA.initialize("G-9Y0CE4KXZW");
   ReactGA.send({
     hitType: "pageview",
