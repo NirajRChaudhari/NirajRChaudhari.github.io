@@ -14,6 +14,7 @@ import ReactGA from "react-ga4";
 
 function App() {
   const [section, setSection] = useState(0);
+  
   const [started, setStarted] = useState(false);
   const [menuOpened, setMenuOpened] = useState(false);
 
