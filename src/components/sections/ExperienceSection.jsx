@@ -18,9 +18,10 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Dec 2022 - Present",
     laptopPoints: [
-      "Contributed to collaborative research and development of a cutting-edge data analysis tool, achieving 20% higher accuracy in health data analysis.",
-      "Developed REST API-driven backend with Node.js and Express, enhancing data processing efficiency and reducing response time.",
-      "Achieved 35% increase in average website engagement by significantly enhancing the intuitive Angular-based frontend, improving accessibility and usability for end-users.",
+      "Designed and implemented REST API backend using Node.js, enhancing data processing efficiency and reducing response times.",
+      "Leveraged ML predictive analysis algorithm to enhance MongoDB data, resulting in 20% higher accuracy and deeper insights.",
+      "Achieved 35% increase in average user engagement by enhancing Angular based frontend and improving accessibility.",
+      "Deployed application on Google Cloud and implemented Prometheus and Grafana to monitor and visualize critical parameters.",
     ],
   },
   {
@@ -30,10 +31,10 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Nov 2020 - May 2022",
     laptopPoints: [
-      "Developed scalable RESTful APIs using Java's Spring framework for Finacle, a global financial solution used by 150 banks in 76 countries, serving over 800 million active accounts.",
-      "Transformed product’s architecture from monolith to microservices, boosting scalability by 40% and enhancing performance by 15%",
-      "Implemented geofenced strategies, caching, and optimizations to significantly reduce API response times, enhancing the user experience.",
-      "Contributed to DevOps activities, including deploying APIs in a Docker environment, managing Jenkins and Spinnaker pipelines.",
+      "Built scalable Java Spring Boot RESTful APIs for Finacle, a global fintech product used by almost 150 banks across 76 countries.",
+      "Transformed product’s architecture from monolith to microservices, boosting scalability by 40% and enhancing performance by 15%.",
+      "Contributed to DevOps activities, including deploying services in Docker environment, managing Jenkins and Spinnaker pipelines.",
+      "Ensured detailed design documentation on Confluence and optimized and automated testing processes to achieve faster release cycles.",
     ],
   },
   {
@@ -43,9 +44,10 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Oct 2019 - Jan 2020",
     laptopPoints: [
-      "Developed scalable RESTful APIs using Developed centralized Inventory Management System for 35-outlet ice-cream franchise reducing manual management time by 45%.",
-      "Led backend development with Node.js, integrated React for faster responses and collaborated with cross-functional teams in requirements gathering, system design, and programming the features.",
-      "Utilized Git and Jira for version control, work management, and issue tracking, enhancing team productivity.",
+      "Developed centralized Inventory Management and Analytics System for 35-outlet franchise, reducing manual processing time by 45%",
+      "Led development of user-friendly frontend in ReactJS and made significant contributions to Node.js backend development.",
+      "Designed MySQL database schema, enforced transactional integrity, and optimized performance for faster data retrieval.",
+      "Utilized Git for version control and Jira for work management and issue tracking, contributing to enhanced team productivity.",
     ],
   },
 ];
