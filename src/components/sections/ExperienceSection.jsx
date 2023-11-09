@@ -110,7 +110,7 @@ const ExperienceCard = ({ experience, isMobile }) => {
           {experience.laptopPoints.map((point, index) => (
             <li
               key={`experience-point-${index}`}
-              className={`text-white-100 text-[14px] md:pl-1 tracking-wider ${
+              className={`text-white-100 text-[14px] md:pl-1 mb-3 tracking-wider ${
                 !showAll && isMobile && index > 1 ? "hidden" : ""
               }`}
             >
