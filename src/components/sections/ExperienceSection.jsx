@@ -18,10 +18,10 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Dec 2022 - Present",
     laptopPoints: [
-      "Designed and implemented REST API backend using Node.js, enhancing data processing efficiency and reducing response times.",
-      "Leveraged ML predictive analysis algorithm to enhance MongoDB data, resulting in 20% higher accuracy and deeper insights.",
-      "Achieved 35% increase in average user engagement by enhancing Angular based frontend and improving accessibility.",
-      "Deployed application on Google Cloud and implemented Prometheus and Grafana to monitor and visualize critical parameters.",
+      "Developed and deployed backend REST APIs using Node.js, streamlining data processing and reducing response latency by 18%",
+      "Integrated a GBM machine learning model to significantly boost data analysis accuracy on a PostgreSQL healthcare database.",
+      "Enhanced Angular-based frontend, resulting in a 26% increase in average user engagement through improved accessibility.",
+      "Orchestrated deployment to Google Cloud and integrated Prometheus and Grafana to monitor and visualize critical parameters.",
     ],
   },
   {
@@ -32,9 +32,9 @@ const experiences = [
     date: "Nov 2020 - May 2022",
     laptopPoints: [
       "Built scalable Java Spring Boot RESTful APIs for Finacle, a global fintech product used by almost 150 banks across 76 countries.",
-      "Transformed product’s architecture from monolith to microservices, boosting scalability by 40% and enhancing performance by 15%.",
-      "Contributed to DevOps activities, including deploying services in Docker environment, managing Jenkins and Spinnaker pipelines.",
-      "Ensured detailed design documentation on Confluence and optimized and automated testing processes to achieve faster release cycles.",
+      "Transformed from a monolith to microservices architecture, scaling peak load capacity by 24% and cutting response times by 15%",
+      "Engaged in DevOps activities, such as deploying services in Docker environment, and overseeing Jenkins and Spinnaker pipelines.",
+      "Crafted detailed design documentation on Confluence and automated testing processes to achieve faster release cycles.",
     ],
   },
   {
@@ -44,10 +44,10 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Oct 2019 - Jan 2020",
     laptopPoints: [
-      "Developed centralized Inventory Management and Analytics System for 35-outlet franchise, reducing manual processing time by 45%",
-      "Led development of user-friendly frontend in ReactJS and made significant contributions to Node.js backend development.",
+      "Developed centralized Inventory Management and Analytics System for 50+ outlet franchise, reduced manual processing by 35%",
+      "Contributed to development of user-friendly ReactJS frontend and actively participated in building the Node.js backend for platform.",
       "Designed MySQL database schema, enforced transactional integrity, and optimized performance for faster data retrieval.",
-      "Utilized Git for version control and Jira for work management and issue tracking, contributing to enhanced team productivity.",
+      "Utilized Git for version control, CI automation, and Jira for work management and issue tracking, bolstering team productivity.",
     ],
   },
 ];
