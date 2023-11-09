@@ -15,17 +15,16 @@ export const projects = [
     description: "Event management application with a backend server.",
   },
   {
-    title: "Driving Simulator",
-    model: "laptop",
-    videoUrl: "textures/OpenCvDriving.mp4",
-    description: "Python Computer Vision based driving game controller.",
-  },
-
-  {
     title: "Video Forgery Detection",
     model: "laptop",
     videoUrl: "textures/ForgeryVideo.mp4",
     description: "AI based S4 algorithm video copy-move forgery detection.",
+  },
+  {
+    title: "Driving Simulator",
+    model: "laptop",
+    videoUrl: "textures/OpenCvDriving.mp4",
+    description: "Python Computer Vision based driving game controller.",
   },
 ];
 
