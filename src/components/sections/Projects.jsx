@@ -9,16 +9,16 @@ import { atom, useAtom } from "jotai";
 
 export const projects = [
   {
-    title: "Driving Simulator",
-    model: "laptop",
-    videoUrl: "textures/OpenCvDriving.mp4",
-    description: "Python Computer Vision based driving game controller.",
-  },
-  {
     title: "Eventify App",
     model: "mobile",
     videoUrl: "textures/EventMobileApp.mp4",
     description: "Event management application with a backend server.",
+  },
+  {
+    title: "Driving Simulator",
+    model: "laptop",
+    videoUrl: "textures/OpenCvDriving.mp4",
+    description: "Python Computer Vision based driving game controller.",
   },
   {
     title: "Signora (Air Signatures)",
