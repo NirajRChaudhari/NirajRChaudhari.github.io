@@ -21,6 +21,12 @@ export const projects = [
     description: "AI based S4 algorithm video copy-move forgery detection.",
   },
   {
+    title: "Signora (Air Signatures)",
+    model: "laptop",
+    videoUrl: "textures/SignoraSignature.mp4",
+    description: "Signora is a gesture based e-signature library.",
+  },
+  {
     title: "Driving Simulator",
     model: "laptop",
     videoUrl: "textures/OpenCvDriving.mp4",
