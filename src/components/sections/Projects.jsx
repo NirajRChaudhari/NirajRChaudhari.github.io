@@ -9,16 +9,16 @@ import { atom, useAtom } from "jotai";
 
 export const projects = [
   {
+    title: "Driving Simulator",
+    model: "laptop",
+    videoUrl: "textures/OpenCvDriving.mp4",
+    description: "Python Computer Vision based driving game controller.",
+  },
+  {
     title: "Eventify App",
     model: "mobile",
     videoUrl: "textures/EventMobileApp.mp4",
     description: "Event management application with a backend server.",
-  },
-  {
-    title: "Video Forgery Detection",
-    model: "laptop",
-    videoUrl: "textures/ForgeryVideo.mp4",
-    description: "AI based S4 algorithm video copy-move forgery detection.",
   },
   {
     title: "Signora (Air Signatures)",
@@ -27,10 +27,10 @@ export const projects = [
     description: "Signora is a gesture based e-signature library.",
   },
   {
-    title: "Driving Simulator",
+    title: "Video Forgery Detection",
     model: "laptop",
-    videoUrl: "textures/OpenCvDriving.mp4",
-    description: "Python Computer Vision based driving game controller.",
+    videoUrl: "textures/ForgeryVideo.mp4",
+    description: "AI based S4 algorithm video copy-move forgery detection.",
   },
 ];
 
