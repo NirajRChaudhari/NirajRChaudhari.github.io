@@ -9,10 +9,10 @@ import { atom, useAtom } from "jotai";
 
 export const projects = [
   {
-    title: "Eventify App",
-    model: "mobile",
-    videoUrl: "textures/EventMobileApp.mp4",
-    description: "Event management application with a backend server.",
+    title: "Video Forgery Detection",
+    model: "laptop",
+    videoUrl: "textures/ForgeryVideo.mp4",
+    description: "AI based S4 algorithm video copy-move forgery detection.",
   },
   {
     title: "Driving Simulator",
@@ -27,10 +27,10 @@ export const projects = [
     description: "Signora is a gesture based e-signature library.",
   },
   {
-    title: "Video Forgery Detection",
-    model: "laptop",
-    videoUrl: "textures/ForgeryVideo.mp4",
-    description: "AI based S4 algorithm video copy-move forgery detection.",
+    title: "Eventify App",
+    model: "mobile",
+    videoUrl: "textures/EventMobileApp.mp4",
+    description: "Event management application with a backend server.",
   },
 ];
 
