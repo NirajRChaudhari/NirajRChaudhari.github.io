@@ -18,10 +18,10 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Dec 2022 - Present",
     laptopPoints: [
-      "Developed and deployed backend REST APIs using Node.js, streamlining data processing and reducing response latency by 18%",
-      "Integrated a GBM machine learning model to significantly boost data analysis accuracy on a PostgreSQL healthcare database.",
-      "Enhanced Angular-based frontend, resulting in a 26% increase in average user engagement through improved accessibility.",
-      "Orchestrated deployment to Google Cloud and integrated Prometheus and Grafana to monitor and visualize critical parameters.",
+      "Led the development and deployment of backend REST APIs for a Health AI Lab, optimizing data processing workflows and reducing response times by 18%.",
+      "Implemented an advanced machine learning model to improve data analysis accuracy within a healthcare database environment.",
+      "Revamped a client-facing web application, achieving a 26% increase in user engagement by enhancing accessibility features.",
+      "Orchestrated cloud deployment and set up comprehensive monitoring and visualization tools for tracking critical performance metrics.",
     ],
   },
   {
@@ -33,8 +33,8 @@ const experiences = [
     laptopPoints: [
       "Built scalable Java Spring Boot RESTful APIs for Finacle, a global fintech product used by almost 150 banks across 76 countries.",
       "Transformed from a monolith to microservices architecture, scaling peak load capacity by 24% and cutting response times by 15%",
-      "Engaged in DevOps activities, such as deploying services in Docker environment, and overseeing Jenkins and Spinnaker pipelines.",
-      "Crafted detailed design documentation on Confluence and automated testing processes to achieve faster release cycles.",
+      "Engaged in DevOps initiatives, focusing on deploying services in a containerized environment and optimizing continuous integration and delivery pipelines.",
+      "Produced comprehensive design documentation and streamlined testing processes to accelerate product release cycles.",
     ],
   },
   {
@@ -44,9 +44,9 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Oct 2019 - Jan 2020",
     laptopPoints: [
-      "Developed centralized Inventory Management and Analytics System for 50+ outlet franchise, reduced manual processing by 35%",
-      "Contributed to development of user-friendly ReactJS frontend and actively participated in building the Node.js backend for platform.",
-      "Designed MySQL database schema, enforced transactional integrity, and optimized performance for faster data retrieval.",
+      "Developed a centralized Inventory Management and Analytics System for a franchise with over 50 outlets, significantly reducing inventory discrepancies and cutting manual inventory management time by 35%.",
+      "Played a key role in the development of a user-friendly frontend and backend for a major platform, enhancing overall functionality and user experience.",
+      "Designed and optimized a database schema to ensure transactional integrity and improve data retrieval speed.",
       "Utilized Git for version control, CI automation, and Jira for work management and issue tracking, bolstering team productivity.",
     ],
   },

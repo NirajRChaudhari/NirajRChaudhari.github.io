@@ -15,9 +15,9 @@ const educations = [
     icon: usc,
     iconBg: "#FFFFFF",
     date: "Aug 2022 - Apr 2024",
-    gpa: "GPA :  3.9 / 4",
+    gpa: "GPA :  3.95 / 4",
     transcriptLink:
-      "https://drive.google.com/file/d/1pSHVUxRVPKm9Gjsulu812SuoCJFFpeUU/view?usp=sharing",
+      "https://drive.google.com/file/d/11o3gMahTKPwHmUZthwbwQ3iC4g6hnWvP/view?usp=sharing",
   },
   {
     degree: "Bachelor's in Computer Engineering",
