@@ -31,7 +31,7 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Nov 2020 - May 2022",
     laptopPoints: [
-      "Built scalable Java Spring Boot RESTful APIs for Finacle, a global fintech product used by almost 150 banks across 76 countries.",
+      "Built scalable Java Spring Boot RESTful APIs for Finacle, a global financial solution used by 105 banks in 32 countries, serving over 60 million active accounts.",
       "Transformed from a monolith to microservices architecture, scaling peak load capacity by 24% and cutting response times by 15%",
       "Engaged in DevOps initiatives, focusing on deploying services in a containerized environment and optimizing continuous integration and delivery pipelines.",
       "Produced comprehensive design documentation and streamlined testing processes to accelerate product release cycles.",
