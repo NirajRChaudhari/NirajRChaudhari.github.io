@@ -31,7 +31,7 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Nov 2020 - May 2022",
     laptopPoints: [
-      "Built scalable Java Spring Boot RESTful APIs for Finacle, a global financial solution used by 105 banks in 32 countries, serving over 60 million active accounts.",
+      "Built scalable RESTful APIs for Finacle, a global financial solution used by 105 banks in 32 countries, serving over 60 million active accounts.",
       "Transformed from a monolith to microservices architecture, scaling peak load capacity by 24% and cutting response times by 15%",
       "Engaged in DevOps initiatives, focusing on deploying services in a containerized environment and optimizing continuous integration and delivery pipelines.",
       "Produced comprehensive design documentation and streamlined testing processes to accelerate product release cycles.",
@@ -44,7 +44,7 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Oct 2019 - Jan 2020",
     laptopPoints: [
-      "Developed a centralized Inventory Management and Analytics System for a franchise with over 50 outlets, significantly reducing inventory discrepancies and cutting manual inventory management time by 35%.",
+      "Contributed to the development of an E-commerce Platform for a large-scale franchise hosted on cloud, reducing manual processing by 35%.",
       "Played a key role in the development of a user-friendly frontend and backend for a major platform, enhancing overall functionality and user experience.",
       "Designed and optimized a database schema to ensure transactional integrity and improve data retrieval speed.",
       "Utilized Git for version control, CI automation, and Jira for work management and issue tracking, bolstering team productivity.",
