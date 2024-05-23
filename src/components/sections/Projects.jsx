@@ -20,12 +20,12 @@ export const projects = [
     videoUrl: "textures/OpenCvDriving.mp4",
     description: "Python Computer Vision based driving game controller.",
   },
-  {
-    title: "Signora (Air Signatures)",
-    model: "laptop",
-    videoUrl: "textures/SignoraSignature.mp4",
-    description: "Signora is a gesture based e-signature library.",
-  },
+  // {
+  //   title: "Signora (Air Signatures)",
+  //   model: "laptop",
+  //   videoUrl: "textures/SignoraSignature.mp4",
+  //   description: "Signora is a gesture based e-signature library.",
+  // },
   {
     title: "Eventify App",
     model: "mobile",
