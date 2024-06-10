@@ -21,9 +21,10 @@ export const ContactSection = (props) => {
             <form
               name="contact"
               method="POST"
+              action="https://formspree.io/f/xleqqgdl"
               className="mt-8 p-3 md:p-8 rounded-md bg-white bg-opacity-50 w-96 max-w-full h-fit"
             >
-              <input type="hidden" name="form-name" value="contact" />
+              {/* <input type="hidden" name="form-name" value="contact" /> */}
               <label
                 htmlFor="name"
                 className="font-medium text-white block mb-1"
@@ -49,7 +50,7 @@ export const ContactSection = (props) => {
                 className="block w-full rounded-md border-0 text-black shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-purple-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 p-2"
               />
               <label
-                htmlFor="email"
+                htmlFor="message"
                 className="font-medium text-white block mb-1 mt-4 md:mt-8"
               >
                 Message
