@@ -5,7 +5,6 @@ import "./CommonStyle.css";
 const profileKeywords = [
   "Team Player",
   "Software Engineer",
-  "Android Developer",
   "Full Stack Developer",
 ];
 
