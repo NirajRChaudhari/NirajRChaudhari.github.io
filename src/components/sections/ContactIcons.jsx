@@ -8,6 +8,8 @@ import { div } from "three/examples/jsm/nodes/Nodes.js";
 export const ContactIcons = (props) => {
   const { isMobile, injectClasses = "" } = props;
 
+  let mobileWidth = 768;
+
   let iconScaling = isMobile ? "50%" : "65%";
 
   const vibrateVariants = {
@@ -89,16 +91,31 @@ export const ContactIcons = (props) => {
             variants={vibrateVariants}
           />
         </a>
-        {window.innerWidth < 768 && (
-          <svg className="arrows">
-            <path className="a1" d="M0 0 L20 24 L40 0"></path>
-            <path className="a2" d="M0 14 L20 38 L40 14"></path>
-            <path className="a3" d="M0 28 L20 48 L40 28"></path>
+        {window.innerWidth < mobileWidth && (
+          <svg
+            className="arrows"
+            style={{
+              width: "25px",
+              height: "35px",
+              marginTop: "5px",
+            }}
+          >
+            <path className="a1" d="M0 0 L12.5 15 L25 0"></path>
+            <path className="a2" d="M0 10 L12.5 25 L25 10"></path>
+            <path className="a3" d="M0 20 L12.5 35 L25 20"></path>
           </svg>
         )}
       </div>
-      {window.innerWidth >= 768 && (
-        <svg className="arrows" style={{ margin: "auto", marginTop: "25px" }}>
+      {window.innerWidth >= mobileWidth && (
+        <svg
+          className="arrows"
+          style={{
+            width: "40px",
+            height: "48px",
+            margin: "auto",
+            marginTop: "25px",
+          }}
+        >
           <path className="a1" d="M0 0 L20 24 L40 0"></path>
           <path className="a2" d="M0 14 L20 38 L40 14"></path>
           <path className="a3" d="M0 28 L20 48 L40 28"></path>
