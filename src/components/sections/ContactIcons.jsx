@@ -113,7 +113,7 @@ export const ContactIcons = (props) => {
             width: "40px",
             height: "48px",
             margin: "auto",
-            marginTop: "25px",
+            marginTop: "40px",
           }}
         >
           <path className="a1" d="M0 0 L20 24 L40 0"></path>
