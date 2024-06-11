@@ -68,7 +68,11 @@ export const ContactSection = (props) => {
               </button>
             </form>
 
-            <ContactIcons injectClasses={`${isMobile ? "" : "mx-auto"}`} />
+            <ContactIcons
+              isMobile={isMobile}
+              injectClasses={`${isMobile ? "" : "mx-auto"}`}
+              isContactFormSection={true}
+            />
           </motion.div>
         </AnimatePresence>
       )}

@@ -50,7 +50,11 @@ export const AboutSection = (props) => {
                 Contact me
               </button>
 
-              <ContactIcons />
+              <ContactIcons
+                isMobile={isMobile}
+                setSection={setSection}
+                isContactFormSection={false}
+              />
             </motion.div>
           </motion.div>
         )}

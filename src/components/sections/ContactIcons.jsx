@@ -3,12 +3,14 @@ import emailIcon from "../../assets/icons/email.svg";
 import whatsAppIcon from "../../assets/icons/whatsapp.svg";
 import linkedInIcon from "../../assets/icons/linkedin.svg";
 import { motion } from "framer-motion";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 export const ContactIcons = (props) => {
-  const { isMobile, injectClasses = "" } = props;
-
-  let mobileWidth = 768;
+  const {
+    isMobile,
+    setSection,
+    injectClasses = "",
+    isContactFormSection = false,
+  } = props;
 
   let iconScaling = isMobile ? "50%" : "65%";
 
@@ -91,14 +93,16 @@ export const ContactIcons = (props) => {
             variants={vibrateVariants}
           />
         </a>
-        {window.innerWidth < mobileWidth && (
+        {!isContactFormSection && isMobile && (
           <svg
             className="arrows"
             style={{
               width: "25px",
               height: "35px",
               marginTop: "5px",
+              cursor: "pointer",
             }}
+            onClick={() => setSection(1)}
           >
             <path className="a1" d="M0 0 L12.5 15 L25 0"></path>
             <path className="a2" d="M0 10 L12.5 25 L25 10"></path>
@@ -106,7 +110,7 @@ export const ContactIcons = (props) => {
           </svg>
         )}
       </div>
-      {window.innerWidth >= mobileWidth && (
+      {!isContactFormSection && !isMobile && (
         <svg
           className="arrows"
           style={{
@@ -114,7 +118,9 @@ export const ContactIcons = (props) => {
             height: "48px",
             margin: "auto",
             marginTop: "40px",
+            cursor: "pointer",
           }}
+          onClick={() => setSection(1)}
         >
           <path className="a1" d="M0 0 L20 24 L40 0"></path>
           <path className="a2" d="M0 14 L20 38 L40 14"></path>
