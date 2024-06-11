@@ -18,10 +18,10 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Dec 2022 - Present",
     laptopPoints: [
-      "Led the development and deployment of backend REST APIs for a Health AI product at USC to optimize data processing, reducing response latency by 18%.",
-      "Integrated a Python GBM machine learning model to significantly boost data analysis accuracy on a PostgreSQL healthcare database.",
+      "Developed backend REST APIs for an eHealth platform, streamlining access to AI-driven insights and reducing response latency by 18%. Practiced Agile methodologies within the team and maintained detailed design documentation.",
+      "Integrated a Python GBM machine learning model, trained on a healthcare database, enhancing predictive analytics.",
       "Revamped a client-facing web application, achieving a 26% increase in user engagement by enhancing accessibility features.",
-      "Orchestrated cloud deployment and set up comprehensive monitoring and visualization tools for tracking critical performance metrics.",
+      "Orchestrated a CI/CD pipeline for cloud deployment, integrating Prometheus and Grafana to monitor and visualize critical performance metrics.",
     ],
   },
   {
@@ -44,7 +44,7 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Oct 2019 - Jan 2020",
     laptopPoints: [
-      "Contributed to the development of an E-commerce Platform for a large-scale franchise, hosted on cloud, reducing manual processing by 35%.",
+      "Contributed to the development of an E-commerce Platform for a large-scale franchise, hosted on cloud, boosting transaction volume by 35%.",
       "Played a key role in the development of a user-friendly frontend and backend for a major platform, enhancing overall functionality and user experience.",
       "Designed and optimized a database schema to ensure transactional integrity and improve data retrieval speed.",
       "Utilized Git for version control, CI automation, and Jira for work management and issue tracking, bolstering team productivity.",
