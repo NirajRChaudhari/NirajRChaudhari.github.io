@@ -1,5 +1,1 @@
-npx gltfjsx modified_scene.gltf -K -k
-
-Replace texture of material on models
-material=\{[^}]+\}
-material={textureMaterial}
+This project is deployed on the cloud, and a live demo can be accessed at: https://nirajrchaudhari.github.io/
