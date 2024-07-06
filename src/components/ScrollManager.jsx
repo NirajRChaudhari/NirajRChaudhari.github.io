@@ -15,8 +15,8 @@ export const ScrollManager = (props) => {
   data.fill.classList.add("absolute");
 
   useEffect(() => {
-    // Important below code to avoid auto jumps among section
-    //Does not apply to interaction between section 2 and 3
+    // Important below code to avoid auto jumps among sections
+    // Uncomment in future when jump effect to be applied to interaction between section 2 and 3
     // if (
     //   !(
     //     (prevSection.current === 2 && section === 3) ||

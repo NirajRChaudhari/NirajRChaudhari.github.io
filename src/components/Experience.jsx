@@ -67,14 +67,6 @@ export const Experience = (props) => {
         characterGroup.current.position
       );
     }
-    // console.log([position.x, position.y, position.z]);
-
-    // const quaternion = new THREE.Quaternion();
-    // characterContainerAboutRef.current.getWorldQuaternion(quaternion);
-    // const euler = new THREE.Euler();
-    // euler.setFromQuaternion(quaternion, "XYZ");
-
-    // console.log([euler.x, euler.y, euler.z]);
   });
 
   return (
@@ -82,10 +74,10 @@ export const Experience = (props) => {
       {/* AVATAR */}
       <motion.group
         ref={characterGroup}
-        rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
+        rotation={[-3.141592653589792, 1.2053981633974492, 3.141592653589793]}
         animate={"" + section}
         transition={{
-          duration: 0.6,
+          duration: 0.55,
         }}
         variants={{
           0: {
@@ -162,18 +154,13 @@ export const Experience = (props) => {
       {/* SKILLS */}
       {section == 1 && (
         <motion.group
+          // Commented out to prevent Avatar from repositioning in Skills section
           // position={[isMobile ? 1.5 : 5 * officeScaleRatio, 0, 0]}
           scale={(isMobile ? 17 : 15) * officeScaleRatio}
           animate={{
             x: section === 1 ? (isMobile ? 1.5 : 5 * officeScaleRatio) : 0,
             z: section === 1 ? 0 : -10,
             y: isMobile ? -(5 / 4) * viewport.height : -viewport.height,
-            // y:
-            //   section === 1
-            //     ? -viewport.height
-            //     : isMobile
-            //     ? -viewport.height
-            //     : -1.5 * officeScaleRatio,
           }}
           rotation={[-Math.PI / 8, -Math.PI / 16, Math.PI / 16]}
         >

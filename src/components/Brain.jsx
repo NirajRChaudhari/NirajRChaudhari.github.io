@@ -3,6 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { atom, useAtom } from "jotai";
 import * as THREE from "three";
 
+// This atom represents the current skill, initialized with a value of 2 an update to it will update the Brain 3D model
 export const CURRENT_SKILL_ATOM = atom(2);
 
 export function Brain(props) {
@@ -10,6 +11,7 @@ export function Brain(props) {
 
   const [currentSkill] = useAtom(CURRENT_SKILL_ATOM);
 
+  // Skill Index to Brain Part Color Mapping
   const indexPartMap = {
     0: "RedPart",
     1: "GreenPart",
