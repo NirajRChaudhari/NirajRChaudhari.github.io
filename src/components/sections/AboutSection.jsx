@@ -47,7 +47,7 @@ export const AboutSection = (props) => {
                 className={`bg-purple-500 hover:bg-purple-800 text-white px-2 md:px-4 py-1 md:py-2
       rounded-lg font-bold text-lg mt-6 md:mt-16`}
               >
-                Contact me
+                Let's Connect !
               </button>
 
               <ContactIcons
