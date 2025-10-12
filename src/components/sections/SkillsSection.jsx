@@ -192,7 +192,7 @@ export const SkillsSection = (props) => {
       className={`${isMobile ? "h-[60vh]" : ""}`}
     >
       <h2 className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit mt-4">
-        What's in my Mind ?
+        Technical Skills
       </h2>
 
       <AnimatePresence>
