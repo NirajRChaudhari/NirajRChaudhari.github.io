@@ -2,7 +2,7 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import paypal from "../../assets/logo/paypal.svg"
+import paypal from "../../assets/icons/paypal.svg"
 import infosys from "../../assets/logo/infosys.jpg";
 import proxel from "../../assets/logo/proxel.png";
 import "react-vertical-timeline-component/style.min.css";
