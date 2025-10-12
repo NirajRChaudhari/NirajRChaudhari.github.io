@@ -15,12 +15,6 @@ export const projects = [
     description: "AI based S4 algorithm video copy-move forgery detection.",
   },
   {
-    title: "Driving Simulator",
-    model: "laptop",
-    videoUrl: "textures/OpenCvDriving.mp4",
-    description: "Python Computer Vision based driving game controller.",
-  },
-  {
     title: "Signora (Air Signatures)",
     model: "laptop",
     videoUrl: "textures/SignoraSignature.mp4",
@@ -33,6 +27,13 @@ export const projects = [
     description: "Event management application with a backend server.",
   },
 ];
+
+ // {
+ //    title: "Driving Simulator",
+ //    model: "laptop",
+ //    videoUrl: "textures/OpenCvDriving.mp4",
+ //    description: "Python Computer Vision based driving game controller.",
+ //  },
 
 const Laptop = (props) => {
   const { project } = props;
