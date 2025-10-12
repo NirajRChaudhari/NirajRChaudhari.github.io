@@ -12,16 +12,16 @@ import { useState } from "react";
 
 const experiences = [
   {
-    title: "Software Developer",
-    company_name: "Health Data AI Lab, University of Southern California",
-    icon: usc,
+    title: "Software Engineer",
+    company_name: "PayPal",
+    icon: paypal,
     iconBg: "#FFFFFF",
-    date: "Dec 2022 - Present",
+    date: "Sep 2024 - Present",
     laptopPoints: [
-      "Developed backend REST APIs for an eHealth platform, streamlining access to AI-driven insights and reducing response latency by 18%. Practiced Agile methodologies within the team and maintained detailed design documentation.",
-      "Integrated a Python GBM machine learning model, trained on a healthcare database, enhancing predictive analytics.",
-      "Revamped a client-facing web application, achieving a 26% increase in user engagement by enhancing accessibility features.",
-      "Orchestrated a CI/CD pipeline for cloud deployment, integrating Prometheus and Grafana to monitor and visualize critical performance metrics.",
+      "Developed REST API–based StandIn platform for PayPal FinTech transactions to prevent processing interruptions during outages and ensure seamless transaction handling.",
+      "Practiced Agile methodologies within the team and maintained comprehensive design documentation.",
+      "Integrated a Vertex AI–trained machine learning model for intelligent recovery categorization and transaction processing, enhancing predictive analytics.",
+      "Orchestrated a CI/CD pipeline for cloud deployment, integrating Prometheus and Grafana to monitor and visualize key performance metrics.",
     ],
   },
   {
