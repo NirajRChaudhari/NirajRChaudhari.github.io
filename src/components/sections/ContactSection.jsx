@@ -8,7 +8,7 @@ export const ContactSection = (props) => {
   return (
     <Section addClasses="contact-section">
       <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading mt-4">
-        Contact me
+        Happy to Connect !
       </h2>
       {section == 5 && (
         <AnimatePresence>
