@@ -2,7 +2,7 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import paypal from "../../assets/icons/paypal.svg"
+import paypal from "../../assets/icons/paypal.svg";
 import infosys from "../../assets/logo/infosys.jpg";
 import proxel from "../../assets/logo/proxel.png";
 import "react-vertical-timeline-component/style.min.css";
@@ -18,10 +18,11 @@ const experiences = [
     iconBg: "#FFFFFF",
     date: "Sep 2024 - Present",
     laptopPoints: [
-      "Developed REST API–based StandIn platform for PayPal FinTech transactions to prevent processing interruptions during outages and ensure seamless transaction handling.",
-      "Practiced Agile methodologies within the team and maintained comprehensive design documentation.",
-      "Integrated a Vertex AI–trained machine learning model for intelligent recovery categorization and transaction processing, enhancing predictive analytics.",
-      "Orchestrated a CI/CD pipeline for cloud deployment, integrating Prometheus and Grafana to monitor and visualize key performance metrics.",
+      "All Stars Employee Award (2025) recipient for delivering high-impact Java-based financial projects, including Pay in 4 (US) and UK MTL.",
+      "Improved PayPal availability via redundancy for Processor unavailable transactions, protecting $200K+ in volume within 5 months.",
+      "Built 40+ tools LLM-powered MCP to automate health monitoring, triage failures, and reduce daily availability analysis by 1-2 hours.",
+      "Modernized a critical internal platform, migrating from a Vue.js stack to a React platform to improve maintainability and extensibility.",
+      "Ideated and productionized StandIn recovery ML model in Python on Vertex AI, improving payment resilience during service failures.",
     ],
   },
   {
