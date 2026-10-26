@@ -36,11 +36,13 @@ export const Experience = (props) => {
   const [characterAnimation, setCharacterAnimation] = useState("Typing");
   useEffect(() => {
     setCharacterAnimation("Falling");
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setCharacterAnimation(
         section === 0 ? "Typing" : section === 4 ? "Pointing" : "Standing"
       );
     }, 600);
+
+    return () => clearTimeout(timer);
   }, [section]);
 
   const characterGroup = useRef();

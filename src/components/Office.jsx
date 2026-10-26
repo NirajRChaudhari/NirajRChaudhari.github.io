@@ -2,41 +2,65 @@ import { useGLTF, useTexture, useVideoTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 
 import * as THREE from "three";
 
 export function Office(props) {
   const { section } = props;
-  const { nodes, materials } = useGLTF("models/scene.gltf");
+  const { nodes } = useGLTF("models/scene.gltf");
   const texture = useTexture("textures/baked_final.jpg");
   const textureVSCode = useVideoTexture("textures/ForgeryVideo.mp4");
-
-  texture.flipY = false;
-  texture.colorSpace = THREE.SRGBColorSpace;
-
-  const textureMaterial = new THREE.MeshStandardMaterial({
-    map: texture,
-    transparent: true,
-    opacity: 1,
-  });
-
-  const textureGlassMaterial = new THREE.MeshStandardMaterial({
-    map: texture,
-    transparent: true,
-    opacity: 0.42,
-  });
 
   const textureOpacity = useMotionValue(0);
   const glassTextureOpacity = useMotionValue(0);
 
+  // The materials are expensive GPU resources. Create them once per texture
+  // instead of on every render, and release them when Office unmounts.
+  const textureMaterial = useMemo(() => {
+    texture.flipY = false;
+    texture.colorSpace = THREE.SRGBColorSpace;
+
+    return new THREE.MeshStandardMaterial({
+      map: texture,
+      transparent: true,
+      opacity: 1,
+    });
+  }, [texture]);
+
+  const textureGlassMaterial = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        map: texture,
+        transparent: true,
+        opacity: 0.42,
+      }),
+    [texture]
+  );
+
   useEffect(() => {
-    animate(textureOpacity, section === 0 ? 1 : 0, {
+    return () => {
+      textureMaterial.dispose();
+      textureGlassMaterial.dispose();
+    };
+  }, [textureMaterial, textureGlassMaterial]);
+
+  useEffect(() => {
+    const textureAnimation = animate(textureOpacity, section === 0 ? 1 : 0, {
       duration: 0.8,
     });
-    animate(glassTextureOpacity, section === 0 ? 0.42 : 0, {
-      duration: 0.8,
-    });
+    const glassAnimation = animate(
+      glassTextureOpacity,
+      section === 0 ? 0.42 : 0,
+      {
+        duration: 0.8,
+      }
+    );
+
+    return () => {
+      textureAnimation.stop();
+      glassAnimation.stop();
+    };
   }, [section]);
 
   useFrame(() => {

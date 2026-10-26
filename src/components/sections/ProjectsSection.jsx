@@ -2,10 +2,9 @@ import { Section } from "./Section";
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
 
 export const ProjectsSection = (props) => {
-  const { section, isMobile } = props;
+  const { section } = props;
   const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
 
   const nextProject = () => {

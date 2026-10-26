@@ -1,9 +1,8 @@
 import * as THREE from "three";
-import { Image, Text, useVideoTexture, useGLTF } from "@react-three/drei";
+import { Text, useVideoTexture, useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { animate, useMotionValue } from "framer-motion";
 import { Vector3 } from "three";
-import React, { useRef, useEffect } from "react";
+import React, { useMemo, useRef } from "react";
 import { motion } from "framer-motion-3d";
 import { atom, useAtom } from "jotai";
 
@@ -124,22 +123,24 @@ const LaptopWithText = ({ project }) => {
   const laptopRef = useRef();
   const textRef1 = useRef();
   const textRef2 = useRef();
+  const worldPosition = useMemo(() => new Vector3(), []);
 
   useFrame(() => {
     const laptop = laptopRef.current;
     const text1 = textRef1.current;
     const text2 = textRef2.current;
 
-    // Calculate the relative position
-    const relativePosition = new Vector3();
-    relativePosition.subVectors(
-      laptop.getWorldPosition(new Vector3()),
-      text1.getWorldPosition(new Vector3())
-    );
+    if (!laptop || !text1 || !text2 || !text1.parent) return;
 
-    // Update the position of the Text components based on the relative position
-    text1.position.copy(relativePosition).add(new Vector3(0, -7, 0));
-    text2.position.copy(relativePosition).add(new Vector3(0, -8, 0));
+    // Convert the laptop's world position into the text parent's local space.
+    // Never subtract the text's own position: that creates a per-frame feedback
+    // loop that makes the captions jump between two positions.
+    laptop.getWorldPosition(worldPosition);
+    text1.parent.updateWorldMatrix(true, false);
+    text1.parent.worldToLocal(worldPosition);
+
+    text1.position.set(worldPosition.x, worldPosition.y - 7, worldPosition.z);
+    text2.position.set(worldPosition.x, worldPosition.y - 8, worldPosition.z);
   });
 
   return (
@@ -297,22 +298,24 @@ const MobileWithText = ({ project }) => {
   const mobileRef = useRef();
   const textRef1 = useRef();
   const textRef2 = useRef();
+  const worldPosition = useMemo(() => new Vector3(), []);
 
   useFrame(() => {
     const mobile = mobileRef.current;
     const text1 = textRef1.current;
     const text2 = textRef2.current;
 
-    // Calculate the relative position
-    const relativePosition = new Vector3();
-    relativePosition.subVectors(
-      mobile.getWorldPosition(new Vector3()),
-      text1.getWorldPosition(new Vector3())
-    );
+    if (!mobile || !text1 || !text2 || !text1.parent) return;
 
-    // Update the position of the Text components based on the relative position
-    text1.position.copy(relativePosition).add(new Vector3(0, -7, 0));
-    text2.position.copy(relativePosition).add(new Vector3(0, -7.5, 0));
+    // Convert the mobile's world position into the text parent's local space.
+    // Never subtract the text's own position: that creates a per-frame feedback
+    // loop that makes the captions jump between two positions.
+    mobile.getWorldPosition(worldPosition);
+    text1.parent.updateWorldMatrix(true, false);
+    text1.parent.worldToLocal(worldPosition);
+
+    text1.position.set(worldPosition.x, worldPosition.y - 7, worldPosition.z);
+    text2.position.set(worldPosition.x, worldPosition.y - 7.5, worldPosition.z);
   });
 
   return (
@@ -342,58 +345,6 @@ const MobileWithText = ({ project }) => {
           {project.description}
         </Text>
       </group>
-    </group>
-  );
-};
-
-const Project = (props) => {
-  const { project, highlighted } = props;
-
-  const background = useRef();
-  const bgOpacity = useMotionValue(0.4);
-
-  useEffect(() => {
-    animate(bgOpacity, highlighted ? 0.7 : 0.4);
-  }, [highlighted]);
-
-  useFrame(() => {
-    background.current.material.opacity = bgOpacity.get();
-  });
-
-  return (
-    <group {...props}>
-      <mesh
-        position-z={-0.001}
-        onClick={() => window.open(project.url, "_blank")}
-        ref={background}
-      >
-        <planeGeometry args={[2.2, 2]} />
-        <meshBasicMaterial color="black" transparent opacity={0.4} />
-      </mesh>
-      <Image
-        scale={[2, 1.2, 1]}
-        url={project.image}
-        toneMapped={false}
-        position-y={0.3}
-      />
-      <Text
-        maxWidth={2}
-        anchorX={"left"}
-        anchorY={"top"}
-        fontSize={0.2}
-        position={[-1, -0.4, 0]}
-      >
-        {project.title.toUpperCase()}
-      </Text>
-      <Text
-        maxWidth={2}
-        anchorX="left"
-        anchorY="top"
-        fontSize={0.1}
-        position={[-1, -0.6, 0]}
-      >
-        {project.description}
-      </Text>
     </group>
   );
 };

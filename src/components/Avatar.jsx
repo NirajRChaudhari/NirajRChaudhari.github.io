@@ -5,8 +5,9 @@ import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export function Avatar(props) {
-  // Extracting props and setting up control options
-  const { animation, wireframe } = props;
+  // Animation/wireframe are React controls, not Object3D props: keep them off
+  // the group and forward only the remaining props (position, scale, ...).
+  const { animation, wireframe, ...groupProps } = props;
   const { headFollow, cursorFollow } = useControls({
     headFollow: false,
     cursorFollow: false,
@@ -67,7 +68,7 @@ export function Avatar(props) {
   }, [wireframe, materials]);
 
   return (
-    <group {...props} ref={group} dispose={null}>
+    <group {...groupProps} ref={group} dispose={null}>
       <group name="Scene">
         <group name="Armature">
           <primitive object={nodes.Hips} />

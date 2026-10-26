@@ -30,7 +30,7 @@ export const ContactIcons = (props) => {
     <div className="w-fit">
       <div className={`flex flex-row mt-4 w-fit ${injectClasses}`}>
         <a
-          href="https://api.whatsapp.com/send?phone=2135619960"
+          href="https://api.whatsapp.com/send?phone=12135619960"
           target="_blank"
           rel="noopener noreferrer"
         >

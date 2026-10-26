@@ -58,8 +58,8 @@ per-frame. Two synced mechanisms animate on it:
 | 1     | Skills     | `SkillsSection.jsx` (carousel)            | `Brain.jsx` (highlighted by `CURRENT_SKILL_ATOM`) |
 | 2     | Experience | `ExperienceSection.jsx` (timeline)        | avatar `Standing` animation                      |
 | 3     | Education  | `EducationSection.jsx` (timeline)         | avatar `Standing` animation                      |
-| 4     | Projects   | `ProjectsSection.jsx`                      | `Projects.jsx` (laptop/mobile + video texture)   |
-| 5     | Contact    | `ContactSection.jsx` (Formspree form)     | avatar `Pointing` animation                      |
+| 4     | Projects   | `ProjectsSection.jsx`                      | `Projects.jsx` (laptop/mobile + video texture) + avatar `Pointing` animation |
+| 5     | Contact    | `ContactSection.jsx` (Formspree form)     | avatar `Standing` animation                      |
 
 ### State bridging 3D ↔ HTML (Jotai)
 
@@ -77,7 +77,7 @@ you add cross-layer interactions.
 - Asset URLs are **relative without a leading slash** (`"models/avatar.glb"`, `"textures/ForgeryVideo.mp4"`) because assets live in `public/`. Follow this exactly or GitHub Pages deployment breaks.
 - Preload 3D assets at the bottom of the module (`useGLTF.preload`, `useFBX.preload`, `useTexture.preload`).
 - Styling is Tailwind utility classes inline. Purple is the theme accent (`purple-500/600/700`; timeline cards use `#663399`). The `sectionHeading` class (in `CommonStyle.css`) adds the purple glow to headings.
-- Global CSS: `src/index.css` (Tailwind directives), `src/assets/fonts.css` (Gotham woff2, applied to body), `src/components/sections/CommonStyle.css`.
+- Global CSS: `src/index.css` (uses `@import "tailwindcss"`; Tailwind 4 has no config file), `src/assets/fonts.css` (Gotham woff2, applied to body), `src/components/sections/CommonStyle.css`.
 - Mobile detection is `window.innerWidth < 768`, computed once in `App.jsx` and passed as `isMobile`; components branch with `isMobile ? ... : ...` ternaries. 3D scaling uses `officeScaleRatio` derived from viewport width in `Experience.jsx`.
 - Default animation spring config comes from `framerMotionConfig` in `src/config.js` (applied via `MotionConfig`).
 - Google Analytics (`react-ga4`, property `G-9Y0CE4KXZW`) is initialized in `App.jsx`.

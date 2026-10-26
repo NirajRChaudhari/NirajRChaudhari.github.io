@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
 import { atom, useAtom } from "jotai";
 import * as THREE from "three";
@@ -30,40 +30,44 @@ export function Brain(props) {
     WhitePart: "WhiteMaterial",
   };
 
-  const whiteWireframeMaterial = useRef(
-    new THREE.MeshBasicMaterial({
-      color: 0x6c6c6c,
-      wireframe: true,
-    })
+  const whiteWireframeMaterial = useMemo(
+    () =>
+      new THREE.MeshBasicMaterial({
+        color: 0x6c6c6c,
+        wireframe: true,
+      }),
+    []
   );
 
   useEffect(() => {
-    // console.log(currentSkill + "  " + indexPartMap[currentSkill]);
+    return () => whiteWireframeMaterial.dispose();
+  }, [whiteWireframeMaterial]);
 
-    // Update the material of each mesh
-    Object.values(nodes).forEach((node) => {
-      if (node.name === indexPartMap[currentSkill]) {
-        node.material = materials[partMaterialMap[node.name]];
-      } else {
-        node.material = whiteWireframeMaterial.current;
-      }
-      node.material.needsUpdate = true; // Ensure material updates are reflected immediately
-    });
-  }, [currentSkill, materials, nodes]);
+  const activePart = indexPartMap[currentSkill];
 
   return (
     <group {...props} dispose={null}>
       <group name="Scene">
         <group name="Sketchfab_model">
           <group name="brainpartsobjcleanermaterialmergergles">
-            {Object.keys(nodes).map((nodeName) => (
-              <mesh
-                key={nodeName}
-                name={nodeName}
-                geometry={nodes[nodeName].geometry}
-                material={nodes[nodeName].material}
-              />
-            ))}
+            {Object.keys(nodes).map((nodeName) => {
+              const node = nodes[nodeName];
+              if (!node.geometry) return null;
+
+              const material =
+                nodeName === activePart
+                  ? materials[partMaterialMap[nodeName]]
+                  : whiteWireframeMaterial;
+
+              return (
+                <mesh
+                  key={nodeName}
+                  name={nodeName}
+                  geometry={node.geometry}
+                  material={material}
+                />
+              );
+            })}
           </group>
         </group>
       </group>

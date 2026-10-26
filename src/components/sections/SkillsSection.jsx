@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Section } from "./Section";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAtom } from "jotai";
@@ -177,20 +177,14 @@ const skills = [
 
 export const SkillsSection = (props) => {
   const { section, isMobile = false } = props;
-  const numSkillsInRow = isMobile ? 3 : 3;
-  const [currentSkillAtom, setCurrentSkillAtom] = useAtom(CURRENT_SKILL_ATOM);
-  const [currentSkill, setCurrentSkill] = useState(skills[0]);
+  const [, setCurrentSkillAtom] = useAtom(CURRENT_SKILL_ATOM);
 
   const handleCarouselChange = (index) => {
     setCurrentSkillAtom(index);
-    setCurrentSkill(skills[index]);
   };
 
   return (
-    <Section
-      addClasses="skills-section"
-      className={`${isMobile ? "h-[60vh]" : ""}`}
-    >
+    <Section addClasses="skills-section">
       <h2 className="text-2xl md:text-5xl font-bold bg-purple-700 p-2 rounded text-white sectionHeading w-fit mt-4">
         Technical Skills
       </h2>
@@ -244,7 +238,7 @@ export const SkillsSection = (props) => {
                         key={index + "" + technology.title}
                         className="skill"
                         style={{
-                          flexBasis: `calc(100% / ${numSkillsInRow})`,
+                          flexBasis: "calc(100% / 3)",
                           flexGrow: "1",
                           flexShrink: "1",
                           width: "0",

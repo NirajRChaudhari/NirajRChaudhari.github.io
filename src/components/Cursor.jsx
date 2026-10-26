@@ -2,62 +2,57 @@ import { useEffect, useRef, useState } from "react";
 
 const CURSOR_SPEED = 0.08;
 
-let mouseX = -10;
-let mouseY = -10;
-let outlineX = 0;
-let outlineY = 0;
-
 export const Cursor = () => {
   const cursorOutline = useRef();
+  const pointer = useRef({ x: -10, y: -10 });
+  const outline = useRef({ x: 0, y: 0 });
+  const frame = useRef();
   const [hoverButton, setHoverButton] = useState(false);
 
-  const animate = () => {
-    let distX = mouseX - outlineX;
-    let distY = mouseY - outlineY;
-
-    outlineX = outlineX + distX * CURSOR_SPEED;
-    outlineY = outlineY + distY * CURSOR_SPEED;
-
-    cursorOutline.current.style.left = `${outlineX}px`;
-    cursorOutline.current.style.top = `${outlineY}px`;
-    requestAnimationFrame(animate);
-  };
-
   useEffect(() => {
-    const mouseEventsListener = document.addEventListener(
-      "mousemove",
-      function (event) {
-        mouseX = event.pageX;
-        mouseY = event.pageY;
+    const onMouseMove = (event) => {
+      pointer.current.x = event.clientX;
+      pointer.current.y = event.clientY;
+    };
+
+    const animate = () => {
+      const outlineElement = cursorOutline.current;
+
+      if (outlineElement) {
+        outline.current.x +=
+          (pointer.current.x - outline.current.x) * CURSOR_SPEED;
+        outline.current.y +=
+          (pointer.current.y - outline.current.y) * CURSOR_SPEED;
+
+        outlineElement.style.left = `${outline.current.x}px`;
+        outlineElement.style.top = `${outline.current.y}px`;
       }
-    );
-    const animateEvent = requestAnimationFrame(animate);
+
+      frame.current = requestAnimationFrame(animate);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    frame.current = requestAnimationFrame(animate);
+
     return () => {
-      document.removeEventListener("mousemove", mouseEventsListener);
-      cancelAnimationFrame(animateEvent);
+      document.removeEventListener("mousemove", onMouseMove);
+      cancelAnimationFrame(frame.current);
     };
   }, []);
 
   useEffect(() => {
-    const mouseEventListener = document.addEventListener(
-      "mouseover",
-      function (e) {
-        if (
-          e.target.tagName.toLowerCase() === "button" ||
-          // check parent is button
-          e.target.parentElement.tagName.toLowerCase() === "button" ||
-          // check is input or textarea
-          e.target.tagName.toLowerCase() === "input" ||
-          e.target.tagName.toLowerCase() === "textarea"
-        ) {
-          setHoverButton(true);
-        } else {
-          setHoverButton(false);
-        }
-      }
-    );
+    const onMouseOver = (event) => {
+      const target = event.target;
+
+      if (!(target instanceof Element)) return;
+
+      setHoverButton(Boolean(target.closest("button, input, textarea")));
+    };
+
+    document.addEventListener("mouseover", onMouseOver);
+
     return () => {
-      document.removeEventListener("mouseover", mouseEventListener);
+      document.removeEventListener("mouseover", onMouseOver);
     };
   }, []);
 

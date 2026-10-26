@@ -10,8 +10,10 @@ export const ContactSection = (props) => {
       <h2 className="text-3xl md:text-5xl font-bold bg-purple-700 p-2 inline-block rounded text-white sectionHeading mt-4">
         Happy to Connect !
       </h2>
-      {section == 5 && (
-        <AnimatePresence>
+      {/* AnimatePresence must stay mounted outside the section gate, otherwise
+          the exit animation can never run. */}
+      <AnimatePresence>
+        {section == 5 && (
           <motion.div
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -74,8 +76,8 @@ export const ContactSection = (props) => {
               isContactFormSection={true}
             />
           </motion.div>
-        </AnimatePresence>
-      )}
+        )}
+      </AnimatePresence>
     </Section>
   );
 };

@@ -12,6 +12,10 @@ import { ScrollManager } from "./components/ScrollManager";
 import { framerMotionConfig } from "./config";
 import ReactGA from "react-ga4";
 
+// Module-level guard so React StrictMode's double effect invocation (dev only)
+// doesn't initialize GA4 twice and send duplicate pageviews.
+let analyticsInitialized = false;
+
 function App() {
   const [section, setSection] = useState(0);
   
@@ -25,6 +29,9 @@ function App() {
   }, [section]);
 
   useEffect(() => {
+    if (analyticsInitialized) return;
+    analyticsInitialized = true;
+
     // Google Analytics Code (must be in an effect: App re-renders on every
     // section/menu/loaded change and would otherwise fire pageview spam)
     ReactGA.initialize("G-9Y0CE4KXZW");
@@ -76,7 +83,10 @@ function App() {
           </ScrollControls>
         </Canvas>
         <Menu
-          onSectionChange={setSection}
+          onSectionChange={(nextSection) => {
+            setSection(nextSection);
+            setMenuOpened(false);
+          }}
           menuOpened={menuOpened}
           setMenuOpened={setMenuOpened}
         />

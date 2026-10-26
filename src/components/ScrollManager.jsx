@@ -11,8 +11,15 @@ export const ScrollManager = (props) => {
   const isAnimating = useRef(false);
   const prevSection = useRef(section);
 
-  data.fill.classList.add("top-0");
-  data.fill.classList.add("absolute");
+  // The fill element is created by drei during ScrollControls' own effect, so
+  // mutate its classes after mount instead of during render.
+  useEffect(() => {
+    data.fill.classList.add("top-0", "absolute");
+
+    return () => {
+      data.fill.classList.remove("top-0", "absolute");
+    };
+  }, [data.fill]);
 
   useEffect(() => {
     // Important below code to avoid auto jumps among sections
@@ -23,7 +30,7 @@ export const ScrollManager = (props) => {
     //     (prevSection.current === 3 && section === 2)
     //   )
     // ) {
-    gsap.to(data.el, {
+    const tween = gsap.to(data.el, {
       duration: 1,
       scrollTop: section * data.el.clientHeight,
       onStart: () => {
@@ -35,7 +42,12 @@ export const ScrollManager = (props) => {
     });
     // }
     prevSection.current = section;
-  }, [section]);
+
+    return () => {
+      tween.kill();
+      isAnimating.current = false;
+    };
+  }, [section, data.el]);
 
   useFrame(() => {
     if (isAnimating.current) {

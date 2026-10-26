@@ -13,7 +13,7 @@ export const Menu = (props) => {
   return (
     <>
       <button
-        onClick={() => setMenuOpened(!menuOpened)}
+        onClick={() => setMenuOpened((opened) => !opened)}
         className={`${buttonStyles} top-4 right-4 md:top-12 md:right-12`}
       >
         <div
