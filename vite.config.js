@@ -31,9 +31,32 @@ export default defineConfig({
         // React's internals are order-sensitive (cyclic side effects between
         // react / react-dom / scheduler). Splitting them into their own chunk
         // without this produces "TypeError: g is not a function" at runtime
-        // (verified 2026-10-26 in headless Chrome); strictExecutionOrder keeps
-        // module bodies executing in source order, at a small size cost.
+        // (verified 2026-10-26 in headless Chrome). Note: strictExecutionOrder
+        // splits the entry into an extra content chunk named after
+        // basename(cwd) ("NirajRChaudhari.github.io" locally, "repo" on
+        // Netlify), which DESTROYS cross-host hash equality — so
+        // chunkFileNames normalizes any chunk whose name equals the cwd
+        // basename to a stable name.
         strictExecutionOrder: true,
+        chunkFileNames: (chunkInfo) => {
+          const cwdBase = process.cwd().split(/[\\/]/).pop();
+          const name = chunkInfo.name === cwdBase ? "app-root" : chunkInfo.name;
+          return `assets/${name}-[hash].js`;
+        },
+        // Same cwd-basename normalization for the split entry's CSS asset
+        // (its name is also basename-derived, and Vite passes it mangled:
+        // "<basename>.io" locally, "repo..." on Netlify). Everything else is
+        // emitted with Vite's default asset naming.
+        assetFileNames: (assetInfo) => {
+          const cwdBase = process.cwd().split(/[\\/]/).pop();
+          const n = assetInfo.name || "";
+          const stem = n.replace(/\.[^.]+$/, "");
+          const isRootAsset =
+            stem === cwdBase || cwdBase.startsWith(stem) || stem.startsWith(cwdBase);
+          return isRootAsset
+            ? "assets/app-root-[hash].css"
+            : "assets/[name]-[hash][extname]";
+        },
         codeSplitting: {
           groups: [
             {
@@ -90,12 +113,6 @@ export default defineConfig({
               name: "hls",
               test: /node_modules[\\/]hls\.js[\\/]/,
               priority: 27,
-              includeDependenciesRecursively: false,
-            },
-            {
-              name: "motion",
-              test: /node_modules[\\/](framer-motion|framer-motion-3d)[\\/]/,
-              priority: 20,
               includeDependenciesRecursively: false,
             },
             {
