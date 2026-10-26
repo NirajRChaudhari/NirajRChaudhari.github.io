@@ -24,7 +24,7 @@ export const ContactSection = (props) => {
               name="contact"
               method="POST"
               action="https://formspree.io/f/xleqqgdl"
-              className="mt-8 p-3 md:p-8 rounded-md bg-white/50 w-96 max-w-full h-fit"
+              className="mt-8 p-3 md:p-8 rounded-md bg-[rgba(255,255,255,0.5)] w-96 max-w-full h-fit"
             >
               {/* <input type="hidden" name="form-name" value="contact" /> */}
               <label
