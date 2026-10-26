@@ -116,7 +116,7 @@ you add cross-layer interactions.
   1. GitHub Pages (`https://nirajrchaudhari.github.io/`) — push to `main` triggers `.github/workflows/deploy.yml`: Node 22, `npm install`, `npm run build`, then deploy `dist/`.
   2. Netlify (`https://niraj-profile.netlify.app/`) — site is linked to this repo in Netlify and auto-deploys on push to `main`. Build settings are version-controlled in `netlify.toml` (`npm run build`, publish `dist/`, `NODE_VERSION=22` matching the Pages workflow); the TOML takes precedence over the Netlify UI.
 - There is no per-host release step; a single `git push origin main` updates both. If only one host updates, the other likely failed its build — check the GitHub Actions run and the Netlify dashboard.
-- Verify sync: each host's `index.html` references a hashed bundle (`/assets/index-<hash>.js`, `index-<hash>.css`). The hashes must match across both hosts. (Verified 2026-10-25: both served `index-b6be668f.js` / `index-0943ccdd.css`.)
+- Verify sync: each host's `index.html` references hashed bundles. The hashes must match across both hosts. (Verified 2026-10-26 post code-split: both serve entry facade `index-B33Xm48r.js`, `app-root-BYZxToB1.js` / `app-root-B39p0JqD.css`, `react-kernel-CFvXCQyX.js`, `rolldown-runtime-BWaJ3C7D.js`, and the async group chunks with identical hashes.)
 - `vite.config.js` intentionally has no `base` — the site is served at the domain root (repo named `NirajRChaudhari.github.io`; Netlify serves root too). Combined with relative asset URLs (no leading slash), the same artifacts work on both hosts and any subpath.
 - Do not commit `dist/` or `node_modules/` (gitignored). `blender/` stays local.
 - `.specstory/` is local tooling metadata (project info file is gitignored); ignore it.
