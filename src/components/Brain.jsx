@@ -3,8 +3,9 @@ import { useGLTF } from "@react-three/drei";
 import { atom, useAtom } from "jotai";
 import * as THREE from "three";
 
-// This atom represents the current skill, initialized with a value of 2 an update to it will update the Brain 3D model
-export const CURRENT_SKILL_ATOM = atom(2);
+// This atom represents the current skill. It starts at the same slide the
+// carousel starts on (index 0 = "Languages"); updates recolor the Brain.
+export const CURRENT_SKILL_ATOM = atom(0);
 
 export function Brain(props) {
   const { nodes, materials } = useGLTF("models/brain.glb");

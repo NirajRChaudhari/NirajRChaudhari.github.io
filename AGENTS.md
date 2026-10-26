@@ -17,6 +17,7 @@ Tech stack:
 - `framer-motion` and `framer-motion-3d` for 2D/3D animation
 - GSAP for scroll jumps, Jotai for state shared between 3D and HTML, Leva (hidden) for debug controls
 - Tailwind CSS 4 (via `@tailwindcss/postcss`; `src/index.css` uses `@import "tailwindcss"`, no config file) + a few colocated CSS files; assets served from `public/`
+- Code splitting: `App.jsx` is a thin async shell (157 kB first-parse, 52 kB gzip — was 2,373 kB / 719 kB single bundle before the Oct 2026 split) that `React.lazy`-loads the entire 3D stack in `src/components/Scene.jsx`; `vite.config.js` names the library chunks. See the code-splitting gotchas below — it is easy to silently undo the split.
 
 ## Commands
 
@@ -33,15 +34,23 @@ npm run preview    # preview built output
 
 ## Mental model: how the app is structured
 
-Entry chain: `index.html` → `src/main.jsx` → `src/App.jsx`.
+Entry chain: `index.html` → `src/main.jsx` → `src/App.jsx` → `React.lazy(() => import("./components/Scene.jsx"))`.
 
-`App.jsx` composes:
+The boot shell in `App.jsx` (no 3D-stack imports — see gotchas) holds the shared state (`section` 0–5, `started`, `menuOpened`) and renders:
+
+- `<Suspense fallback={<LoadingSplash />}>` around the lazy `Scene`. `LoadingSplash` is a static placeholder visually identical to `LoadingScreen` at 0% progress (slate-200 bg, gray "Niraj Chaudhari" title), shown while the 3D chunk + library chunks download.
+- `Menu` (hamburger nav) and `Cursor` (custom cursor) — the only synchronous components.
+- The Google Analytics effect (`react-ga4`, StrictMode-guarded).
+
+`src/components/Scene.jsx` is the lazy chunk holding the whole 3D world:
 
 - `LoadingScreen` — fullscreen load progress ("Niraj Chaudhari" text fill); `started` becomes `true` after `useProgress()` reaches 100%, and the rest of the app only renders once started.
 - `<Canvas>` with `<Stars>` and `<ScrollControls pages={6} damping={0.1}>`, containing two layers:
   - `<Scroll>` (3D): `ScrollManager` + `Experience` (avatar, office, brain, project models).
   - `<Scroll html>` (DOM): `Interface`, which renders the six sections in order.
-- `Menu` (hamburger nav) and `Cursor` (custom cursor) outside the canvas, plus `<Leva hidden />`.
+- `MotionConfig` + `<Leva hidden />`.
+
+`Scene` mounts BEFORE `started` flips on purpose: the asset loads that flip `started` (drei `useProgress` → 100% → `setStarted`) only begin once the Scene chunk's static imports have run (module-level `useGLTF.preload` etc.). Gating the lazy `Scene` itself on `started` would deadlock the boot.
 
 ### The `section` state drives everything
 
@@ -85,7 +94,12 @@ you add cross-layer interactions.
 
 ## Gotchas and invariants
 
-- **Changing sections requires coordinated edits.** The count 6 is hardcoded in several places: `ScrollControls pages={6}` (`App.jsx`), the `Menu.jsx` buttons, the `Interface.jsx` order, `curSection > 5` clamp in `Experience.jsx`, and `curSection < 5` in `ScrollManager.jsx`. Adding/reordering/removing a section means updating all of these plus every `section == N` gate.
+- **Changing sections requires coordinated edits.** The count 6 is hardcoded in several places: `ScrollControls pages={6}` (`Scene.jsx`), the `Menu.jsx` buttons, the `Interface.jsx` order, `curSection > 5` clamp in `Experience.jsx`, and `curSection < 5` in `ScrollManager.jsx`. Adding/reordering/removing a section means updating all of these plus every `section == N` gate.
+- **Code splitting (Oct 2026) — do not re-tangle it.** `App.jsx`, `Menu.jsx`, `Cursor.jsx`, and the `LoadingSplash` placeholder are the only synchronous code and must never import `three`, `@react-three/*`, `framer-motion(-3d)`, or `leva`; a single static import pulls the whole 3D chunk back into the entry's `modulepreload` set and silently undoes the 157 kB (52 kB gzip) first-parse win. Named chunks: `Scene` (app 3D), `three`, `r3f`, `drei`, `motion`, `three-stdlib`, `libs-ui` (gsap/jotai/leva/carousel/timeline), `hls`, `react-kernel` (react/react-dom/scheduler — the only eager one).
+- **`vite.config.js` chunk groups have two non-obvious traps** (both bit during the first split, both empirically verified):
+  - Groups must set `includeDependenciesRecursively: false` (exception: `react-kernel`). Default group behavior sweeps the matched package's whole dependency closure into the chunk — fiber's recursion captured `react-dom`, which made the entry chunk statically import the r3f chunk and the boot preload set grew to ~2.2 MB again.
+  - `output.strictExecutionOrder: true` is required. Without it, the react↔react-dom↔scheduler cycle spanning the entry / `react-kernel` / `Scene` chunks executes module bodies out of order and hard-crashes at boot with `TypeError: g is not a function` (react-kernel chunk, headless Chrome verified).
+  - Verify any chunking change by checking the `<link rel="modulepreload">` set in `dist/index.html`: it must stay `rolldown-runtime-*`, the entry facade, and `react-kernel-*` only. Smoke-test via `npm run preview -- --port 4173` + headless Chrome (`--virtual-time-budget` screenshots cap around 12–26s; larger budgets hang on the WebGL rAF loop).
 - **Commented-out code is intentional — do not delete or enable it without being asked.** Examples: the avatar `position` comment in `Experience.jsx` (prevents avatar repositioning in Skills), the GSAP jump block in `ScrollManager.jsx` (2↔3 section transition), the "Driving Simulator" project entry in `Projects.jsx`, and the analytics `<script>` blocks in `index.html`.
 - `src/components/Background.jsx` is dead code (never imported in `App.jsx`). Leave it alone unless explicitly asked.
 - `public/models/old_scene.gltf` and `public/models/university.glb` were removed as unused (Oct 2026 code-splitting/dead-weight pass). `public/textures/OpenCvDriving.mp4` IS intentional dead weight — it backs the commented-out "Driving Simulator" project entry in Projects.jsx; don't delete the video unless that disabled project is being intentionally retired.

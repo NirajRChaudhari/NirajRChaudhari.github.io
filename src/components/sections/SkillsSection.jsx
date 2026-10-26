@@ -177,7 +177,7 @@ const skills = [
 
 export const SkillsSection = (props) => {
   const { section, isMobile = false } = props;
-  const [, setCurrentSkillAtom] = useAtom(CURRENT_SKILL_ATOM);
+  const [currentSkillAtom, setCurrentSkillAtom] = useAtom(CURRENT_SKILL_ATOM);
 
   const handleCarouselChange = (index) => {
     setCurrentSkillAtom(index);
@@ -206,6 +206,7 @@ export const SkillsSection = (props) => {
             transition={{ duration: 5 }}
           >
             <Carousel
+              selectedItem={currentSkillAtom}
               showThumbs={false}
               showStatus={false}
               stopOnHover={false}
