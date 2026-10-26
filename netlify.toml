@@ -1,0 +1,11 @@
+# Netlify keeps this site in sync with the GitHub Pages deployment.
+# Both hosts build from the same push to `main` and serve identical artifacts.
+# Build settings here take precedence over the Netlify UI, so config stays
+# version-controlled and cannot silently drift from the repo.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Match the Node version used by .github/workflows/deploy.yml (GitHub Pages CI)
+  NODE_VERSION = "18"

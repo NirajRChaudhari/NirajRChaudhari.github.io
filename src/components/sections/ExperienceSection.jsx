@@ -12,7 +12,7 @@ import { useState } from "react";
 
 const experiences = [
   {
-    title: "Software Engineer",
+    title: "Senior Software Engineer",
     company_name: "PayPal",
     icon: paypal,
     iconBg: "#FFFFFF",

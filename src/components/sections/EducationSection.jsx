@@ -4,11 +4,18 @@ import {
 } from "react-vertical-timeline-component";
 import usc from "../../assets/logo/usc.png";
 import puneuni from "../../assets/logo/puneuni.png";
+import westcliff from "../../assets/logo/westcliff.png";
 import "react-vertical-timeline-component/style.min.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
 
 const educations = [
+  {
+    degree: "Doctor of Business Administration",
+    universityName: "Westcliff University",
+    icon: westcliff,
+    iconBg: "#FFFFFF",
+  },
   {
     degree: "Master's in Computer Science",
     universityName: "University of Southern California",
@@ -63,7 +70,7 @@ const EducationCard = ({ education }) => {
         <div className="flex justify-center items-center w-full h-full">
           <img
             src={education.icon}
-            alt={education.company_name}
+            alt={education.universityName}
             className="w-[80%] h-[80%] object-contain"
           />
         </div>
@@ -76,20 +83,24 @@ const EducationCard = ({ education }) => {
         <p className="text-[18px] font-semibold" style={{ margin: 0 }}>
           {education.universityName}
         </p>
-        <p className="text-[18px] md:text-[20px] font-semibold mt-2">
-          {education.gpa}
-        </p>
-        <a
-          className="view-transcript-link text-slate-200 text-[14px] font-normal"
-          href={education.transcriptLink}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            cursor: "pointer",
-          }}
-        >
-          View Transcript
-        </a>
+        {education.gpa && (
+          <p className="text-[18px] md:text-[20px] font-semibold mt-2">
+            {education.gpa}
+          </p>
+        )}
+        {education.transcriptLink && (
+          <a
+            className="view-transcript-link text-slate-200 text-[14px] font-normal"
+            href={education.transcriptLink}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              cursor: "pointer",
+            }}
+          >
+            View Transcript
+          </a>
+        )}
       </div>
     </VerticalTimelineElement>
   );
@@ -99,7 +110,11 @@ export const EducationSection = (props) => {
   const { section } = props;
 
   return (
-    <Section fullWidth={true} addClasses="education-section">
+    <Section
+      fullWidth={true}
+      allowOverflow={true}
+      addClasses="education-section hideScrollBar"
+    >
       <div className="flex flex-col">
         <motion.h2
           variants={textVariant()}
