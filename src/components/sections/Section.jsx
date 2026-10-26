@@ -22,12 +22,13 @@ export const Section = (props) => {
             : "h-[" + sectionHeight * 100 + "vh] justify-start"
         }
 
-        ${fullWidth ? "p-2" : "p-8"}
+        ${
+          fullWidth ? "p-2" : "p-8"
+        }
 
         ${mobileTop ? "justify-start md:justify-center" : justifyContent}
 
-        w-screen max-w-screen-2xl mx-auto
-        flex-grow-0
+        w-screen grow-0 max-w-[1536px] mx-auto
 
         ${
           allowOverflow

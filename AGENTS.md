@@ -12,23 +12,24 @@ fullscreen React Three Fiber `<Canvas>`.
 
 Tech stack:
 
-- React 18 + Vite 4 (`package.json` name is the starter template, `r3f-vite-starter`)
+- React 18 + Vite 8 (rolldown-based build; `package.json` name is the starter template, `r3f-vite-starter`)
 - React Three Fiber (`@react-three/fiber`) + `@react-three/drei` + Three.js
 - `framer-motion` and `framer-motion-3d` for 2D/3D animation
 - GSAP for scroll jumps, Jotai for state shared between 3D and HTML, Leva (hidden) for debug controls
-- Tailwind CSS + a few colocated CSS files; assets served from `public/`
+- Tailwind CSS 4 (via `@tailwindcss/postcss`; `src/index.css` uses `@import "tailwindcss"`, no config file) + a few colocated CSS files; assets served from `public/`
 
 ## Commands
 
 ```bash
-npm install        # deps are already vendored in node_modules locally
+npm install        # node_modules was cleanly reinstalled during the Oct 2026 stack modernization
 npm run dev        # Vite dev server
 npm run build      # production build -> dist/
 npm run preview    # preview built output
 ```
 
 - There are **no tests, no linter, and no formatter configured**. Verify changes with `npm run build` and by running `npm run dev` in a browser.
-- Node 18 is used in CI (`.github/workflows/deploy.yml`); newer local Node also works.
+- Node 22 is used in CI (`.github/workflows/deploy.yml`) and Netlify; local Node 22+ works (Vite 8 requires Node ^20.19 or >=22.12).
+- **`framer-motion@11.18.2` and `framer-motion-3d@11.11.11` are exact-pinned as a pair.** `framer-motion-3d` >=11.11.12 hard-pins `@react-three/fiber@8.2.2` exactly in peerDependencies (and no fiber-9 release exists), which breaks `npm install` against fiber 8.18. Bump these two together only; moving to R3F v9/React 19 requires replacing `framer-motion-3d` wholesale (no compatible release exists as of Oct 2026).
 
 ## Mental model: how the app is structured
 
@@ -96,8 +97,8 @@ you add cross-layer interactions.
 ## Deployment
 
 - **Two hosts, intentionally kept in sync — both build the same push to `main`, never update one without the other:**
-  1. GitHub Pages (`https://nirajrchaudhari.github.io/`) — push to `main` triggers `.github/workflows/deploy.yml`: Node 18, `npm install`, `npm run build`, then deploy `dist/`.
-  2. Netlify (`https://niraj-profile.netlify.app/`) — site is linked to this repo in Netlify and auto-deploys on push to `main`. Build settings are version-controlled in `netlify.toml` (`npm run build`, publish `dist/`, `NODE_VERSION=18` matching the Pages workflow); the TOML takes precedence over the Netlify UI.
+  1. GitHub Pages (`https://nirajrchaudhari.github.io/`) — push to `main` triggers `.github/workflows/deploy.yml`: Node 22, `npm install`, `npm run build`, then deploy `dist/`.
+  2. Netlify (`https://niraj-profile.netlify.app/`) — site is linked to this repo in Netlify and auto-deploys on push to `main`. Build settings are version-controlled in `netlify.toml` (`npm run build`, publish `dist/`, `NODE_VERSION=22` matching the Pages workflow); the TOML takes precedence over the Netlify UI.
 - There is no per-host release step; a single `git push origin main` updates both. If only one host updates, the other likely failed its build — check the GitHub Actions run and the Netlify dashboard.
 - Verify sync: each host's `index.html` references a hashed bundle (`/assets/index-<hash>.js`, `index-<hash>.css`). The hashes must match across both hosts. (Verified 2026-10-25: both served `index-b6be668f.js` / `index-0943ccdd.css`.)
 - `vite.config.js` intentionally has no `base` — the site is served at the domain root (repo named `NirajRChaudhari.github.io`; Netlify serves root too). Combined with relative asset URLs (no leading slash), the same artifacts work on both hosts and any subpath.

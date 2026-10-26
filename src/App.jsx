@@ -24,12 +24,15 @@ function App() {
     setMenuOpened(false);
   }, [section]);
 
-  // Google Analytics Code
-  ReactGA.initialize("G-9Y0CE4KXZW");
-  ReactGA.send({
-    hitType: "pageview",
-    page: "/",
-  });
+  useEffect(() => {
+    // Google Analytics Code (must be in an effect: App re-renders on every
+    // section/menu/loaded change and would otherwise fire pageview spam)
+    ReactGA.initialize("G-9Y0CE4KXZW");
+    ReactGA.send({
+      hitType: "pageview",
+      page: "/",
+    });
+  }, []);
 
   return (
     <>
